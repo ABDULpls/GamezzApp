@@ -11,6 +11,10 @@ export default defineComponent({
         return {
             hello: 'Hello world',
         }
+    },
+
+    mounted() {
+        this.$toastify.warning('Warning message');
     }
 });
 </script>
