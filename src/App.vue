@@ -1,5 +1,7 @@
 <template>
-    <h1>{{ hello }}</h1>
+    <component :is="layout">
+        <router-view />
+    </component>
 </template>
 
 <script lang="ts">
@@ -9,7 +11,13 @@ export default defineComponent({
     name: 'App',
     data() {
         return {
-            hello: 'Hello world',
+
+        }
+    },
+
+    computed: {
+        layout() {
+            return this.$route.meta.layout || 'main-layout';
         }
     },
 
