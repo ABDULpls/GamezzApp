@@ -8,5 +8,5 @@ import './assets/css/toasts.css';
 const app = createApp(App);
 
 app
-.use(toastify)
+.use(toastify, {timeout: 0})
 .mount('#app');
