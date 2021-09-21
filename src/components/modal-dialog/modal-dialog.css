@@ -1,0 +1,47 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  background: rgba(16, 21, 43, .7);
+
+}
+
+.modal {
+  width: 80%;
+  background: #161f39;
+  margin: 150px auto;
+  padding: 15px;
+  border: 1px solid #313f62;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modal__close {
+  margin-left: auto;
+}
+
+.modal__title {
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  line-height: 300%;
+  font-size: 15px;
+}
+
+.modal__button {
+  width: 207px;
+  height: 50px;
+  margin: 30px auto;
+  background: linear-gradient(247.82deg, #FCD43F 11.29%, #FF9B3A 90.42%);
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  color: #10152B;
+  font-weight: 500;
+}
