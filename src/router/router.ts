@@ -1,12 +1,18 @@
-import {createRouter, createWebHashHistory, RouteRecordRaw} from 'vue-router';
-import authRoutes from '../components/auth/auth-routes';
+import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
+import authRoutes from './auth-routes';
 
-const routes = [
+declare module 'vue-router' {
+    interface RouteMeta {
+        layout?: string
+    }
+}
+
+const routes: RouteRecordRaw[] = [
     ...authRoutes,
-] as RouteRecordRaw[];
+];
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     routes,
 });
 

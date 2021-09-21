@@ -1,5 +1,6 @@
 <template>
-    <h1>Main Layout</h1>
+    <h1>Main layout</h1>
+    <router-view />
 </template>
 
 <script lang="ts">

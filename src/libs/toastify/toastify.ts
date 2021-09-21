@@ -1,16 +1,4 @@
-interface IOptions {
-    closeButton?: boolean,
-    timeout?: number,
-    showDuration?: number,
-    hideDuration?: number,
-    type?: string,
-}
-
-interface IAnimateOptions {
-    timing: (timeFraction: number) => number,
-    draw: (progress: number) => void,
-    duration: number,
-}
+import {IOptions, IAnimateOptions, IToastify} from './types';
 
 const defaultOptions = {
     closeButton: true,
@@ -19,7 +7,7 @@ const defaultOptions = {
     hideDuration: 300,
 } as IOptions;
 
-export default function (options: IOptions = {}): object {
+export default function (options: IOptions = {}): IToastify {
     let $root: HTMLElement | null = null;
     const globalOptions: IOptions = Object.assign({}, defaultOptions, options);
 

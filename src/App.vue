@@ -1,7 +1,5 @@
 <template>
-    <component :is="layout">
-        <router-view />
-    </component>
+    <router-view />
 </template>
 
 <script lang="ts">
@@ -10,22 +8,12 @@ import {defineComponent} from 'vue';
 export default defineComponent({
     name: 'App',
     data() {
-        return {
-
-        }
+        return {}
     },
-
-    computed: {
-        layout() {
-            return this.$route.meta.layout || 'main-layout';
-        }
-    },
-
+    computed: {},
     mounted() {
-        this.$toastify.warning('Warning message');
+        //this.$toastify.warning('Warning message');
     }
 });
 </script>
-
-<style>
-</style>
+<style></style>
