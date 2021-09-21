@@ -1,7 +1,9 @@
 <template>
-    <register-form />
-    <span class="line-heading">Уже зарегистрированы?</span>
-    <button class="btn signup__btn" @click="toLoginPage">Войти</button>
+    <div>
+        <register-form />
+        <span class="line-heading">Уже зарегистрированы?</span>
+        <button class="btn signup__btn" @click="toLoginPage">Войти</button>
+    </div>
 </template>
 
 <script>

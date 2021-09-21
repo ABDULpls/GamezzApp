@@ -136,7 +136,11 @@
 
 body {
   background: #10152b;
+}
+
+.wrapper {
   padding: 0 7%;
+  overflow: hidden;
 }
 
 .noborder {

@@ -1,0 +1,44 @@
+.checkmail {
+  text-align: center;
+}
+
+.checkmail__icon {
+  margin: 95px auto 30px;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: url(../../../assets/images/sprite.svg#checkmail_check) no-repeat 26px 30px, linear-gradient(135deg, #33E4AF 10.7%, #01899B 79.18%);
+}
+
+.checkmail__heading {
+  text-transform: uppercase;
+  font-family: 'Rubik-flex';
+  font-variation-settings: "wght"400;
+}
+
+.checkmail__text {
+  width: 320px;
+  margin: 30px auto;
+  font-size: 15px;
+  line-height: 150%;
+  font-family: 'Rubik-flex';
+  font-variation-settings: "wght"300;
+}
+
+.checkmail__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  margin: 50px auto 0;
+  padding: 0 46px;
+}
+
+.checkmail__btn::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 22px;
+  margin-right: 8px;
+  background: url(../../../assets/images/sprite.svg#enter-icon-fill) no-repeat;
+}

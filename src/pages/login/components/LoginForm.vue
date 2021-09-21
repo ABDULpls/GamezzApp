@@ -8,7 +8,7 @@
         </label>
         <input type="checkbox" class="checkbox__input" id="remember" v-model="form.remember">
         <label for="remember" class="enter__savepassword">Запомнить меня</label>
-        <span class="enter__savepassword" @click="emitForgotPassword">Забыл пароль</span>
+        <span class="enter__savepassword" @click="toForgotPasswordPage">Забыл пароль</span>
         <button type="submit" class="btn btn-orange">Войти</button>
         <span class="enter__rules">Пожалуйста прочитайте&nbsp;<a href="#" class="enter__rules-white">Правила нашего
           сервиса</a></span>
@@ -62,8 +62,8 @@ export default defineComponent({
             console.log('login');
         },
 
-        emitForgotPassword() {
-            this.$emit('forgot-password');
+        toForgotPasswordPage() {
+            this.$router.push({name: 'ForgotPasswordPage'});
         }
     },
 });

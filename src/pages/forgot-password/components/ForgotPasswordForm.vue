@@ -6,7 +6,7 @@
         <label class="input__label input-email">
             <input type="email" class="input" placeholder="Введите e-mail">
         </label>
-        <button type="submit" class="btn btn-orange password__btn">Получить ссылку для восстановления</button>
+        <button type="submit" class="btn btn-orange password__btn" @click="toCheckEmailPage">Получить ссылку для восстановления</button>
     </div>
 </template>
 
@@ -19,9 +19,9 @@ export default defineComponent({
         return {}
     },
     methods: {
-        toLoginPage() {
-            this.$router.push({name: 'LoginPage'});
-        }
+        toCheckEmailPage() {
+            this.$router.push({name: 'CheckEmailPage'});
+        },
     }
 });
 </script>
