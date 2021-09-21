@@ -3,7 +3,7 @@
         <div class="checkmail__icon"></div>
         <h3 class="checkmail__heading">Проверьте почту</h3>
         <p class="checkmail__text">На адрес user@gmail.com отправлена ссылка для обновления пароля</p>
-        <p class="text-gradient" @click="$router.go(-1)">Письмо не пришло?</p>
+        <p class="text-gradient" @click="toForgotPasswordPage">Письмо не пришло?</p>
         <button class="checkmail__btn btn btn-border" @click="toLoginPage">Войти</button>
     </div>
 </template>
@@ -13,14 +13,11 @@ import {defineComponent} from 'vue';
 
 export default defineComponent({
     name: 'CheckEmailPage',
+    inject: ['toLoginPage', 'toForgotPasswordPage'],
     data() {
         return {}
     },
-    methods: {
-        toLoginPage() {
-            this.$router.push({name: 'LoginPage'});
-        }
-    }
+    methods: {}
 });
 </script>
 <style src="./css/checkmail.css"></style>

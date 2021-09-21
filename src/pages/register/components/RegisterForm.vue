@@ -65,7 +65,7 @@ interface RegisterData {
 }
 
 export default defineComponent({
-    name: 'registerForm',
+    name: 'RegisterForm',
     data() {
         return {
             readonly: true,

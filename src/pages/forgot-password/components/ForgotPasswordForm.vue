@@ -15,14 +15,11 @@ import {defineComponent} from 'vue';
 
 export default defineComponent({
     name: 'ForgotPasswordForm',
+    inject: ['toCheckEmailPage'],
     data() {
         return {}
     },
-    methods: {
-        toCheckEmailPage() {
-            this.$router.push({name: 'CheckEmailPage'});
-        },
-    }
+    methods: {}
 });
 </script>
 

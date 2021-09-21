@@ -14,6 +14,14 @@ const DEFAULT_TRANSITION = 'fade';
 
 export default defineComponent({
     name: 'AuthLayout',
+    provide() {
+        return {
+            toLoginPage: this.toLoginPage,
+            toRegisterPage: this.toRegisterPage,
+            toCheckEmailPage: this.toCheckEmailPage,
+            toForgotPasswordPage: this.toForgotPasswordPage,
+        }
+    },
     data() {
         return {
 
@@ -24,6 +32,23 @@ export default defineComponent({
             return this.$route.meta.transition || DEFAULT_TRANSITION;
         }
     },
+    methods: {
+        toPage(name: string) {
+            this.$router.push({name: name});
+        },
+        toLoginPage() {
+            this.toPage('LoginPage');
+        },
+        toRegisterPage() {
+            this.toPage('RegisterPage');
+        },
+        toCheckEmailPage() {
+            this.toPage('CheckEmailPage');
+        },
+        toForgotPasswordPage() {
+            this.toPage('ForgotPasswordPage');
+        }
+    }
 });
 </script>
 

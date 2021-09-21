@@ -22,19 +22,14 @@ import LoginForm from './components/LoginForm.vue';
 
 export default defineComponent({
     name: 'LoginPage',
+    inject: ['toRegisterPage'],
     components: {
         LoginForm,
     },
     data() {
-        return {
-            forgotPasswordScreen: false,
-        }
+        return {}
     },
-    methods: {
-        toRegisterPage() {
-            this.$router.push({name: 'RegisterPage'});
-        },
-    },
+
 });
 </script>
 <style src="./css/login.css"></style>

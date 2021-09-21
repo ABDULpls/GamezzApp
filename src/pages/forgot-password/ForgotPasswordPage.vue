@@ -7,7 +7,7 @@
                 alt="back"
                 width="10"
                 height="17"
-                @click="$router.go(-1)"
+                @click="toLoginPage"
             >
             <span class="topbar__title topbar__left">Сброс пароля</span>
         </div>
@@ -21,6 +21,7 @@ import ForgotPasswordForm from './components/ForgotPasswordForm.vue';
 
 export default defineComponent({
     name: 'ForgotPasswordPage',
+    inject: ['toLoginPage'],
     components: {
         ForgotPasswordForm,
     },

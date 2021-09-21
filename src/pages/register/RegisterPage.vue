@@ -12,17 +12,14 @@ import RegisterForm from './components/RegisterForm.vue';
 
 export default defineComponent({
     name: 'RegisterPage',
+    inject: ['toLoginPage'],
     components: {
         RegisterForm,
     },
     data() {
         return {}
     },
-    methods: {
-        toLoginPage() {
-            this.$router.push({name: 'LoginPage'});
-        }
-    }
+    methods: {}
 });
 </script>
 

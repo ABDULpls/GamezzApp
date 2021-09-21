@@ -1,5 +1,5 @@
 <template>
-    <form class="form" @submit="login" @click="readonly = false">
+    <form class="form" @submit.prevent="login" @click="readonly = false">
         <label class="input__label input-nickname">
             <input type="text" class="input" placeholder="Никнейм" v-model="form.username" :readonly="readonly">
         </label>
@@ -26,9 +26,7 @@ interface LoginData {
 
 export default defineComponent({
     name: 'LoginForm',
-    emits: {
-        'forgot-password': null,
-    },
+    inject: ['toForgotPasswordPage'],
     data() {
         return {
             readonly: true,
@@ -61,10 +59,6 @@ export default defineComponent({
 
             console.log('login');
         },
-
-        toForgotPasswordPage() {
-            this.$router.push({name: 'ForgotPasswordPage'});
-        }
     },
 });
 </script>
