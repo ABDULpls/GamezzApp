@@ -1,8 +1,8 @@
 .signup__btn {
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
   font-size: 16px;
   letter-spacing: 1px;
 }
