@@ -8,6 +8,8 @@ import './assets/css/toasts.css';
 
 const app = createApp(App);
 
+app.config.unwrapInjectedRef = true;
+
 app
     .use(toastify)
     .use(router)

@@ -25,7 +25,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'CheckEmailPage',
                 component: () => import('../pages/check-email/CheckEmailPage.vue'),
             },
-        ]
+        ],
     },
 ];
 
