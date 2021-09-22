@@ -33,6 +33,35 @@
 
 .rating {
   margin-top: 20px;
+  display: flex;
+  width: 200px;
+  height: 40px;
+  background: url(../../assets/images/sprite.svg#modal-rating);
+}
+
+.rating1 {
+  background: url(../../assets/images/sprite.svg#modal-rating1);
+}
+
+.rating2 {
+  background: url(../../assets/images/sprite.svg#modal-rating2);
+}
+
+.rating3 {
+  background: url(../../assets/images/sprite.svg#modal-rating3);
+}
+
+.rating4 {
+  background: url(../../assets/images/sprite.svg#modal-rating4);
+}
+
+.rating5 {
+  background: url(../../assets/images/sprite.svg#modal-rating5);
+}
+
+.rating__star {
+  margin: 5px;
+  width: 20%;
 }
 
 .modal__button {
