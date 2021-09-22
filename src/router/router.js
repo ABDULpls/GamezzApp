@@ -1,11 +1,9 @@
-import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
+import {createRouter, createWebHistory} from 'vue-router';
 import store from '../store/store';
 import authRoutes from './auth.routes';
 import mainRoutes from './main.routes';
 
-import {IUser} from '../models/User';
-
-const routes: RouteRecordRaw[] = [
+const routes = [
     ...mainRoutes,
     ...authRoutes,
 ];
@@ -16,10 +14,12 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    const guestRoutesNames: string[] = ['LoginPage', 'RegisterPage', 'ForgotPasswordPage', 'CheckEmailPage'];
+    const guestRoutesNames = ['LoginPage', 'RegisterPage', 'ForgotPasswordPage', 'CheckEmailPage'];
 
-    const authUser: IUser = store.state.auth.user;
-    const isAuthenticated: boolean = store.getters.isAuthenticated;
+    const authUser = store.state.auth.user;
+    const isAuthenticated = store.getters.isAuthenticated;
+
+    console.log(authUser);
 
     if (isAuthenticated) {
         if (guestRoutesNames.includes(to.name)) {

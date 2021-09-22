@@ -1,5 +1,4 @@
-import {RouteRecordRaw} from 'vue-router';
-const routes: RouteRecordRaw[] = [
+const routes = [
     {
         path: '/',
         name: 'MainLayout',

@@ -1,20 +1,19 @@
 import api from '../config/api';
-import {IUserLoginData, IUserRegisterData, IUserForgotPasswordData, IUserResetPasswordData} from '../models/User';
 
 export default {
     createSession() {
         return api.get('/sanctum/csrf-cookie');
     },
-    login(data: IUserLoginData) {
+    login(data) {
         return api.post('/api/login', data);
     },
-    register(data: IUserRegisterData) {
+    register(data) {
         return api.post('/api/register', data);
     },
-    forgot(data: IUserForgotPasswordData) {
+    forgot(data) {
         return api.post('/api/forgot-password', data);
     },
-    reset(data: IUserResetPasswordData) {
+    reset(data) {
         return api.post('/api/reset-password', data);
     },
     logout() {

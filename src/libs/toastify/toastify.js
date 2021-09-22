@@ -1,15 +1,13 @@
-import {IOptions, IAnimateOptions, IToastify} from './types';
-
 const defaultOptions = {
     closeButton: true,
     timeout: 3000,
     showDuration: 500,
     hideDuration: 300,
-} as IOptions;
+};
 
-export default function (options: IOptions = {}): IToastify {
-    let $root: HTMLElement | null = null;
-    const globalOptions: IOptions = Object.assign({}, defaultOptions, options);
+export default function (options = {}) {
+    let $root = null;
+    const globalOptions = Object.assign({}, defaultOptions, options);
 
     const createRoot = () => {
         const $root = document.createElement('div');
@@ -18,7 +16,7 @@ export default function (options: IOptions = {}): IToastify {
         return $root;
     }
 
-    const show = (message: string, options: IOptions = {}) => {
+    const show = (message, options = {}) => {
         options = Object.assign({}, globalOptions, options);
 
         const toast = createToast(message, options, () => {
@@ -43,18 +41,18 @@ export default function (options: IOptions = {}): IToastify {
                 toast.$el.style.opacity = progress + '';
                 toast.$el.style.bottom = (progress * 100 - 100) + 'px';
             }
-        } as IAnimateOptions);
+        });
     }
 
-    const success = (message: string): void => {
+    const success = (message) => {
         show(message, {type: 'success'});
     }
 
-    const warning = (message: string): void => {
+    const warning = (message) => {
         show(message, {type: 'warning'});
     }
 
-    const error = (message: string): void => {
+    const error = (message) => {
         show(message, {type: 'error'});
     }
 
@@ -66,7 +64,7 @@ export default function (options: IOptions = {}): IToastify {
     }
 }
 
-function createToast(message: string, options = {} as IOptions, dismissHandler: () => void) {
+function createToast(message, options = {}, dismissHandler) {
     const $el = document.createElement('div');
     const {closeButton, timeout, type} = options;
 
@@ -84,7 +82,7 @@ function createToast(message: string, options = {} as IOptions, dismissHandler: 
                 $el.style.opacity = 1 - progress + '';
                 $el.style.right = -(progress * 100) + 'px';
             }
-        } as IAnimateOptions);
+        });
 
         setTimeout(() => {
             $el.remove();
@@ -111,9 +109,9 @@ function createToast(message: string, options = {} as IOptions, dismissHandler: 
     }
 }
 
-function animate({timing, draw, duration}: IAnimateOptions): void {
+function animate({timing, draw, duration}) {
 
-    let start: number = performance.now();
+    let start = performance.now();
 
     requestAnimationFrame(function animate(time) {
         let timeFraction = (time - start) / duration;

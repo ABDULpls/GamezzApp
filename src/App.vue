@@ -6,7 +6,7 @@
     </router-view>
 </template>
 
-<script lang="ts">
+<script>
 import {defineComponent, computed} from 'vue';
 import {DEFAULT_TRANSITION} from './config/config';
 

@@ -53,9 +53,8 @@
     </form>
 </template>
 
-<script lang="ts">
+<script>
 import {defineComponent} from 'vue';
-import {IUserRegisterData} from '../../../models/User';
 
 export default defineComponent({
     name: 'RegisterForm',
@@ -69,11 +68,11 @@ export default defineComponent({
                 password: '',
                 confirmPassword: '',
                 policy: true,
-            } as IUserRegisterData,
+            },
         }
     },
     computed: {
-        formIsValid(): boolean {
+        formIsValid() {
             let valid = true;
 
             for(const field of Object.values(this.form)) {

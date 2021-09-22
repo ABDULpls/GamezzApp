@@ -8,7 +8,7 @@
     </router-view>
 </template>
 
-<script lang="ts">
+<script>
 import {defineComponent} from 'vue';
 export default defineComponent({
     name: 'MainLayout',
@@ -16,6 +16,4 @@ export default defineComponent({
 });
 </script>
 
-<style>
-
-</style>
+<style></style>

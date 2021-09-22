@@ -15,7 +15,7 @@
     </router-view>
 </template>
 
-<script lang="ts">
+<script>
 import {defineComponent} from 'vue';
 
 export default defineComponent({
@@ -38,7 +38,7 @@ export default defineComponent({
         }
     },
     methods: {
-        toPage(name: string) {
+        toPage(name) {
             this.$router.push({name: name});
         },
         toLoginPage() {

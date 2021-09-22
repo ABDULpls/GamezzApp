@@ -1,42 +1,30 @@
-import {Commit, Dispatch} from 'vuex';
 import authApi from '../api/auth.api';
 import {SET_USER} from './mutationTypes';
 import {USER_STORAGE_KEY} from '../config/config';
-import {
-    IUser,
-    IUserForgotPasswordData,
-    IUserLoginData,
-    IUserRegisterData,
-    IUserResetPasswordData
-} from '../models/User';
 
 const initialUser = localStorage[USER_STORAGE_KEY]
     ? JSON.parse(localStorage.getItem(USER_STORAGE_KEY) || '[]')
     : null;
 
-interface IAuthState {
-    user: IUser,
-}
-
 export default {
-    state(): IAuthState {
+    state() {
         return {
-            user: initialUser as IUser,
+            user: initialUser,
         }
     },
 
     getters: {
-        isAuthenticated: (state: IAuthState) => state.user !== null,
+        isAuthenticated: state => state.user !== null,
     },
 
     mutations: {
-        [SET_USER](state: IAuthState, user: IUser) {
+        [SET_USER](state, user) {
             state.user = user;
         }
     },
 
     actions: {
-        async login({commit}: {commit: Commit}, data: IUserLoginData) {
+        async login({commit}, data) {
             await authApi.createSession();
             const response = await authApi.login(data);
 
@@ -45,7 +33,7 @@ export default {
             localStorage[USER_STORAGE_KEY] = JSON.stringify(response.data.payload);
         },
 
-        async register({commit, dispatch}: {commit: Commit, dispatch: Dispatch}, data: IUserRegisterData) {
+        async register({commit, dispatch}, data) {
             const response = await authApi.register(data);
 
             commit(SET_USER, response.data.payload);
@@ -53,20 +41,20 @@ export default {
             localStorage[USER_STORAGE_KEY] = JSON.stringify(response.data.payload);
         },
 
-        async logout({commit}: {commit: Commit}) {
+        async logout({commit}) {
             await authApi.logout();
             commit(SET_USER, null);
 
             localStorage.removeItem(USER_STORAGE_KEY);
         },
 
-        async forgot({commit}: {commit: Commit}, data: IUserForgotPasswordData) {
+        async forgot({commit}, data) {
             const response = await authApi.forgot(data);
 
             return Promise.resolve(response.data.message);
         },
 
-        async reset({commit}: {commit: Commit}, data: IUserResetPasswordData) {
+        async reset({commit}, data) {
             const response = await authApi.reset(data);
 
             return Promise.resolve(response.data.message);
