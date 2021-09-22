@@ -4,6 +4,7 @@
 }
 
 .line-heading {
+  margin: 30px 0 15px;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   column-gap: 8px;
@@ -20,6 +21,16 @@
   content: '';
   height: 1px;
   background: #313f62;
+}
+
+@media screen and (max-height: 600px) {
+  .logo {
+    margin: 16px auto;
+  }
+
+  .line-heading {
+    margin: 20px 0 10px;
+  }
 }
 
 .checkbox__input {
@@ -60,5 +71,5 @@
   color: #a9b5d0;
   font-weight: 300;
   padding-right: 18px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
