@@ -55,14 +55,7 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue';
-
-interface RegisterData {
-    username: string,
-    email: string,
-    password: string,
-    confirmPassword: string,
-    policy: boolean,
-}
+import {IUserRegisterData} from '../../../models/User';
 
 export default defineComponent({
     name: 'RegisterForm',
@@ -76,7 +69,7 @@ export default defineComponent({
                 password: '',
                 confirmPassword: '',
                 policy: true,
-            } as RegisterData,
+            } as IUserRegisterData,
         }
     },
     computed: {

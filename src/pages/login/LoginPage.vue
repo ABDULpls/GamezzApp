@@ -1,34 +1,32 @@
 <template>
-  <button class="btn border-gradient">Играть как гость</button>
-  <span class="line-heading">Войти через соцсети</span>
-  <div class="society">
-    <div class="society__item vk"></div>
-    <div class="society__item fb"></div>
-    <div class="society__item gl"></div>
-  </div>
-  <span class="line-heading">Войти через Gamezz id</span>
+    <button class="btn border-gradient">Играть как гость</button>
+    <span class="line-heading">Войти через соцсети</span>
+    <div class="society">
+        <div class="society__item vk"></div>
+        <div class="society__item fb"></div>
+        <div class="society__item gl"></div>
+    </div>
+    <span class="line-heading">Войти через Gamezz id</span>
 
-  <login-form />
+    <login-form/>
 
-  <span class="line-heading">Еще нет аккаунта?</span>
-  <button class="btn enter__btn" @click="toRegisterPage">
-    Зарегистрироваться
-  </button>
+    <span class="line-heading">Еще нет аккаунта?</span>
+    <button class="btn enter__btn" @click="toRegisterPage">Зарегистрироваться</button>
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import LoginForm from "./components/LoginForm.vue";
+import {defineComponent} from 'vue';
+import LoginForm from './components/LoginForm.vue';
 
 export default defineComponent({
-  name: "LoginPage",
-  inject: ["toRegisterPage"],
-  components: {
-    LoginForm,
-  },
-  data() {
-    return {};
-  },
+    name: 'LoginPage',
+    inject: ['toRegisterPage'],
+    components: {
+        LoginForm,
+    },
+    data() {
+        return {};
+    },
 });
 </script>
 <style src="./css/login.css"></style>

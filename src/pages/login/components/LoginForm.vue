@@ -17,12 +17,7 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue';
-
-interface LoginData {
-    username: string,
-    password: string,
-    remember: boolean,
-}
+import {IUserLoginData} from '../../../models/User';
 
 export default defineComponent({
     name: 'LoginForm',
@@ -35,7 +30,7 @@ export default defineComponent({
                 username: '',
                 password: '',
                 remember: true,
-            } as LoginData,
+            } as IUserLoginData,
         }
     },
     computed: {
