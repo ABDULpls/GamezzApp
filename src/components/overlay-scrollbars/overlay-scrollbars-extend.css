@@ -15,7 +15,21 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Rubik-flex';
-  font-weight: 500;
+  font-variation-settings: "wght"500;
+}
+
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
+  .os-host-scroll-x__item-active {
+    font-family: 'Rubik';
+    font-weight: 400;
+  }
+}
+
+@media not all and (min-resolution:.001dpcm) {
+  .os-host-scroll-x__item-active {
+    font-family: 'Rubik';
+    font-weight: 400;
+  }
 }
 
 .os-host-scroll-x .os-content {

@@ -2,7 +2,7 @@
     <div>
         <modal-dialog v-model:is-open="modal">
             <template #body>
-                <rate/>
+                <modal-rate />
             </template>
         </modal-dialog>
 
@@ -28,7 +28,7 @@
 import {defineComponent} from 'vue';
 import LoginForm from './components/LoginForm.vue';
 import ModalDialog from '../../components/modal-dialog/ModalDialog.vue';
-import Rate from '../../components/Rate.vue';
+import ModalRate from '../../components/ModalRate.vue';
 
 export default defineComponent({
     name: 'LoginPage',
@@ -36,7 +36,7 @@ export default defineComponent({
     components: {
         LoginForm,
         ModalDialog,
-        Rate,
+        ModalRate,
     },
     data() {
         return {

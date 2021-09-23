@@ -36,32 +36,21 @@
   display: flex;
   width: 200px;
   height: 40px;
-  background: url(../../assets/images/sprite.svg#modal-rating);
-}
-
-.rating1 {
-  background: url(../../assets/images/sprite.svg#modal-rating1);
-}
-
-.rating2 {
-  background: url(../../assets/images/sprite.svg#modal-rating2);
-}
-
-.rating3 {
-  background: url(../../assets/images/sprite.svg#modal-rating3);
-}
-
-.rating4 {
-  background: url(../../assets/images/sprite.svg#modal-rating4);
-}
-
-.rating5 {
-  background: url(../../assets/images/sprite.svg#modal-rating5);
 }
 
 .rating__star {
-  margin: 5px;
+  background: url(../../assets/images/sprite.svg#modal-rating-empty);
+}
+
+.rating__star-choose {
+  background: url(../../assets/images/sprite.svg#modal-rating-green);
+}
+
+.rating__star {
   width: 20%;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .modal__button {
