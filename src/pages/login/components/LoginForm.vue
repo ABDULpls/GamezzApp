@@ -20,6 +20,9 @@ import {defineComponent} from 'vue';
 
 export default defineComponent({
     name: 'LoginForm',
+    emits: {
+        'submit:login': null,
+    },
     inject: ['toForgotPasswordPage'],
     data() {
         return {
@@ -30,28 +33,28 @@ export default defineComponent({
                 password: '',
                 remember: true,
             },
-        }
+        };
     },
     computed: {
         formIsValid() {
             let valid = true;
 
-            for(const field of Object.values(this.form)) {
+            for (const field of Object.values(this.form)) {
                 if (!field) {
                     valid = false;
                 }
             }
 
             return valid;
-        }
+        },
     },
     methods: {
         login() {
-            if (!this.formIsValid) {
+            /*if (!this.formIsValid) {
                 return;
-            }
+            }*/
 
-            console.log('login');
+            this.$emit('submit:login', this.form);
         },
     },
 });

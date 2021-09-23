@@ -1,4 +1,4 @@
-export default function(number) {
+export const normalizeNumber = (number) => {
     let sing = '';
 
     while(number > 1000) {

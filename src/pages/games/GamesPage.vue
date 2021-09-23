@@ -25,7 +25,7 @@ import {mapState} from 'vuex';
 
 import GameList from './components/GameList.vue';
 import ScrollMenu from './components/ScrollMenu.vue';
-import normalizeNumber from '../../utils/normalize-number';
+import {normalizeNumber} from '../../utils/utils';
 
 export default defineComponent({
     name: 'GamesPage',
