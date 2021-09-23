@@ -1,0 +1,27 @@
+<template>
+    <div class="gamelist">
+        <game-list-item
+            v-for="game in games"
+            :game="game"
+            :key="game.id"
+        />
+    </div>
+</template>
+
+<script>
+import {defineComponent} from 'vue';
+
+import GameListItem from './GameListItem.vue';
+export default defineComponent({
+    name: 'GameList',
+    components: {
+        GameListItem,
+    },
+    props: {
+        games: {
+            type: Array,
+            default: () => [],
+        }
+    }
+});
+</script>

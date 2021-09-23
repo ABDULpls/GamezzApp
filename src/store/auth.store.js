@@ -2,6 +2,15 @@ import authApi from '../api/auth.api';
 import {SET_USER} from './mutationTypes';
 import {USER_STORAGE_KEY} from '../config/config';
 
+localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({
+    id: 1,
+    name: 'po5epT',
+    email: 'megastorm87@mail.ru',
+    level: 56,
+    rating: 4890,
+    crystals: 303848,
+}));
+
 const initialUser = localStorage[USER_STORAGE_KEY]
     ? JSON.parse(localStorage.getItem(USER_STORAGE_KEY) || '[]')
     : null;

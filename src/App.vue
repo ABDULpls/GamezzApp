@@ -15,6 +15,7 @@ export default defineComponent({
     provide() {
         return {
             transitionName: computed(() => this.transitionName),
+            toPage: this.toPage,
         }
     },
     data() {
@@ -25,9 +26,13 @@ export default defineComponent({
             return this.$route.meta.transition || DEFAULT_TRANSITION;
         },
     },
+    methods: {
+        toPage(name) {
+            this.$router.push({name: name});
+        },
+    },
     mounted() {
         //this.$toastify.warning('Warning message');
-        //localStorage.setItem('user', JSON.stringify({id: 1, name: 'po5epT', email: 'megastorm87@mail.ru'}));
     },
 
 });

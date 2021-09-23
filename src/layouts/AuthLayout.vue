@@ -20,7 +20,7 @@ import {defineComponent} from 'vue';
 
 export default defineComponent({
     name: 'AuthLayout',
-    inject: ['transitionName'],
+    inject: ['transitionName', 'toPage'],
     provide() {
         return {
             toLoginPage: this.toLoginPage,
@@ -38,9 +38,6 @@ export default defineComponent({
         }
     },
     methods: {
-        toPage(name) {
-            this.$router.push({name: name});
-        },
         toLoginPage() {
             this.toPage('LoginPage');
         },
