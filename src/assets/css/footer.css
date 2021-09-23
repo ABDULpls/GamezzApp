@@ -1,0 +1,89 @@
+.footer {
+  padding: 0 8%;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  justify-content: space-between;
+  align-items: center;
+  background: #141d35;
+  box-shadow: 0 -11px 14px rgba(0, 0, 0, 0.31);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer__item {
+  position: relative;
+  height: 48px;
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  color: #62708f;
+  font-size: 12px;
+  align-items: flex-end;
+}
+
+.footer__item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  display: block;
+}
+
+.footer-games::before {
+  width: 25px;
+  height: 26px;
+  background: url(../images/sprite.svg#footer-games);
+}
+
+.footer-fame::before {
+  width: 26px;
+  height: 24px;
+  background: url(../images/sprite.svg#footer-fame);
+}
+
+.footer-tournaments::before{
+  width: 33px;
+  height: 28px;
+  background: url(../images/sprite.svg#footer-tournaments);
+}
+
+.footer-quiz::before {
+  width: 30px;
+  height: 25px;
+  background: url(../images/sprite.svg#footer-quiz);
+}
+
+.footer-more::before {
+  width: 24px;
+  height: 21px;
+  background: url(../images/sprite.svg#footer-more);
+}
+
+.footer-games-active,
+.footer-fame-active,
+.footer-tournaments-active,
+.footer-quiz-active,
+.footer-more-active {
+  color: #ffffff;
+}
+
+.footer-games-active::before {
+  background: url(../images/sprite.svg#footer-games-active);
+}
+
+.footer-quiz-active::before {
+  background: url(../images/sprite.svg#footer-quiz-active);
+}
+
+.footer-tournaments-active::before{
+  background: url(../images/sprite.svg#footer-tournaments-active);
+}
+
+.footer-fame-active::before {
+  background: url(../images/sprite.svg#footer-fame-active);
+}
+
+.footer-more-active::before {
+  background: url(../images/sprite.svg#footer-more-active);
+}

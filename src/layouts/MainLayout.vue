@@ -3,6 +3,7 @@
         <transition :name="transitionName" mode="out-in">
             <div :key="route.path">
                 <component :is="Component" />
+                <page-footer />
             </div>
         </transition>
     </router-view>
@@ -10,8 +11,12 @@
 
 <script>
 import {defineComponent} from 'vue';
+import PageFooter from '../components/PageFooter.vue';
 export default defineComponent({
     name: 'MainLayout',
+    components: {
+        PageFooter,
+    },
     inject: ['transitionName'],
 });
 </script>

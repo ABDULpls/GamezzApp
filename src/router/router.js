@@ -19,8 +19,6 @@ router.beforeEach((to, from, next) => {
     const authUser = store.state.auth.user;
     const isAuthenticated = store.getters.isAuthenticated;
 
-    console.log(authUser);
-
     if (isAuthenticated) {
         if (guestRoutesNames.includes(to.name)) {
             next({name: 'HomePage'});

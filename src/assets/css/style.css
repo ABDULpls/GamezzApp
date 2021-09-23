@@ -159,14 +159,14 @@ body {
   }
 }
 
-.scroll {
+/*.scroll {
   display: flex;
   overflow: auto;
   white-space: nowrap;
   margin-top: 2vh;
-}
+}*/
 
-.scroll::-webkit-scrollbar {
+/*.scroll::-webkit-scrollbar {
   height: 3px;
 }
 
@@ -176,7 +176,7 @@ body {
 
 .scroll::-webkit-scrollbar-thumb {
   background: #a9b5d0;
-}
+}*/
 
 .scroll__item {
   list-style: none;

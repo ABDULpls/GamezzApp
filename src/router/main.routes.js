@@ -10,6 +10,21 @@ const routes = [
                 component: () => import('../pages/games/GamesPage.vue'),
                 alias: '/games'
             },
+            {
+                path: '/fame',
+                name: 'FamePage',
+                component: () => import('../pages/fame/FamePage.vue'),
+            },
+            {
+                path: '/quiz',
+                name: 'QuizPage',
+                component: () => import('../pages/quiz/QuizPage.vue'),
+            },
+            {
+                path: '/tournaments',
+                name: 'TournamentsPage',
+                component: () => import('../pages/tournaments/TournamentsPage.vue'),
+            },
         ],
     },
 ];
