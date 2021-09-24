@@ -2,18 +2,9 @@
     <div>
         <h1 class="page-title">Зал Славы</h1>
 
-        <div class="miniprofile miniprofile-fix">
-            <span class="miniprofile__level">{{ me.level }}</span>
-            <img class="miniprofile__icon"
-                 :src="me.avatar"
-                 alt="pic"
-                 width="35"
-                 height="35">
-            <span class="miniprofile__results stars">{{ normalizeNumber(me.rating) }}</span>
-            <span class="miniprofile__results crystals">{{ normalizeNumber(me.crystals) }}</span>
-        </div>
+        <user-widget :user="me" />
 
-        <span class="fame-mode">Общий рейтинг</span>
+        <span class="fame-mode" @click="filtersScreen = true">Общий рейтинг</span>
 
         <div class="fame">
             <players-list-item
@@ -22,9 +13,10 @@
             />
 
             <players-list-item
-                v-for="player in players"
+                v-for="(player, idx) in players"
                 :key="player.id"
                 :player="player"
+                :index="idx"
             />
 
             <div class="fame__btns">
@@ -37,36 +29,51 @@
             <span class="fame__nav fame__back">Назад</span>
             <span class="fame__nav fame__fwd">Вперед</span>
         </div>
+
+        <screen-slider v-model:is-open="filtersScreen">
+            <template #title>Выбрать рейтинг</template>
+            <template #default>
+                <fame-filters @update:item="onChangeFilterItem" />
+            </template>
+        </screen-slider>
     </div>
 </template>
 
 <script>
-import {defineComponent} from 'vue';
 import {mapState} from 'vuex';
-import {normalizeNumber} from '../../utils/utils';
 
-import PlayersListItem from './components/PlayersListItem.vue';
+import ScreenSlider from '../../components/screen-slider/ScreenSlider.vue';
+import PlayersListItem from './components/FamePlayersItem.vue';
+import FameFilters from './components/FameFilters.vue';
+import UserWidget from '../../components/ui/UserWidget.vue';
 
-export default defineComponent({
+export default {
     name: 'FamePage',
     components: {
         PlayersListItem,
+        ScreenSlider,
+        FameFilters,
+        UserWidget,
     },
     data() {
         return {
             players: [],
+
+            activeFiltersItemIndex: 0,
+            filtersScreen: false,
         };
     },
     computed: {
         ...mapState({
             me: state => state.auth.user,
         }),
-
-
     },
     methods: {
-        normalizeNumber,
+        onChangeFilterItem(item) {
+            // request by item.slug
+        },
     },
+
     created() {
         this.players = [
             {
@@ -126,7 +133,7 @@ export default defineComponent({
             },
         ];
     },
-});
+};
 </script>
 
 <style src="./css/fame.css"></style>

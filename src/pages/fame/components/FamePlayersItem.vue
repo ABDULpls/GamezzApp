@@ -8,7 +8,7 @@
             alt="user"
         >
         <span class="fame__name">{{ player.name }}</span>
-        <span class="fame__top fame-grey" :class="placeClasses">#{{ player.place }}</span>
+        <span class="fame__top fame-grey" :class="placeClasses">#{{ index ? (index + 1) : player.place }}</span>
         <span class="fame__score text-gradient">{{ player.rating }} баллов</span>
         <span class="fame__move" :class="progressClasses">{{ absProgress }}</span>
         <span class="fame__games">{{ player.games }}</span>
@@ -22,12 +22,15 @@
 
 <script>
 export default {
-    name: 'PlayersListItem',
+    name: 'FamePlayersItem',
     props: {
         player: {
             type: Object,
             required: true,
-        }
+        },
+
+        index: Number,
+        default: null,
     },
 
     computed: {
