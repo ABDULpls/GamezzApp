@@ -13,21 +13,19 @@
             :items="gameCategories"
             @select-item="filterGames"
         />
+
         <game-list :games="filteredGames" />
-
-
     </div>
 </template>
 
 <script>
-import {defineComponent} from 'vue';
 import {mapState} from 'vuex';
 
 import GameList from './components/GameList.vue';
 import ScrollMenu from './components/ScrollMenu.vue';
 import {normalizeNumber} from '../../utils/utils';
 
-export default defineComponent({
+export default {
     name: 'GamesPage',
     components: {
         GameList,
@@ -147,7 +145,7 @@ export default defineComponent({
     created() {
         this.filteredGames = [...this.games];
     }
-});
+};
 </script>
 
 <style src="./css/games-list.css"></style>

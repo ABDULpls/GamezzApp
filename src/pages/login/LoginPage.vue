@@ -1,6 +1,6 @@
 <template>
     <div>
-        <modal-dialog v-model:is-open="modal">
+        <modal-dialog v-model:is-open="modal" v-if="modal">
             <template #body>
                 <modal-rate />
             </template>
@@ -17,7 +17,7 @@
 
         <login-form @submit:login="onSubmitLoginForm" />
 
-        <span class="line-heading">Еще нет аккаунта?</span>
+        <span class="line-heading" @click="modal = true">Еще нет аккаунта?</span>
         <button class="btn enter__btn" @click="toRegisterPage">
             Зарегистрироваться
         </button>
@@ -25,18 +25,20 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
+import {defineAsyncComponent} from 'vue';
+
 import LoginForm from './components/LoginForm.vue';
-import ModalDialog from '../../components/modal-dialog/ModalDialog.vue';
 import ModalRate from '../../components/ModalRate.vue';
 
-export default defineComponent({
+export default {
     name: 'LoginPage',
     inject: ['toRegisterPage'],
     components: {
         LoginForm,
-        ModalDialog,
         ModalRate,
+        ModalDialog: defineAsyncComponent(() =>
+            import('../../components/modal-dialog/ModalDialog.vue')
+        ),
     },
     data() {
         return {
@@ -52,6 +54,6 @@ export default defineComponent({
             }
         }
     }
-});
+};
 </script>
 <style src="./css/login.css"></style>
