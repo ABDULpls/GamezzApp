@@ -1,0 +1,30 @@
+.list {
+  margin-top: 20px;
+  padding-bottom: 10vh;
+  display: grid;
+}
+
+.list__item {
+  font-size: 16px;
+  padding: 12px 0;
+  font-weight: 300;
+}
+
+.list-active {
+  font-weight: 400;
+}
+
+.list-active::after {
+  content: '';
+  display: inline-block;
+  width: 11px;
+  height: 10px;
+  margin-left: 10px;
+  background: url(../assets/sprite.svg#gradient-check) no-repeat;
+}
+
+.list__flag {
+  margin: 0 16px -6px 0;
+  box-shadow: 0 0 0 1.5px #ffffff;
+  border-radius: 50%;
+}
