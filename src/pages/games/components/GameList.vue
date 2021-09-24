@@ -9,10 +9,9 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
 
 import GameListItem from './GameListItem.vue';
-export default defineComponent({
+export default {
     name: 'GameList',
     components: {
         GameListItem,
@@ -23,5 +22,5 @@ export default defineComponent({
             default: () => [],
         }
     }
-});
+};
 </script>

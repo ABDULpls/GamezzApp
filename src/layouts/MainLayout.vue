@@ -12,13 +12,13 @@
 <script>
 import {defineComponent} from 'vue';
 import PageFooter from '../components/PageFooter.vue';
-export default defineComponent({
+export default {
     name: 'MainLayout',
     components: {
         PageFooter,
     },
     inject: ['transitionName'],
-});
+};
 </script>
 
 <style></style>

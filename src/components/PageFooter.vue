@@ -15,11 +15,9 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
-
 import {PAGE_FOOTER_MENU} from '../config/config';
 
-export default defineComponent({
+export default {
     name: 'PageFooter',
     inject: ['toPage'],
     data() {
@@ -31,5 +29,5 @@ export default defineComponent({
 
     },
 
-});
+};
 </script>

@@ -9,15 +9,14 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
 
-export default defineComponent({
+export default {
     name: 'CheckEmailPage',
     inject: ['toLoginPage', 'toForgotPasswordPage'],
     data() {
         return {}
     },
     methods: {}
-});
+};
 </script>
 <style src="./css/checkmail.css"></style>

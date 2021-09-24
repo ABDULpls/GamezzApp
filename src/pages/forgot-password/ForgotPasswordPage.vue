@@ -16,10 +16,9 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
 import ForgotPasswordForm from './components/ForgotPasswordForm.vue';
 
-export default defineComponent({
+export default {
     name: 'ForgotPasswordPage',
     inject: ['toLoginPage'],
     components: {
@@ -28,6 +27,6 @@ export default defineComponent({
     data() {
         return {}
     },
-});
+};
 </script>
 <style src="./css/forgot-password.css"></style>

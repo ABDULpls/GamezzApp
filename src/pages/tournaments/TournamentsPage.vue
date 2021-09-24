@@ -5,9 +5,8 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
 
-export default defineComponent({
+export default {
     name: 'TournamentsPage',
     data() {
         return {}
@@ -15,7 +14,7 @@ export default defineComponent({
     computed: {},
     methods: {},
     created() {}
-});
+};
 </script>
 
 <style></style>

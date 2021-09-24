@@ -54,9 +54,7 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
-
-export default defineComponent({
+export default {
     name: 'RegisterForm',
     data() {
         return {
@@ -93,5 +91,5 @@ export default defineComponent({
             console.log('register');
         }
     },
-});
+};
 </script>

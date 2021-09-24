@@ -12,8 +12,7 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
-export default defineComponent({
+export default {
     name: 'GameListItem',
     props: {
         game: {
@@ -34,5 +33,5 @@ export default defineComponent({
             return 'https://cdn.gamezz.io/games/' + this.game.id + '_optimize.webp';
         }
     }
-});
+};
 </script>

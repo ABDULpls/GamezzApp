@@ -16,9 +16,8 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
 
-export default defineComponent({
+export default {
     name: 'LoginForm',
     emits: {
         'submit:login': null,
@@ -57,5 +56,5 @@ export default defineComponent({
             this.$emit('submit:login', this.form);
         },
     },
-});
+};
 </script>

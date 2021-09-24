@@ -1,8 +1,8 @@
 <script>
-import {defineComponent, h} from 'vue';
+import {h} from 'vue';
 import OverlayScrollbars from 'overlayscrollbars/js/OverlayScrollbars';
 
-export default defineComponent({
+export default {
     name: 'OverlayScrollbars',
 
     data() {
@@ -27,7 +27,7 @@ export default defineComponent({
         this.$emit('init', this.instance);
     },
 
-    beforeDestroy() {
+    beforeUnmount() {
         this.$emit('destroy', this.instance);
         this.instance.destroy();
         this.instance = null;
@@ -36,7 +36,7 @@ export default defineComponent({
     render() {
         return h('div', this.$slots.default());
     },
-});
+};
 </script>
 <style src="./overlay-scrollbars.min.css"></style>
 <style src="./overlay-scrollbars-extend.css"></style>

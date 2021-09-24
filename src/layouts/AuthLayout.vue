@@ -16,9 +16,8 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
 
-export default defineComponent({
+export default {
     name: 'AuthLayout',
     inject: ['transitionName', 'toPage'],
     provide() {
@@ -51,7 +50,7 @@ export default defineComponent({
             this.toPage('ForgotPasswordPage');
         }
     }
-});
+};
 </script>
 
 <style src="../pages/login/css/auth.css"></style>

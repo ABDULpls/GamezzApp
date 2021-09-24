@@ -11,16 +11,15 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
 
-export default defineComponent({
+export default {
     name: 'ForgotPasswordForm',
     inject: ['toCheckEmailPage'],
     data() {
         return {}
     },
     methods: {}
-});
+};
 </script>
 
 <style src="../css/forgot-password.css"></style>

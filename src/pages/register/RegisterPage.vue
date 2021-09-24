@@ -7,10 +7,9 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue';
 import RegisterForm from './components/RegisterForm.vue';
 
-export default defineComponent({
+export default {
     name: 'RegisterPage',
     inject: ['toLoginPage'],
     components: {
@@ -20,7 +19,7 @@ export default defineComponent({
         return {}
     },
     methods: {}
-});
+};
 </script>
 
 <style src="./css/register.css"></style>
