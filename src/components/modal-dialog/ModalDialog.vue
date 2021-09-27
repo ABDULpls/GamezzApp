@@ -9,7 +9,7 @@
                     </span>
                     <slot name="body"></slot>
                     <slot name="footer" :close="close">
-                        <button class="modal__button btn btn-orange">Оценить</button>
+                        <button class="modal__button btn-orange">Оценить</button>
                     </slot>
                 </div>
             </div>

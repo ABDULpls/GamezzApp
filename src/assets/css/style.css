@@ -205,6 +205,11 @@ body {
     inset 1px 1px 0px 1px rgba(252, 212, 63, .3);
 }
 
+.btn-string {
+  height: auto;
+  font-size: 16px;
+}
+
 .btn-orange {
   background: linear-gradient(247.82deg, #FCD43F 11.29%, #FF9B3A 90.42%);
   color: #10152b;
@@ -223,6 +228,36 @@ body {
 .btn-green {
   background: linear-gradient(270deg, #01C15B 0%, #53D570 100%);
   color: #ffffff;
+}
+
+.btn-close {
+  width: 17px;
+  height: 17px;
+  background: url(../images/sprite.svg#close) no-repeat;
+}
+
+.btn-back {
+  width: 10px;
+  height: 17px;
+  background: url(../images/sprite.svg#arrow-left) no-repeat;
+}
+
+.btn-cup {
+  width: 25px;
+  height: 22px;
+  background: url(../assets/images/sprite.svg#header-icon) no-repeat;
+}
+
+.btn-options {
+  width: 24px;
+  height: 21px;
+  background: url(../assets/images/sprite.svg#game-options) no-repeat;
+}
+
+.btn-edit {
+  width: 21px;
+  height: 21px;
+  background: url(../assets/images/sprite.svg#profile-edit);
 }
 
 .game-solitaire-normal {

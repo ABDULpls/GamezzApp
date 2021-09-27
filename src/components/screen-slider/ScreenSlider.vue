@@ -3,14 +3,15 @@
         <transition appear name="slide-right">
             <div v-show="isOpen" class="slide-page">
                 <div class="topbar">
-                    <img
-                        src="../../assets/images/sprite.svg#arrow-left"
-                        class="topbar__left"
-                        alt="back"
-                        width="10"
-                        height="17"
-                        @click="close"
-                    >
+                  <button class="btn-back"></button>
+<!--                    <img-->
+<!--                        src="../../assets/images/sprite.svg#arrow-left"-->
+<!--                        class="topbar__left"-->
+<!--                        alt="back"-->
+<!--                        width="10"-->
+<!--                        height="17"-->
+<!--                        @click="close"-->
+<!--                    >-->
                     <span class="topbar__title topbar__left">
                         <slot name="title" />
                     </span>

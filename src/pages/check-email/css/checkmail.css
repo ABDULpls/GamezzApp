@@ -1,9 +1,12 @@
 .checkmail {
   text-align: center;
+  margin-top: 95px;
+  display: grid;
+  row-gap: 30px;
+  justify-items: center;
 }
 
 .checkmail__icon {
-  margin: 95px auto 30px;
   width: 76px;
   height: 76px;
   border-radius: 50%;
@@ -18,20 +21,14 @@
 
 .checkmail__text {
   max-width: 320px;
-  margin: 30px auto;
   font-size: 15px;
   line-height: 150%;
   font-family: 'Rubik-flex';
   font-variation-settings: "wght"300;
 }
 
-.checkmail__btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  margin: 50px auto 0;
-  padding: 0 46px;
+.checkmail__nomail {
+  padding-bottom: 20px;
 }
 
 .checkmail__btn::before {
@@ -39,6 +36,6 @@
   display: inline-block;
   width: 16px;
   height: 22px;
-  margin-right: 8px;
+  margin: 0 8px -4px 0;
   background: url(../../../assets/images/sprite.svg#enter-icon-fill) no-repeat;
 }

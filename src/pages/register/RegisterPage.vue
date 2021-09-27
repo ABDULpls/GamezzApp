@@ -2,7 +2,7 @@
     <div>
         <register-form />
         <span class="line-heading">Уже зарегистрированы?</span>
-        <button class="btn signup__btn" @click="toLoginPage">Войти</button>
+        <button class="btn-string signup__btn" @click="toLoginPage">Войти</button>
     </div>
 </template>
 

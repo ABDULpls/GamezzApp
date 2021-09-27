@@ -22,6 +22,20 @@
   background: #161f39;
 }
 
+.topbar button {
+  /* width: auto;
+  height: auto; */
+  border-radius: 0%;
+}
+
+.topbar button:last-child {
+  margin-left: 12px;
+}
+
+.topbar button:first-child {
+  padding-right: 18px;
+}
+
 @media screen and (max-width: 310px) {
   .topbar__title {
     font-size: 12px;
@@ -34,14 +48,6 @@
   }
 }
 
-.topbar__close {
-  margin-left: 12px;
-}
-
-.topbar__back {
-  margin-right: 10px;
-}
-
 .chat-mode::after {
   content: '';
   display: inline-block;
@@ -49,10 +55,6 @@
   width: 10px;
   height: 7px;
   background: url(../../assets/sprite.svg#chat-mode);
-}
-
-.topbar__cup {
-  margin-left: 16px;
 }
 
 .topbar__left {
@@ -67,10 +69,6 @@
   .topbar__title {
     font-size: 13px;
   }
-}
-
-.topbar__options {
-  margin-left: 12px;
 }
 
 .dropdown {

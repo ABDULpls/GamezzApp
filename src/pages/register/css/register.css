@@ -1,17 +1,8 @@
-.signup__btn {
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  letter-spacing: 1px;
-}
-
 .signup__btn::before {
   content: '';
   display: inline-block;
   width: 20px;
   height: 21px;
-  margin-right: 4px;
+  margin: 0 4px -4px 0;
   background: url(../../../assets/images/sprite.svg#enter-icon-gradient) no-repeat;
 }

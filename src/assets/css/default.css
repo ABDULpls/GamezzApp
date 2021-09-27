@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -26,7 +30,7 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
-.btn {
+button {
   width: 100%;
   height: 52px;
   border: none;
@@ -37,10 +41,14 @@ a {
 }
 
 .form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
   row-gap: 2vh;
+}
+
+.form__row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .input {
@@ -100,30 +108,6 @@ a {
   left: 14px;
   background: url(../images/sprite.svg#form-mail) no-repeat;
 }
-/* 
-.rus::before {
-  background: url(../images/lang.svg#ru);
-}
-
-.usa::before {
-  background: url(../images/lang.svg#en);
-}
-
-.ita::before {
-  background: url(../images/lang.svg#it);
-}
-
-.fra::before {
-  background: url(../images/lang.svg#fr);
-}
-
-.spa::before {
-  background: url(../images/lang.svg#es);
-}
-
-.ger::before {
-  background: url(../images/lang.svg#de);
-} */
 
 .flag {
   box-shadow: 0 0 0 1px #ffffff;

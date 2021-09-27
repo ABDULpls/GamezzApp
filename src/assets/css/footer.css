@@ -45,7 +45,7 @@
 .footer-tournaments::before{
   width: 33px;
   height: 28px;
-  background: url(../images/sprite.svg#footer-tournaments);
+  background: url(../images/sprite.svg#footer-tournaments) 0 -2px;
 }
 
 .footer-quiz::before {
@@ -77,7 +77,7 @@
 }
 
 .footer-tournaments-active::before{
-  background: url(../images/sprite.svg#footer-tournaments-active);
+  background: url(../images/sprite.svg#footer-tournaments-active)  0 -2px;
 }
 
 .footer-fame-active::before {

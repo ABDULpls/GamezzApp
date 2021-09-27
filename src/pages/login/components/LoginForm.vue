@@ -6,10 +6,12 @@
         <label class="input__label input-password">
             <input type="password" class="input" placeholder="Пароль" v-model="form.password" :readonly="readonly">
         </label>
-        <input type="checkbox" class="checkbox__input" id="remember" v-model="form.remember">
-        <label for="remember" class="enter__savepassword">Запомнить меня</label>
-        <span class="enter__savepassword" @click="toForgotPasswordPage">Забыл пароль</span>
-        <button type="submit" class="btn btn-orange">Войти</button>
+        <div class="form__row">
+          <input type="checkbox" class="checkbox__input" id="remember" v-model="form.remember">
+          <label for="remember" class="enter__savepassword">Запомнить меня</label>
+          <span class="enter__savepassword" @click="toForgotPasswordPage">Забыл пароль</span>
+        </div>
+        <button type="submit" class="btn-orange">Войти</button>
         <span class="enter__rules">Пожалуйста прочитайте&nbsp;<a href="#" class="enter__rules-white">Правила нашего
           сервиса</a></span>
     </form>

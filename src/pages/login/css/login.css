@@ -49,18 +49,11 @@
   color: #ffffff;
 }
 
-.enter__btn {
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-}
-
 .enter__btn::before {
   content: '';
+  display: inline-block;
   width: 25px;
   height: 17px;
-  margin-right: 8px;
+  margin: 0 8px -3px 0;
   background: url(../../../assets/images/sprite.svg#enter-signup-icon) no-repeat;
 }
