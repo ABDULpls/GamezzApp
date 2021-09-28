@@ -25,6 +25,11 @@ const routes = [
                 name: 'TournamentsPage',
                 component: () => import('../pages/tournaments/TournamentsPage.vue'),
             },
+            {
+                path: '/profile-preview',
+                name: 'ProfilePreviewPage',
+                component: () => import('../pages/profile/preview/ProfilePreviewPage.vue'),
+            },
         ],
     },
 ];
