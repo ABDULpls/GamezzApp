@@ -14,7 +14,13 @@
   justify-content: start;
   align-items: flex-end;
   column-gap: 10px;
-  font-size: 18px;
+}
+
+@media screen and (max-width: 350px) {
+  .profile-card {
+    font-size: 13px;
+    column-gap: 6px;
+  }
 }
 
 .profile-card__level {

@@ -11,8 +11,8 @@
                         class="fame__btn"
                     >{{ link.label }}</span>
                 </div>
-                <span class="fame__nav fame__back" @click="prev">Назад</span>
-                <span class="fame__nav fame__fwd" @click="next">Вперед</span>
+                <button class="btn btn-string fame__nav fame__back" @click="prev" disabled>Назад</button>
+                <button class="btn btn-string fame__nav fame__fwd" @click="next">Вперед</button>
             </div>
         </template>
     </custom-pagination>

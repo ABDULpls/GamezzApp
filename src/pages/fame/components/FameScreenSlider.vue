@@ -2,14 +2,7 @@
     <screen-slider :is-open="isOpen" @update:is-open="onUpdateIsOpen">
         <template #header="{close}">
             <div class="topbar">
-                <img
-                    src="../../../assets/images/sprite.svg#arrow-left"
-                    class="topbar__left"
-                    alt="back"
-                    width="10"
-                    height="17"
-                    @click="close"
-                >
+            <button class="btn btn-back topbar__left" @click="close"></button>
                 <span class="topbar__title topbar__left">Выбрать рейтинг</span>
             </div>
         </template>

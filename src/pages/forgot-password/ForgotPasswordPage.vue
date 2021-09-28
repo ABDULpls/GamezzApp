@@ -1,15 +1,7 @@
 <template>
     <div>
         <div class="topbar topbar-dark">
-          <button class="btn-back topbar__left"></button>
-<!--            <img-->
-<!--                src="../../assets/images/sprite.svg#arrow-left"-->
-<!--                class="topbar__left"-->
-<!--                alt="back"-->
-<!--                width="10"-->
-<!--                height="17"-->
-<!--                @click="toLoginPage"-->
-<!--            >-->
+          <button class="btn btn-back topbar__left" @click="toLoginPage"></button>
             <span class="topbar__title topbar__left">Сброс пароля</span>
         </div>
         <forgot-password-form />

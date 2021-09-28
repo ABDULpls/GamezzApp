@@ -22,17 +22,15 @@
   background: #161f39;
 }
 
-.topbar button {
-  /* width: auto;
-  height: auto; */
+.topbar .btn {
   border-radius: 0%;
 }
 
-.topbar button:last-child {
+.topbar .btn:last-child {
   margin-left: 12px;
 }
 
-.topbar button:first-child {
+.topbar .btn:first-child {
   padding-right: 18px;
 }
 

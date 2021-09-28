@@ -3,13 +3,13 @@
         <transition name="modal" appear>
             <div class="overlay" v-if="isOpen">
                 <div class="modal">
-                    <img src="../../assets/images/sprite.svg#close" width="17" height="17" alt="close" class="modal__close" @click="close">
+                  <button class="btn btn-close modal__close" @click="close"></button>
                     <span class="modal__title">
                         <slot name="title">Оцените игру Дурак простой</slot>
                     </span>
                     <slot name="body"></slot>
                     <slot name="footer" :close="close">
-                        <button class="modal__button btn-orange">Оценить</button>
+                        <button class="btn modal__button btn-orange">Оценить</button>
                     </slot>
                 </div>
             </div>

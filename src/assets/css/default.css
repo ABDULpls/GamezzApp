@@ -30,7 +30,7 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
-button {
+.btn {
   width: 100%;
   height: 52px;
   border: none;

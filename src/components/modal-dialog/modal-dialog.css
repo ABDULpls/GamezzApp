@@ -21,13 +21,11 @@
 }
 
 .modal__close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+  margin-left: auto;
 }
 
 .modal__title {
-  margin-top: 40px;
+  margin-top: 20px;
   text-align: center;
 }
 

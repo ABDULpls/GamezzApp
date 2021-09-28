@@ -222,8 +222,13 @@
 }
 
 .fame__nav {
+  width: auto;
   margin: 3vh 12px;
   display: inline-block;
+}
+
+.fame__nav:disabled {
+  opacity: .6;
 }
 
 .fame__fwd::after {

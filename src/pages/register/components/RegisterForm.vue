@@ -40,7 +40,7 @@
                 :readonly="readonly"
             >
         </label>
-        <button type="submit" class="btn-orange">Зарегистрироваться</button>
+        <button type="submit" class="btn btn-orange">Зарегистрироваться</button>
         <input
             type="checkbox"
             class="checkbox__input"

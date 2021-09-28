@@ -6,7 +6,7 @@
             </template>
         </modal-dialog>
 
-        <button class="border-gradient">Играть как гость</button>
+        <button class="btn border-gradient">Играть как гость</button>
         <span class="line-heading">Войти через соцсети</span>
         <div class="society">
             <div class="society__item vk"></div>
@@ -18,7 +18,7 @@
         <login-form @submit:login="onSubmitLoginForm" />
 
         <span class="line-heading" @click="modal = true">Еще нет аккаунта?</span>
-        <button class="btn-string enter__btn" @click="toRegisterPage">
+        <button class="btn btn-string enter__btn" @click="toRegisterPage">
             Зарегистрироваться
         </button>
     </div>
