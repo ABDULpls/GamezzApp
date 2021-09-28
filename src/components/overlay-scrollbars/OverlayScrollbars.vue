@@ -5,12 +5,6 @@ import OverlayScrollbars from 'overlayscrollbars/js/OverlayScrollbars';
 export default {
     name: 'OverlayScrollbars',
 
-    data() {
-        return {
-            //instance: null,
-        };
-    },
-
     props: {
         options: {
             type: Object,
@@ -27,7 +21,7 @@ export default {
         this.$emit('init', this.instance);
     },
 
-    beforeUnmount() {
+    unmounted() {
         this.$emit('destroy', this.instance);
         this.instance.destroy();
         this.instance = null;

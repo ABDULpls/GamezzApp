@@ -64,6 +64,8 @@ export default {
             localStorage.removeItem(USER_STORAGE_KEY);*/
 
             localStorage.removeItem(USER_STORAGE_KEY);
+
+            return true;
         },
 
         async forgot({commit}, data) {

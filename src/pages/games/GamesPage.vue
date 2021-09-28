@@ -1,13 +1,8 @@
 <template>
     <div>
         <h1 class="page-title">Игры</h1>
-        <div class="miniprofile miniprofile-fix">
-            <span class="miniprofile__level">{{ me.level }}</span>
-            <img class="miniprofile__icon" src="https://cdn.gamezz.io/avatars/d/s/32719_180x180.png" alt="pic" width="35"
-                 height="35">
-            <span class="miniprofile__results stars">{{ normalizeNumber(me.rating) }}</span>
-            <span class="miniprofile__results crystals">{{ normalizeNumber(me.crystals) }}</span>
-        </div>
+
+        <user-widget :user="me" fixed />
 
         <scroll-menu
             :items="gameCategories"
@@ -23,6 +18,8 @@ import {mapState} from 'vuex';
 
 import GameList from './components/GameList.vue';
 import ScrollMenu from './components/ScrollMenu.vue';
+import UserWidget from '../../components/ui/UserWidget.vue';
+
 import {normalizeNumber} from '../../utils/utils';
 
 export default {
@@ -30,6 +27,7 @@ export default {
     components: {
         GameList,
         ScrollMenu,
+        UserWidget,
     },
     data() {
         return {

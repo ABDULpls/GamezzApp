@@ -1,5 +1,8 @@
 <template>
-    <overlay-scrollbars class="os-host-scroll-x" @init="onInitOverlayScrollbars">
+    <overlay-scrollbars
+        class="os-host-scroll-x"
+        @init="onInitOverlayScrollbars"
+    >
         <div
             v-for="(item, idx) in items"
             class="os-host-scroll-x__item"

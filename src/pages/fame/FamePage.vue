@@ -2,7 +2,7 @@
     <div>
         <h1 class="page-title">Зал Славы</h1>
 
-        <user-widget :user="me" />
+        <user-widget :user="me" fixed />
 
         <span class="fame-mode" @click="filtersScreen = true">Общий рейтинг</span>
 
@@ -19,40 +19,30 @@
                 :index="idx"
             />
 
-            <div class="fame__btns">
-                <span class="fame__btn">1-50</span>
-                <span class="fame__btn fame__btn-active">51-100</span>
-                <span class="fame__btn">101-150</span>
-                <span class="fame__bts">...</span>
-                <span class="fame__btn">501-550</span>
-            </div>
-            <span class="fame__nav fame__back">Назад</span>
-            <span class="fame__nav fame__fwd">Вперед</span>
+            <fame-pagination />
         </div>
 
-        <screen-slider v-model:is-open="filtersScreen">
-            <template #title>Выбрать рейтинг</template>
-            <template #default>
-                <fame-filters @update:item="onChangeFilterItem" />
-            </template>
-        </screen-slider>
+        <fame-screen-slider
+            v-model:is-open="filtersScreen"
+            @update:filter="onChangeFilterItem"
+        />
     </div>
 </template>
 
 <script>
 import {mapState} from 'vuex';
 
-import ScreenSlider from '../../components/screen-slider/ScreenSlider.vue';
+import FameScreenSlider from './components/FameScreenSlider.vue';
 import PlayersListItem from './components/FamePlayersItem.vue';
-import FameFilters from './components/FameFilters.vue';
 import UserWidget from '../../components/ui/UserWidget.vue';
+import FamePagination from './components/FamePagination.vue';
 
 export default {
     name: 'FamePage',
     components: {
         PlayersListItem,
-        ScreenSlider,
-        FameFilters,
+        FameScreenSlider,
+        FamePagination,
         UserWidget,
     },
     data() {
@@ -71,6 +61,7 @@ export default {
     methods: {
         onChangeFilterItem(item) {
             // request by item.slug
+            console.log(item);
         },
     },
 

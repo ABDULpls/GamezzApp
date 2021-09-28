@@ -25,9 +25,7 @@ export default {
             menu: PAGE_FOOTER_MENU,
         }
     },
-    computed: {
-
-    },
+    computed: {},
 
 };
 </script>

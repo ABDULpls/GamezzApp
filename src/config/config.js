@@ -25,6 +25,6 @@ export const PAGE_FOOTER_MENU = [
     {
         label: 'Еще',
         className: 'footer-more',
-        routeName: null,
+        routeName: 'ProfilePreviewPage',
     },
 ];

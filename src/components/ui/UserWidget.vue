@@ -1,5 +1,5 @@
 <template>
-    <div class="miniprofile miniprofile-fix">
+    <div class="miniprofile" :class="classes">
         <span class="miniprofile__level">{{ user.level }}</span>
         <img class="miniprofile__icon"
              :src="user.avatar"
@@ -19,6 +19,18 @@ export default {
         user: {
             type: Object,
             required: true,
+        },
+
+        fixed: {
+            type: Boolean,
+            default: false,
+        }
+    },
+    computed: {
+        classes() {
+            return {
+                'miniprofile-fix': this.fixed,
+            }
         }
     },
     methods: {

@@ -54,7 +54,7 @@
   margin-left: 6px;
   width: 10px;
   height: 7px;
-  background: url(../../assets/sprite.svg#chat-mode);
+  background: url(../../assets/images/sprite.svg#chat-mode);
 }
 
 .topbar__left {
@@ -120,17 +120,17 @@
 
 .dropdown-soundoff::before {
   height: 17px;
-  background: url(../../assets/sprite.svg#dropdown-soundoff) no-repeat;
+  background: url(../../assets/images/sprite.svg#dropdown-soundoff) no-repeat;
 }
 
 .dropdown-rules::before {
   height: 19px;
-  background: url(../../assets/sprite.svg#dropdown-rules) no-repeat;
+  background: url(../../assets/images/sprite.svg#dropdown-rules) no-repeat;
 }
 
 .dropdown-records::before {
   height: 16px;
-  background: url(../../assets/sprite.svg#dropdown-cup) no-repeat;
+  background: url(../../assets/images/sprite.svg#dropdown-cup) no-repeat;
 }
 
 .dropdown-restart {
@@ -140,7 +140,7 @@
 
 .dropdown-restart::before {
   height: 22px;
-  background: url(../../assets/sprite.svg#dropdown-restart) no-repeat;
+  background: url(../../assets/images/sprite.svg#dropdown-restart) no-repeat;
 }
 
 .dropdown-exit,
@@ -154,50 +154,50 @@
 
 .dropdown-exit::before {
   height: 18px;
-  background: url(../../assets/sprite.svg#dropdown-exit) no-repeat;
+  background: url(../../assets/images/sprite.svg#dropdown-exit) no-repeat;
 }
 
 .dropdown-msg::before {
   height: 17px;
-  background: url(../../assets/sprite.svg#dropdown-msg) no-repeat;
+  background: url(../../assets/images/sprite.svg#dropdown-msg) no-repeat;
 }
 
 .dropdown-profile::before {
   height: 15px;
-  background: url(../../assets/sprite.svg#dropdown-profile) no-repeat;
+  background: url(../../assets/images/sprite.svg#dropdown-profile) no-repeat;
 }
 
 .dropdown-friends::before {
   height: 15px;
-  background: url(../../assets/sprite.svg#dropdown-friends) no-repeat;
+  background: url(../../assets/images/sprite.svg#dropdown-friends) no-repeat;
 }
 
 .dropdown-hide::before {
   height: 17px;
-  background: url(../../assets/sprite.svg#dropdown-hide) no-repeat;
+  background: url(../../assets/images/sprite.svg#dropdown-hide) no-repeat;
 }
 
 .dropdown-block::before {
   height: 22px;
-  background: url(../../assets/sprite.svg#dropdown-block) no-repeat;
+  background: url(../../assets/images/sprite.svg#dropdown-block) no-repeat;
 }
 
 .dropdown-delete::before {
   height: 16px;
-  background: url(../../assets/sprite.svg#dropdown-delete) no-repeat;
+  background: url(../../assets/images/sprite.svg#dropdown-delete) no-repeat;
 }
 
 .dropdown-block_empty::before {
   height: 22px;
-  background: url(../../assets/sprite.svg#dropdown-blockempty) no-repeat;
+  background: url(../../assets/images/sprite.svg#dropdown-blockempty) no-repeat;
 }
 
 .dropdown-delete_empty::before {
   height: 16px;
-  background: url(../../assets/sprite.svg#dropdown-deleteempty) no-repeat;
+  background: url(../../assets/images/sprite.svg#dropdown-deleteempty) no-repeat;
 }
 
 .dropdown-mail::before {
   height: 22px;
-  background: url(../../assets/sprite.svg#dropdown-mail) no-repeat 0 4px;
+  background: url(../../assets/images/sprite.svg#dropdown-mail) no-repeat 0 4px;
 }

@@ -1,17 +1,28 @@
 <template>
     <div>
-        <h1 class="page-title">Викторина</h1>
+        <page-top-bar game-options>
+            <span class="topbar__title topbar__left">Викторина</span>
+            <user-widget :user="me" />
+        </page-top-bar>
     </div>
 </template>
 
 <script>
+import {mapState} from 'vuex';
+import PageTopBar from '../../components/PageTopBar.vue';
+import UserWidget from '../../components/ui/UserWidget.vue';
 
 export default {
     name: 'QuizPage',
+    components: {UserWidget, PageTopBar},
     data() {
         return {}
     },
-    computed: {},
+    computed: {
+        ...mapState({
+            me: state => state.auth.user,
+        }),
+    },
     methods: {},
     created() {}
 };

@@ -1,19 +1,27 @@
 <template>
-    <div class="list">
-        <span
-            v-for="(item, idx) in items" :key="item.slug"
-            class="list__item"
-            :class="currentItemIndex === idx ? 'text-gradient list-active' : ''"
-            @click="selectItem(idx)"
-        >
-            {{ item.label }}
-        </span>
-    </div>
+    <checkable-list :items="gamesList" :active-index="activeIndex">
+        <template v-slot="{items, currentItemIndex, selectItem}">
+            <div class="list">
+                <span
+                    v-for="(item, idx) in items" :key="item.slug"
+                    class="list__item"
+                    :class="currentItemIndex === idx ? 'text-gradient list-active' : ''"
+                    @click="selectItem(idx)"
+                >
+                    {{ item.label }}
+                </span>
+            </div>
+        </template>
+    </checkable-list>
 </template>
 
 <script>
+import CheckableList from '../../../components/ui/CheckableList.vue';
 export default {
     name: 'FameFilters',
+    components: {
+        CheckableList,
+    },
     props: {
         activeIndex: {
             type: Number,
@@ -22,8 +30,7 @@ export default {
     },
     data() {
         return {
-            currentItemIndex: this.activeIndex,
-            items: [
+            gamesList: [
                 {
                     label: 'Общий рейтинг',
                     slug: 'all',
@@ -51,11 +58,5 @@ export default {
             ]
         }
     },
-    methods: {
-        selectItem(index) {
-            this.currentItemIndex = index;
-            this.$emit('update:item', this.items[this.currentItemIndex]);
-        }
-    }
 };
 </script>

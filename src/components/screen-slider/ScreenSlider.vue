@@ -2,30 +2,19 @@
     <teleport to="body">
         <transition appear name="slide-right">
             <div v-show="isOpen" class="slide-page">
-                <div class="topbar">
-                  <button class="btn-back"></button>
-<!--                    <img-->
-<!--                        src="../../assets/images/sprite.svg#arrow-left"-->
-<!--                        class="topbar__left"-->
-<!--                        alt="back"-->
-<!--                        width="10"-->
-<!--                        height="17"-->
-<!--                        @click="close"-->
-<!--                    >-->
-                    <span class="topbar__title topbar__left">
-                        <slot name="title" />
-                    </span>
-                </div>
-                <slot />
+                <slot name="header" :close="close"></slot>
+                <slot name="content"></slot>
             </div>
         </transition>
     </teleport>
 </template>
 
 <script>
-
 export default {
     name: 'ScreenSlider',
+    emits: {
+        'update:is-open': null,
+    },
     props: {
         isOpen: {
             type: Boolean,
