@@ -26,6 +26,7 @@
             v-model:is-open="filtersScreen"
             @update:filter="onChangeFilterItem"
         />
+
     </div>
 </template>
 

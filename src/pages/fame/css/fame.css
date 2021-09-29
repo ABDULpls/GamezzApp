@@ -231,6 +231,11 @@
   opacity: .6;
 }
 
+.fame__nav_disabled {
+  color: #fafafa;
+  opacity: 0.5;
+}
+
 .fame__fwd::after {
   content: '';
   display: inline-block;

@@ -18,9 +18,14 @@ export default {
         }
     },
 
+    mounted() {
+        this.maxPages = Math.floor(this.maxItems / this.perPage);
+    },
+
     data() {
         return {
             currentPage: this.page,
+            maxPages: 0,
         }
     },
 
@@ -30,6 +35,7 @@ export default {
             next: this.next,
             prev: this.prev,
             currentPage: this.currentPage,
+            maxPages: this.maxPages,
             links: this.links,
         });
     },
@@ -39,8 +45,6 @@ export default {
             const pages = Math.floor(this.maxItems / this.perPage);
             const emptyLink = {label: '...'};
             const links = [];
-
-            console.log(this.currentPage);
 
             links.push({
                 page: 1,
@@ -81,7 +85,7 @@ export default {
         },
 
         next() {
-            if (this.currentPage * this.perPage >= this.maxItems) {
+            if (this.currentPage >= this.maxPages) {
                 return;
             }
 
