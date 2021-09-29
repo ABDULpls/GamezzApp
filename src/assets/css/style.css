@@ -195,14 +195,10 @@ body {
 }
 
 .border-gradient {
-  /* box-shadow: -1px 1px 0px 1px rgba(255, 155, 58, .4),
-    1px -1px 0px 1px rgba(252, 212, 63, .4),
-    -1px -1px 0px 1px rgba(255, 155, 58, .4),
-    1px 1px 0px 1px rgba(252, 212, 63, .4); */
-    box-shadow: inset -1px 1px 0px 1px rgba(255, 155, 58, .2),
-    inset 1px -1px 0px 1px rgba(252, 212, 63, .2),
-    inset -1px -1px 0px 1px rgba(255, 155, 58, .3),
-    inset 1px 1px 0px 1px rgba(252, 212, 63, .3);
+    box-shadow: inset -1px 1px 0 1px rgba(255, 155, 58, .2),
+    inset 1px -1px 0 1px rgba(252, 212, 63, .2),
+    inset -1px -1px 0 1px rgba(255, 155, 58, .3),
+    inset 1px 1px 0 1px rgba(252, 212, 63, .3);
 }
 
 .btn-string {
@@ -245,19 +241,19 @@ body {
 .btn-cup {
   width: 25px;
   height: 22px;
-  background: url(../assets/images/sprite.svg#header-icon) no-repeat;
+  background: url(../images/sprite.svg#header-icon) no-repeat;
 }
 
 .btn-more {
   width: 24px;
   height: 21px;
-  background: url(../assets/images/sprite.svg#game-options) no-repeat;
+  background: url(../images/sprite.svg#game-options) no-repeat;
 }
 
 .btn-edit {
   width: 21px;
   height: 21px;
-  background: url(../assets/images/sprite.svg#profile-edit);
+  background: url(../images/sprite.svg#profile-edit);
 }
 
 .game-solitaire-normal {
