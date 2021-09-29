@@ -26,7 +26,7 @@
             <p class="quiz__topics">
                 <span class="text-gradient">Темы: </span>
                 География, История, Искусство, Мифы Древней Греции
-                <img src="../../assets/images/sprite.svg#open-modal" alt="topics" class="quiz__topics-icon" width="8" height="14">
+              <base-button class="btn btn-right btn-right-grey quiz__topics-icon" />
             </p>
             <div class="quiz__window">
                 <p class="quiz__text"><span class="quiz__text-grey">Вопрос: </span>В какой стране зародился
@@ -42,7 +42,7 @@
             </div>
             <form class="quiz__textmsg">
                 <input class="gamechat__input" type="text" placeholder="Ваш ответ">
-                <img src="../../assets/images/sprite.svg#textbtn" alt="send" class="textbtn">
+                <base-button class="btn textbtn" />
             </form>
         </div>
 

@@ -186,4 +186,6 @@
 .textbtn {
   height: 19px;
   width: 23px;
+  background: url(../../../assets/images/sprite.svg#textbtn);
+  border-radius: 0;
 }

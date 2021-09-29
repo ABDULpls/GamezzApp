@@ -256,6 +256,16 @@ body {
   background: url(../images/sprite.svg#profile-edit);
 }
 
+.btn-right {
+  width: 8px;
+  height: 14px;
+  background: url(../images/sprite.svg#btn-right-white);
+}
+
+.btn-right-grey {
+  background: url(../images/sprite.svg#btn-right-grey);
+}
+
 .game-solitaire-normal {
   background-color: #052833;
 }

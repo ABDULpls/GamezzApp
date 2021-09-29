@@ -305,7 +305,7 @@
       d="M5.96094 9.627V2.95269C5.96094 1.98813 6.9574 1.34582 7.83588 1.74411L15.1965 5.08127C16.2352 5.55221 16.2352 7.02748 15.1965 7.49842L7.83588 10.8356C6.9574 11.2339 5.96094 10.5916 5.96094 9.627Z"
       fill="#DA2A2A" stroke="#DA2A2A" stroke-width="1.32699" />
   </g>
-  <g class="icon" id="open-modal" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g class="icon" id="btn-right-grey" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M0.924777 1.40323L6.56201 7.17625L0.924777 12.9493" stroke-width="2" stroke-linecap="round"
       stroke="#62708f" />
   </g>
@@ -327,7 +327,7 @@
     <path d="M11.9062 3.50735L17.4088 9.0087" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
       stroke="#ffffff" />
   </g>
-  <g class="icon" id="profile-name-icon" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g class="icon" id="btn-right-white" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M1.19727 1.9454L6.47129 7.21976L1.19727 12.4938" stroke-width="2" stroke-linecap="round"
       stroke="#ffffff" />
   </g>
@@ -889,11 +889,6 @@
   <g class="icon" id="more-lang-arrow" width="7" height="10" viewBox="0 0 7 10" fill="none"
     xmlns="http://www.w3.org/2000/svg">
     <path d="M1.41056 1.57562L5.10791 5.36203L1.41056 9.14843" stroke="#A9B5D0" stroke-width="1.5"
-      stroke-linecap="round" />
-  </g>
-  <g class="icon" id="online-players-more" width="8" height="14" viewBox="0 0 8 14" fill="none"
-    xmlns="http://www.w3.org/2000/svg">
-    <path d="M0.924777 1.40323L6.56201 7.17625L0.924777 12.9493" stroke="#62708F" stroke-width="1.5"
       stroke-linecap="round" />
   </g>
   <g class="icon" id="player-gist" width="17" height="14" viewBox="0 0 17 14" fill="none"

@@ -11,13 +11,7 @@
             <span class="profile-card__level">{{ me.level }}</span>
             <div class="profile-card__name">
                 <span>{{ me.name }}</span>
-                <img
-                    src="../../../assets/images/sprite.svg#profile-name-icon"
-                    alt="profile"
-                    class="more__name-icon"
-                    width="8"
-                    height="14"
-                >
+                <base-button class="btn btn-right more__name-icon" />
             </div>
             <span class="profile-card__crystals">{{ normalizeNumber(me.crystals) }}</span>
             <span class="profile-card__gamezz">{{ normalizeNumber(me.golds || 90) }}</span>
@@ -62,11 +56,13 @@ import {mapState} from 'vuex';
 import {normalizeNumber} from '../../../utils/utils';
 
 import LanguagesScreenSlider from './componets/LanguagesScreenSlider.vue';
+import BaseButton from '../../../components/ui/button/BaseButton.vue';
 
 export default {
     name: 'ProfilePreviewPage',
     components: {
         LanguagesScreenSlider,
+        BaseButton,
     },
     data() {
         return {
