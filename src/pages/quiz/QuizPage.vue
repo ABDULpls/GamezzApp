@@ -20,9 +20,9 @@
             <span class="quiz__stat-heading">6 сек</span>
             <span class="quiz__stat-heading">5</span>
             <span class="quiz__stat-heading">450</span>
-            <span class="quiz__stat">сред. время<br>ответа</span>
+            <span class="quiz__stat">сред. время ответа</span>
             <span class="quiz__stat">правильных ответов</span>
-            <span class="quiz__stat">ролучено кристаллов</span>
+            <span class="quiz__stat">получено кристаллов</span>
             <p class="quiz__topics">
                 <span class="text-gradient">Темы: </span>
                 География, История, Искусство, Мифы Древней Греции
