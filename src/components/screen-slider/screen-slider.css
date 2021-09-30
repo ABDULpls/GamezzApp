@@ -11,15 +11,10 @@
 
 .slide-right-enter-active,
 .slide-right-leave-active {
-  transition: left 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 .slide-right-enter-from,
 .slide-right-leave-to {
-  left: -100%;
-}
-
-.slide-right-enter-to,
-.slide-right-leave-from {
-  left: 0;
+  transform: translateX(-100%);
 }

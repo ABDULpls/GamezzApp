@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import {defineComponent, computed} from 'vue';
+import {computed} from 'vue';
 import {DEFAULT_TRANSITION} from './config/config';
 
-export default defineComponent({
+export default {
     name: 'App',
     provide() {
         return {
@@ -35,7 +35,7 @@ export default defineComponent({
         //this.$toastify.warning('Warning message');
     },
 
-});
+};
 </script>
 <style>
 .fade-enter-active,
