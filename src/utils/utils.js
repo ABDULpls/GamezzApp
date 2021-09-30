@@ -15,3 +15,19 @@ export const shuffle = array => {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+
+export function toHumanTime(timeInSeconds) {
+    let minutes = '00';
+    let seconds = timeInSeconds;
+
+    if (timeInSeconds >= 60) {
+        minutes = Math.floor(timeInSeconds / 60);
+        seconds = timeInSeconds % 60;
+
+        minutes = (minutes < 10) ? '0' + minutes : minutes;
+    }
+
+    seconds = (seconds < 10) ? '0' + seconds : seconds;
+
+    return `${minutes}:${seconds}`;
+}
