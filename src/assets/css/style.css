@@ -256,6 +256,12 @@ body {
   background: url(../images/sprite.svg#profile-edit);
 }
 
+.btn-search {
+  width: 21px;
+  height: 21px;
+  background: url(../images/sprite.svg#topbar-search);
+}
+
 .btn-right {
   width: 8px;
   height: 14px;
