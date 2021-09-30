@@ -140,14 +140,15 @@
   z-index: 99;
   background: #161f39;
   text-align: center;
-  border-top-left-radius: 22px;
-  border-top-right-radius: 22px;
+  border-radius: 22px 22px 0 0;
   font-size: 14px;
   font-weight: 300;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.3);
+  padding-bottom: 34px;
 }
 
 .quiz__modal::before {

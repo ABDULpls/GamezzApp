@@ -253,23 +253,57 @@ body {
 .btn-edit {
   width: 21px;
   height: 21px;
-  background: url(../images/sprite.svg#profile-edit);
+  background: url(../images/sprite.svg#profile-edit) no-repeat;
 }
 
 .btn-search {
   width: 21px;
   height: 21px;
-  background: url(../images/sprite.svg#topbar-search);
+  background: url(../images/sprite.svg#topbar-search) no-repeat;
 }
 
 .btn-right {
   width: 8px;
   height: 14px;
-  background: url(../images/sprite.svg#btn-right-white);
+  background: url(../images/sprite.svg#btn-right-white) no-repeat;
 }
 
 .btn-right-grey {
-  background: url(../images/sprite.svg#btn-right-grey);
+  background: url(../images/sprite.svg#btn-right-grey) no-repeat;
+}
+
+.btn-plus {
+  width: 33px;
+  height: 33px;
+  background: url(../images/sprite.svg#friend-add) no-repeat 10px 10px,
+  linear-gradient(248deg, #fcd43f 11%, #ff9b3a 90%);
+  border-radius: 50%;
+}
+
+.btn-remove {
+  width: 30px;
+  height: 30px;
+  background: url(../images/sprite.svg#friend-remove) no-repeat 10px 10px, #161f39;
+  border-radius: 50%;
+}
+
+.btn-delete {
+  width: 30px;
+  height: 30px;
+  background: url(../images/sprite.svg#friend-delete) no-repeat 10px 10px, #161f39;
+  border-radius: 50%;
+}
+
+.btn-block {
+  width: 17px;
+  height: 17px;
+  background: url(../images/sprite.svg#blacklist-add) no-repeat;
+}
+
+.btn-unblock {
+  width: 21px;
+  height: 21px;
+  background: url(../images/sprite.svg#blacklist-remove) no-repeat;
 }
 
 .game-solitaire-normal {
