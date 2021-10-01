@@ -37,6 +37,10 @@
   align-self: flex-end;
 }
 
+.quiz__username::after {
+  background: linear-gradient(90deg,#10152b00, #10152b);
+}
+
 .quiz__raiting {
   grid-column-start: 2;
   font-size: 15px;
@@ -86,7 +90,7 @@
 .quiz__window {
   grid-column: 1/4;
   display: grid;
-  grid-template-columns: 50px auto 1fr;
+  grid-template-columns: 50px 1fr;
   row-gap: 1vh;
   background: #161f39;
   border-radius: 10px;
@@ -101,6 +105,16 @@
 
 .quiz__text-grey {
   color: #a9b5d0;
+}
+
+.quiz__name {
+  align-self: center;
+  font-size: 14px;
+  color: #a9b5d0;
+}
+
+.quiz__name::after {
+  background: linear-gradient(90deg, #161f3900, #161f39);
 }
 
 .quiz__text-green {

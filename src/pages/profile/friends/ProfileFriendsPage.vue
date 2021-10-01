@@ -2,14 +2,7 @@
     <div>
         <div class="topbar">
             <span class="topbar__title topbar__left">Мои друзья</span>
-
-            <img
-                src="../../../assets/images/sprite.svg#topbar-search"
-                alt="search"
-                width="21"
-                height="21"
-                @click="searchFriendsScreen = true"
-            >
+            <button class="btn btn-search" @click="searchFriendsScreen = true"></button>
         </div>
         <div class="friends">
             <div class="friends__details">

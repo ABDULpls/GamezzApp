@@ -1,17 +1,17 @@
 <template>
     <screen-slider :is-open="isOpen" @update:is-open="onUpdateIsOpen">
         <template #header="{close}">
-            <div class="friends__search">
-                <input
-                    type="text"
-                    class="friends__input"
-                    id="friends-input"
-                    v-model="friendName"
-                    placeholder="Введите имя друга"
-                    ref="search"
-                >
-                <label class="friends__label" for="friends-input"></label>
-                <span @click="close">Отмена</span>
+            <div class="topbar__search">
+                <label class="input__label input-search">
+                  <input
+                      type="text"
+                      class="input"
+                      v-model="friendName"
+                      placeholder="Введите имя друга"
+                      ref="search"
+                  >
+                </label>
+                <button class="btn" @click="close">Отмена</button>
             </div>
         </template>
         <template #content>

@@ -9,7 +9,7 @@
             <div class="quiz__user">
                 <img class="quiz__img" src="https://cdn.gamezz.io/avatars/d/s/32719_180x180.png" width="49" height="49"
                      alt="user">
-                <span class="quiz__username">{{ me.name }}</span>
+                <span class="quiz__username name">{{ me.name }}</span>
                 <span class="quiz__raiting text-gradient">#1 в общем рейтинге</span>
                 <span class="quiz__time">{{ currentTimeInHuman }}</span>
                 <progress-bar :time="startTime" />
@@ -37,7 +37,7 @@
                     width="35"
                     height="35"
                 >
-                <span class="gamechat__name">Narntt</span>
+                <span class="name quiz__name">Narntt</span>
                 <span class="gamechat__msg gamechat__mymsg">Франция</span>
                 <p class="quiz__text"><span class="quiz__text-green">Правильный ответ </span>за 12 сек.</p>
                 <p class="quiz__text">Награда: <span class="quiz__crystals">450</span></p>

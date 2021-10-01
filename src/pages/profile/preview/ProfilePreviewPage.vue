@@ -10,7 +10,7 @@
             >
             <span class="profile-card__level">{{ me.level }}</span>
             <div class="profile-card__name">
-                <span>{{ me.name }}</span>
+                <span class="name more__name">{{ me.name }}</span>
                 <base-button class="btn btn-right more__name-icon" />
             </div>
             <span class="profile-card__crystals">{{ normalizeNumber(me.crystals) }}</span>

@@ -144,7 +144,7 @@ body {
 }
 
 .noborder {
-  border: none;
+  border: none !important;
 }
 
 .page-title {

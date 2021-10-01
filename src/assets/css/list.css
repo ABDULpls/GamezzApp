@@ -20,7 +20,7 @@
   width: 11px;
   height: 10px;
   margin-left: 10px;
-  background: url(../assets/sprite.svg#gradient-check) no-repeat;
+  background: url(../images/sprite.svg#gradient-check) no-repeat;
 }
 
 .list__flag {

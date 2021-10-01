@@ -9,16 +9,9 @@
                     height="44"
                     alt="player"
                 >
-                <span class="friends__name">{{ user.name }}</span>
-                <span class="friends__status" :class="statusClasses">{{ user.onlineStatus }}</span>
-                <img
-                    src="../../../../assets/images/sprite.svg#friend-delete"
-                    alt="delete"
-                    width="10"
-                    height="10"
-                    class="friends__icon friends__delete"
-                    @click="removeUser(user)"
-                >
+                <span class="name friends__name">{{ user.name }}</span>
+                <span class="friends__status" :class="statusClasses">{{ user.onlineStatus }}</span>              
+                <button class="btn btn-delete friends__icon" @click="removeUser(user)"></button>
             </div>
         </template>
     </users-list-item>

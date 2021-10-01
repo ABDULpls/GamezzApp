@@ -10,7 +10,7 @@
   position: relative;
   width: 100%;
   display: grid;
-  grid-template-columns: 72px auto auto auto;
+  grid-template-columns: 72px auto auto 1fr;
   justify-content: start;
   align-items: flex-end;
   column-gap: 10px;
@@ -43,10 +43,19 @@
 }
 
 .profile-card__name {
-  grid-column: 2/5;
+  grid-column: 2/-1;
   font-size: 24px;
   display: flex;
   align-items: center;
+}
+
+.more__name {
+  max-width: 90%;
+  background: linear-gradient(90deg, #ffffff 70%, #ffffff00) no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 60vw;
 }
 
 .more__name-icon {
@@ -152,21 +161,6 @@
   height: 10px;
   margin-left: 4px;
   background: url(../../../../assets/images/sprite.svg#more-lang-arrow) no-repeat;
-}
-
-.list-active::after {
-  content: '';
-  display: inline-block;
-  width: 11px;
-  height: 10px;
-  margin-left: 10px;
-  background: url(../../../../assets/images/sprite.svg#gradient-check) no-repeat;
-}
-
-.list__flag {
-  margin: 0 16px -6px 0;
-  box-shadow: 0 0 0 1.5px #ffffff;
-  border-radius: 50%;
 }
 
 .lang-flag {

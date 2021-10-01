@@ -1,0 +1,26 @@
+.blacklist {
+  padding-bottom: 100px;
+}
+
+.blacklist__item {
+  padding: 2vh 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #253153;
+  line-height: 44px;
+  font-size: 16px;
+}
+
+.blacklist__img {
+  border-radius: 50%;
+}
+
+.blacklist__name {
+  flex: 1;
+  font-size: 17px;
+  margin-left: 12px;
+}
+
+.blacklist__name::after {
+  background: linear-gradient(270deg, #10152b 10px, #10152b00);
+}
