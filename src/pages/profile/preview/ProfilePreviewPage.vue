@@ -18,24 +18,24 @@
             <span class="profile-card__stars">{{ normalizeNumber(me.rating) }}</span>
         </div>
         <div class="more__items">
-            <div class="more__item">
-                <img src="../../../assets/images/sprite.svg#more-dialogs" width="33" height="45" alt="pic">
-                <span>Диалоги
+<!--            <router-link class="more__item" tag="div" :to="{name: profileMenu.dialogs.routeName}">
+                <img :src="'../../../assets/images/sprite.svg#' + profileMenu.dialogs.className" width="33" height="45" alt="pic">
+                <span>{{ profileMenu.dialogs.label }}
                     <span class="more__item-active">2</span>
                 </span>
-            </div>
-            <div class="more__item">
+            </router-link>-->
+            <router-link class="more__item" tag="div" :to="{name: profileMenu.friends.routeName}">
                 <img src="../../../assets/images/sprite.svg#more-friends" width="36" height="45" alt="pic">
-                <span>Друзья</span>
-            </div>
-            <div class="more__item">
+                <span>{{ profileMenu.friends.label }}</span>
+            </router-link>
+<!--            <router-link class="more__item" tag="div" :to="{name: profileMenu.dialogs.routeName}">
                 <img src="../../../assets/images/sprite.svg#more-wallet" width="33" height="45" alt="pic">
                 <span>Кошелек</span>
-            </div>
-            <div class="more__item">
+            </router-link>
+            <router-link class="more__item" tag="div" :to="{name: profileMenu.dialogs.routeName}">
                 <img src="../../../assets/images/sprite.svg#more-blacklist" width="35" height="45" alt="pic">
                 <span>Черный список</span>
-            </div>
+            </router-link>-->
         </div>
         <span class="more__exit" @click="logout">Выйти</span>
         <div class="more__lang" @click="languagesScreen = true">
@@ -54,6 +54,7 @@
 <script>
 import {mapState} from 'vuex';
 import {normalizeNumber} from '../../../utils/utils';
+import {PROFILE_MENU} from '../../../config/config';
 
 import LanguagesScreenSlider from './componets/LanguagesScreenSlider.vue';
 import BaseButton from '../../../components/ui/button/BaseButton.vue';
@@ -101,6 +102,9 @@ export default {
         },
         normalizeNumber,
     },
+    created() {
+        this.profileMenu = PROFILE_MENU;
+    }
 };
 </script>
 <style src="./css/more.css"></style>

@@ -17,7 +17,7 @@ import ScreenSlider from '../../../components/screen-slider/ScreenSlider.vue';
 import FameFilters from './FameFilters.vue';
 
 export default {
-    name: 'LanguagesScreenSlider',
+    name: 'FameScreenSlider',
     components: {
         ScreenSlider,
         FameFilters,

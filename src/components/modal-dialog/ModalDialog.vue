@@ -29,10 +29,6 @@ export default {
             default: false,
         }
     },
-    data() {
-        return {}
-    },
-
     methods: {
         open() {
             this.$emit('update:is-open', true);
