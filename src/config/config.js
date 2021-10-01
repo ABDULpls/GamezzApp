@@ -28,3 +28,26 @@ export const PAGE_FOOTER_MENU = [
         routeName: 'ProfilePreviewPage',
     },
 ];
+
+export const PROFILE_MENU = {
+    dialogs: {
+        label: 'Диалоги',
+        className: 'more-dialogs',
+        routeName: 'ProfileDialogsPage',
+    },
+    friends: {
+        label: 'Друзья',
+        className: 'more-friends',
+        routeName: 'ProfileFriendsPage',
+    },
+    wallet:{
+        label: 'Кошелек',
+        className: 'more-wallet',
+        routeName: 'ProfileWalletPage',
+    },
+    blackList:{
+        label: 'Черный список',
+        className: 'more-blacklist',
+        routeName: 'ProfileBlackListPage',
+    },
+};

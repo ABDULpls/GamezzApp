@@ -1,0 +1,120 @@
+.friends {
+  padding-bottom: 100px;
+  font-size: 14px;
+}
+
+.friends__details {
+  display: flex;
+  margin: 3vh 0 2vh;
+}
+
+.friends__heading {
+  padding: 8px 0;
+  margin-right: auto;
+}
+
+.friends__mode {
+  padding: 8px 10px;
+}
+
+.friends__mode-active {
+  background: linear-gradient(247.82deg, #105cdf 11.29%, #1527c8 90.42%);
+  border-radius: 7px;
+}
+
+.friends__item {
+  position: relative;
+  padding: 2vh 0;
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  column-gap: 12px;
+  align-items: center;
+  border-top: 1px solid #253153;
+}
+
+.friends__img {
+  grid-row: 1/3;
+  border-radius: 50%;
+}
+
+.friends__name {
+  position: relative;
+  font-size: 17px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.friends__name::after {
+  position: absolute;
+  right: 0;
+  content: '';
+  height: 100%;
+  width: 30%;
+  background: linear-gradient(90deg, #10152b00, #10152b);
+}
+
+.friends__status {
+  font-size: 13px;
+  color: #62708f;
+}
+
+@media screen and (max-width: 350px) {
+  .friends__status {
+    font-size: 10px;
+  }
+}
+
+.friends__status-online {
+  color: #33e4af;
+}
+
+.friends__icon {
+  grid-column: 3/4;
+  grid-row: 1/3;
+  justify-self: center;
+  box-sizing: content-box;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.friends__delete {
+  stroke: #62708f;
+  background: #161f39;
+}
+
+.friends__add {
+  background: linear-gradient(247.82deg, #fcd43F 11.29%, #ff9b3a 90.42%);
+}
+
+.friends__search {
+  padding: 3vh 0 2vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: #a9b5d0;
+}
+
+.friends__input {
+  flex: 1;
+  margin-right: 6px;
+  padding: 15px 10px 15px 47px;
+  background: #141d35;
+  border: 1px solid #313f62;
+  border-radius: 7px;
+  outline: none;
+}
+
+.friends__input::placeholder {
+  color: #62708f;
+}
+
+.friends__label {
+  position: absolute;
+  display: block;
+  width: 27px;
+  height: 27px;
+  left: 10px;
+  background: url(../../../../assets/images/sprite.svg#input-search) no-repeat;
+}

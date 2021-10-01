@@ -26,9 +26,14 @@ const routes = [
                 component: () => import('../pages/tournaments/TournamentsPage.vue'),
             },
             {
-                path: '/profile-preview',
+                path: '/profile/preview',
                 name: 'ProfilePreviewPage',
                 component: () => import('../pages/profile/preview/ProfilePreviewPage.vue'),
+            },
+            {
+                path: '/profile/friends',
+                name: 'ProfileFriendsPage',
+                component: () => import('../pages/profile/friends/ProfileFriendsPage.vue'),
             },
         ],
     },
