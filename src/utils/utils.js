@@ -31,3 +31,11 @@ export function toHumanTime(timeInSeconds) {
 
     return `${minutes}:${seconds}`;
 }
+
+export function asyncDelay(ms) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve();
+        }, ms);
+    });
+}
