@@ -25,7 +25,7 @@ export default {
             return {
                 'friends__status-online': this.user.isOnline,
             };
-        }
+        },
     },
     methods: {
         addUser(user) {

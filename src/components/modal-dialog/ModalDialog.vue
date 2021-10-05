@@ -1,6 +1,6 @@
 <template>
     <teleport to="body">
-        <transition name="modal" appear>
+        <transition name="fade-scale" appear>
             <div class="overlay" v-if="isOpen">
                 <div class="modal">
                   <button class="btn btn-close modal__close" @click="close"></button>
