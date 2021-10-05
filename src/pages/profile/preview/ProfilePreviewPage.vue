@@ -1,22 +1,13 @@
 <template>
     <div class="more">
-        <div class="profile-card">
-            <img
-                class="profile-card__icon"
-                :src="me.avatar"
-                alt="pic"
-                width="71"
-                height="71"
-            >
-            <span class="profile-card__level">{{ me.level }}</span>
-            <div class="profile-card__name">
-                <span class="name more__name">{{ me.name }}</span>
-                <base-button class="btn btn-right more__name-icon" />
-            </div>
-            <span class="profile-card__crystals">{{ normalizeNumber(me.crystals) }}</span>
-            <span class="profile-card__gamezz">{{ normalizeNumber(me.golds || 90) }}</span>
-            <span class="profile-card__stars">{{ normalizeNumber(me.rating) }}</span>
-        </div>
+        <profile-user-card :user="me">
+            <template #link>
+                <router-link :to="{name: 'ProfilePage'}" v-slot="{navigate}">
+                    <base-button class="btn btn-right more__name-icon" @click="navigate" />
+                </router-link>
+            </template>
+        </profile-user-card>
+
         <div class="more__items">
 <!--            <router-link class="more__item" tag="div" :to="{name: profileMenu.dialogs.routeName}">
                 <img :src="'../../../assets/images/sprite.svg#' + profileMenu.dialogs.className" width="33" height="45" alt="pic">
@@ -31,11 +22,11 @@
 <!--            <router-link class="more__item" tag="div" :to="{name: profileMenu.dialogs.routeName}">
                 <img src="../../../assets/images/sprite.svg#more-wallet" width="33" height="45" alt="pic">
                 <span>Кошелек</span>
-            </router-link>
-            <router-link class="more__item" tag="div" :to="{name: profileMenu.dialogs.routeName}">
+            </router-link>-->
+            <router-link class="more__item" tag="div" :to="{name: profileMenu.blackList.routeName}">
                 <img src="../../../assets/images/sprite.svg#more-blacklist" width="35" height="45" alt="pic">
                 <span>Черный список</span>
-            </router-link>-->
+            </router-link>
         </div>
         <span class="more__exit" @click="logout">Выйти</span>
         <div class="more__lang" @click="languagesScreen = true">
@@ -53,9 +44,9 @@
 
 <script>
 import {mapState} from 'vuex';
-import {normalizeNumber} from '../../../utils/utils';
 import {PROFILE_MENU} from '../../../config/config';
 
+import ProfileUserCard from '../components/ProfileUserCard.vue';
 import LanguagesScreenSlider from './componets/LanguagesScreenSlider.vue';
 import BaseButton from '../../../components/ui/button/BaseButton.vue';
 
@@ -63,6 +54,7 @@ export default {
     name: 'ProfilePreviewPage',
     components: {
         LanguagesScreenSlider,
+        ProfileUserCard,
         BaseButton,
     },
     data() {
@@ -100,11 +92,10 @@ export default {
         onUpdateLanguage(v) {
             console.log(v)
         },
-        normalizeNumber,
     },
     created() {
         this.profileMenu = PROFILE_MENU;
     }
 };
 </script>
-<style src="./css/more.css"></style>
+<style src="../css/more.css"></style>

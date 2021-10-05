@@ -81,7 +81,7 @@
 
 .profile-card__crystals::before {
   width: 20px;
-  background: url(../../../../assets/images/sprite.svg#crystal) no-repeat center;
+  background: url(../../../assets/images/sprite.svg#crystal) no-repeat center;
   filter: drop-shadow(0px 1px 14px rgba(47, 158, 255, 0.5));
 }
 
@@ -93,7 +93,7 @@
 
 .profile-card__stars::before {
   width: 24px;
-  background: url(../../../../assets/images/sprite.svg#star) no-repeat;
+  background: url(../../../assets/images/sprite.svg#star) no-repeat;
   background-size: 22px 22px;
   filter: drop-shadow(0px 0px 10px rgba(254, 212, 61, .5));
 }
@@ -140,7 +140,7 @@
   width: 17px;
   height: 17px;
   margin-right: 10px;
-  background: url(../../../../assets/images/sprite.svg#more-exit) no-repeat;
+  background: url(../../../assets/images/sprite.svg#more-exit) no-repeat;
 }
 
 .more__lang {
@@ -160,7 +160,7 @@
   width: 7px;
   height: 10px;
   margin-left: 4px;
-  background: url(../../../../assets/images/sprite.svg#more-lang-arrow) no-repeat;
+  background: url(../../../assets/images/sprite.svg#more-lang-arrow) no-repeat;
 }
 
 .lang-flag {
