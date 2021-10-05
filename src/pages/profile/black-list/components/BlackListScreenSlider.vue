@@ -1,21 +1,22 @@
 <template>
     <screen-slider :is-open="isOpen" @update:is-open="onUpdateIsOpen">
         <template #header="{close}">
-            <div class="topbar__search">
-                <label class="input__label input-search">
-                  <input
-                      type="text"
-                      class="input"
-                      v-model="friendName"
-                      placeholder="Введите имя друга"
-                      ref="search"
-                  >
-                </label>
+            <div class="blacklist__search">
+                <input
+                    type="text"
+                    class="blacklist__input"
+                    id="friends-input"
+                    v-model="username"
+                    placeholder="Введите имя пользователя"
+                    :readonly="isReadonly"
+                    ref="search"
+                >
+                <label class="blacklist__label" for="friends-input"></label>
                 <button class="btn" @click="close">Назад</button>
             </div>
         </template>
         <template #content>
-            <div class="friends">
+            <div class="blacklist">
                 <transition-group name="fade-slide" duration="500">
                     <search-friend-list-item
                         v-for="(user, idx) in filteredUserList"
@@ -33,10 +34,10 @@
 
 <script>
 import ScreenSlider from '../../../../components/screen-slider/ScreenSlider.vue';
-import SearchFriendListItem from './SearchFriendListItem.vue';
+import SearchFriendListItem from './SearchBlackListItem.vue';
 
 export default {
-    name: 'FriendScreenSlider',
+    name: 'BlackListScreenSlider',
     components: {
         ScreenSlider,
         SearchFriendListItem,
@@ -58,16 +59,17 @@ export default {
     },
     data() {
         return {
-            friendName: '',
+            username: '',
+            isReadonly: true,
         };
     },
     computed: {
         filteredUserList() {
-            if (!this.friendName) {
+            if (!this.username) {
                 return this.usersList;
             }
 
-            const regex = new RegExp(`${this.friendName}`, 'i');
+            const regex = new RegExp(`${this.username}`, 'i');
             return this.usersList.filter(user => regex.test(user.name));
         }
     },
@@ -85,8 +87,11 @@ export default {
     watch: {
         isOpen() {
             if (this.isOpen) {
-                this.friendName = '';
+                this.username = '';
+                this.isReadonly = true;
+
                 this.$nextTick(() => {
+                    this.isReadonly = false;
                     this.$refs.search.focus();
                 });
             }

@@ -127,15 +127,3 @@ export default {
 </script>
 
 <style src="./css/friends.css"></style>
-<style>
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-    transition: all 0.5s ease;
-}
-
-.fade-slide-enter-from,
-.fade-slide-leave-to {
-    transform: translateX(20px);
-    opacity: 0;
-}
-</style>

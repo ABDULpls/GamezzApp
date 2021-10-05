@@ -1,26 +1,43 @@
 <template>
     <users-list-item :user="user">
         <template v-slot="{user, addUser, removeUser, statusClasses}">
-            <div class="friends__item" :class="itemClasses">
+            <div class="blacklist__item">
                 <img
-                    class="friends__img"
+                    class="blacklist__img"
                     :src="user.avatar"
                     width="44"
                     height="44"
                     alt="player"
                 >
-                <span class="name friends__name">{{ user.name }}</span>
-                <span class="friends__status" :class="statusClasses">{{ user.onlineStatus }}</span>
-                <button
-                    v-if="user.isFriend"
+                <span class="blacklist__name">{{ user.name }}</span>
+<!--                <button
+                    v-if="user.isBlocked"
                     class="btn btn-remove friends__icon"
                     @click="removeUser(user)"
-                ></button>
-                <button
+                ></button>-->
+                <img
+                    v-if="user.isBlocked"
+                    src="../../../../assets/images/sprite.svg#blacklist-remove"
+                    alt="remove"
+                    class="blacklist__remove"
+                    @click="removeUser(user)"
+                    width="21"
+                    height="21"
+                >
+                <img
+                    v-else
+                    src="../../../../assets/images/sprite.svg#blacklist-add"
+                    alt="add"
+                    class="blacklist__add"
+                    width="17"
+                    height="16"
+                    @click="addUser(user)"
+                >
+<!--                <button
                     v-else
                     class="btn btn-plus friends__icon"
                     @click="addUser(user)"
-                ></button>
+                ></button>-->
             </div>
         </template>
     </users-list-item>
@@ -29,7 +46,7 @@
 import UsersListItem from '../../../../components/UsersList/UsersListItem.vue';
 
 export default {
-    name: 'SearchUserListItem',
+    name: 'SearchBlackListItem',
     components: {
         UsersListItem,
     },

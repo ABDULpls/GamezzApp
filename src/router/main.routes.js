@@ -26,6 +26,11 @@ const routes = [
                 component: () => import('../pages/tournaments/TournamentsPage.vue'),
             },
             {
+                path: '/profile',
+                name: 'ProfilePage',
+                component: () => import('../pages/profile/ProfilePage.vue'),
+            },
+            {
                 path: '/profile/preview',
                 name: 'ProfilePreviewPage',
                 component: () => import('../pages/profile/preview/ProfilePreviewPage.vue'),
@@ -34,6 +39,11 @@ const routes = [
                 path: '/profile/friends',
                 name: 'ProfileFriendsPage',
                 component: () => import('../pages/profile/friends/ProfileFriendsPage.vue'),
+            },
+            {
+                path: '/profile/black-list',
+                name: 'ProfileBlackListPage',
+                component: () => import('../pages/profile/black-list/ProfileBlackListPage.vue'),
             },
         ],
     },

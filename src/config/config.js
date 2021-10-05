@@ -40,12 +40,12 @@ export const PROFILE_MENU = {
         className: 'more-friends',
         routeName: 'ProfileFriendsPage',
     },
-    wallet:{
+    wallet: {
         label: 'Кошелек',
         className: 'more-wallet',
         routeName: 'ProfileWalletPage',
     },
-    blackList:{
+    blackList: {
         label: 'Черный список',
         className: 'more-blacklist',
         routeName: 'ProfileBlackListPage',
