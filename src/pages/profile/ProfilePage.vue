@@ -34,7 +34,6 @@
 
         <profile-rewards
             :rewards="rewards"
-            :loading="loadingRewards"
         />
 
         <profile-favorite-games
