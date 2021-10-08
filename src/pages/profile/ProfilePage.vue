@@ -40,109 +40,9 @@
             :games="favoriteGames"
         />
 
-        <span class="profile__heading">Инвентарь</span>
-        <div class="profile__tools">
-            <img class="profile__tools-img" src="https://gamezz.ru/images/img14.png" alt="player">
-            <div class="profile__tools-item">
-                <div class="profile__tool">
-                    <img src="../../assets/images/sprite.svg#change" width="16" height="20" alt="refresh">
-                </div>
-                <span>Голова</span>
-            </div>
-            <div class="profile__tools-item">
-                <div class="profile__tool">
-                </div>
-                <span>Шея</span>
-            </div>
-            <div class="profile__tools-item">
-                <div class="profile__tool">
-                    <img src="https://gamezz.ru/images/img15.png" width="30" alt="refresh">
-                </div>
-                <span>Тело</span>
-            </div>
-            <div class="profile__tools-item">
-                <div class="profile__tool">
-                </div>
-                <span>Пояс</span>
-            </div>
-            <div class="profile__tools-item">
-                <div class="profile__tool">
-                </div>
-                <span>Ноги</span>
-            </div>
-            <div class="profile__tools-item">
-                <div class="profile__tool">
-                </div>
-                <span>Ступни</span>
-            </div>
-        </div>
+        <profile-inventory />
 
-        <span class="profile__heading">Последние игры</span>
-        <div class="last-games">
-            <div class="last-games__list">
-                <span class="last-games__list-active">Все</span>
-                <span class="last-games__list-item">Дурак простой</span>
-                <span class="last-games__list-item">Шахматы</span>
-                <span class="last-games__list-item">Пасьянс Паук</span>
-            </div>
-            <div class="last-games__item">
-                <picture class="last-game">
-                    <source srcset="https://cdn.gamezz.io/games/9_optimize.webp" type="image/webp">
-                    <img class="last-game__img" height="55" src="https://cdn.gamezz.io/games/9_optimize.jpg" alt="Дурак Простой"
-                         loading="lazy">
-                </picture>
-                <span class="last-games__title">Дурак простой</span>
-                <img src="../../assets/images/sprite.svg#profile-name-icon" alt="last-game" class="last-games__icon" width="8"
-                     height="14">
-                <span class="last-games__crystals">+200</span>
-                <span class="last-games__date">28.12.20</span>
-                <div class="last-games__gamers">
-                    <div class="last-games__winner">
-                        <img class="last-games__gamer" src="https://cdn.gamezz.io/avatars/k/a/1209_64x64.jpg" width="38" height="38"
-                             alt="player">
-                    </div>
-                    <img class="last-games__gamer" width="38" height="38" src="https://cdn.gamezz.io/avatars/a/i/4854_64x64.jpg"
-                         alt="player">
-                    <img class="last-games__gamer" width="38" height="38" src="https://cdn.gamezz.io/avatars/o/b/1677_64x64.jpg"
-                         alt="player">
-                    <img class="last-games__gamer" width="38" height="38" src="https://cdn.gamezz.io/avatars/z/o/1623_64x64.jpg"
-                         alt="player">
-                </div>
-            </div>
-            <div class="last-games__item">
-                <picture class="last-game">
-                    <source srcset="https://cdn.gamezz.io/games/12_optimize.webp" type="image/webp">
-                    <img class="last-game__img" height="55" src="https://cdn.gamezz.io/games/12_optimize.jpg" alt="Шахматы"
-                         loading="lazy">
-                </picture>
-                <span class="last-games__title">Шахматы</span>
-                <img src="../../assets/images/sprite.svg#profile-name-icon" alt="last-game" class="last-games__icon" width="8"
-                     height="14">
-                <span class="last-games__crystals">+250</span>
-                <span class="last-games__date">28.12.20</span>
-                <div class="last-games__gamers">
-                    <div class="last-games__winner">
-                        <img class="last-games__gamer" src="https://cdn.gamezz.io/avatars/k/a/1209_64x64.jpg" width="38" height="38"
-                             alt="player">
-                    </div>
-                    <img class="last-games__gamer" width="38" height="38" src="https://cdn.gamezz.io/avatars/z/o/1623_64x64.jpg"
-                         alt="player">
-                </div>
-            </div>
-            <div class="last-games__item">
-                <picture class="last-game">
-                    <source srcset="https://cdn.gamezz.io/games/5_optimize.webp" type="image/webp">
-                    <img class="last-game__img" height="55" src="https://cdn.gamezz.io/games/5_optimize.jpg" alt="Пасьянс паук"
-                         loading="lazy">
-                </picture>
-                <span class="last-games__title">Пасьянс паук</span>
-                <img src="../../assets/images/sprite.svg#profile-name-icon" alt="last-game" class="last-games__icon" width="8"
-                     height="14">
-                <span class="last-games__score text-gradient">15 очков</span>
-                <span class="last-games__date">28.12.20</span>
-                <span class="last-games__gamers">Одиночная игра</span>
-            </div>
-        </div>
+        <profile-history-of-games-list :history-of-games="historyOfGames" v-if="historyOfGames.length" />
     </div>
 </template>
 
@@ -152,16 +52,22 @@ import profileApi from '../../api/profile.api';
 import ProfileUserCard from './components/ProfileUserCard.vue';
 import ProfileFavoriteGames from './components/ProfileFavoriteGames.vue';
 import ProfileRewards from './components/ProfileRewards.vue';
+import ProfileInventory from './components/ProfileInventory.vue';
+import ProfileHistoryOfGamesList from './components/history-of-games/ProfileHistoryOfGamesList.vue';
+
 export default {
     name: 'ProfilePage',
     components: {
         ProfileUserCard,
         ProfileFavoriteGames,
         ProfileRewards,
+        ProfileInventory,
+        ProfileHistoryOfGamesList,
     },
     data() {
         return {
             favoriteGames: [],
+            historyOfGames: [],
             rewards: [],
 
             loadingFavoriteGames: false,
@@ -198,11 +104,21 @@ export default {
                 this.loadingRewards = false;
             }
         },
+
+        async fetchHistoryOfGames(userId) {
+            try {
+                const response = await profileApi.fetchHistoryOfGames(userId);
+                this.historyOfGames = response.data;
+            } catch (e) {
+                console.log(e)
+            }
+        }
     },
 
     created() {
         this.fetchUserFavoriteGames(this.me.id);
         this.fetchUserRewards(this.me.id);
+        this.fetchHistoryOfGames(this.me.id);
     }
 };
 </script>
