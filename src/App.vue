@@ -9,7 +9,6 @@
 <script>
 import {computed} from 'vue';
 import {DEFAULT_TRANSITION} from './config/config';
-
 export default {
     name: 'App',
     provide() {

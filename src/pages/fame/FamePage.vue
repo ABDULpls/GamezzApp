@@ -19,7 +19,7 @@
                 :index="idx"
             />
 
-            <fame-pagination />
+            <fame-pagination @update:pagination="test" />
         </div>
 
         <fame-screen-slider
@@ -60,6 +60,9 @@ export default {
         }),
     },
     methods: {
+    	test(e) {
+			console.log(e);
+		},
         onChangeFilterItem(item) {
             // request by item.slug
             console.log(item);

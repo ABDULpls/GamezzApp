@@ -1,42 +1,49 @@
 <template>
-    <teleport to="body">
-        <transition name="fade-scale" appear>
-            <div class="overlay" v-if="isOpen">
-                <div class="modal">
-                  <button class="btn btn-close modal__close" @click="close"></button>
-                    <span class="modal__title">
-                        <slot name="title">Оцените игру Дурак простой</slot>
+	<teleport to="body">
+		<transition name="fade" appear>
+			<div class="overlay" v-if="isOpen">
+				<click-outside :handler="close">
+					<div class="modal">
+						<button class="btn btn-close modal__close" @click.self.prevent.stop="close"></button>
+						<span class="modal__title">
+                        <slot name="title">Оцените игру</slot>
                     </span>
-                    <slot name="body"></slot>
-                    <slot name="footer" :close="close">
-                        <button class="btn modal__button btn-orange">Оценить</button>
-                    </slot>
-                </div>
-            </div>
-        </transition>
-    </teleport>
+						<slot name="body"></slot>
+					</div>
+				</click-outside>
+			</div>
+		</transition>
+	</teleport>
 </template>
 
 <script>
+import ClickOutside from "../ClickOutside.vue";
+
 export default {
-    name: 'ModalDialog',
-    emits: {
-        'update:is-open': null
-    },
-    props: {
-        isOpen: {
-            type: Boolean,
-            default: false,
-        }
-    },
-    methods: {
-        open() {
-            this.$emit('update:is-open', true);
-        },
-        close() {
-            this.$emit('update:is-open', false);
-        }
-    }
+	name: 'ModalDialog',
+	components: {
+		ClickOutside
+	},
+	emits: {
+		'update:is-open': null
+	},
+	props: {
+		isOpen: {
+			type: Boolean,
+			default: false,
+		}
+	},
+	methods: {
+		open() {
+			this.$emit('update:is-open', true);
+			console.log('emit open');
+		},
+		close() {
+			this.$nextTick();
+			this.$emit('update:is-open', false);
+			console.log('emit close');
+		}
+	}
 };
 </script>
 <style src="./modal-dialog.css"></style>

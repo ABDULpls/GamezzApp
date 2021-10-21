@@ -91,6 +91,7 @@ export default {
             // request
             user.isBlocked = true;
             this.blackList.push(user);
+			this.$nextTick()
         },
 
         onRemoveUser(user) {

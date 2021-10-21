@@ -1,0 +1,371 @@
+.wallet {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 100px;
+}
+
+.wallet__heading {
+  font-weight: 300;
+  width: 100%;
+  margin: 3vh 0 1vh;
+}
+
+.wallet__item {
+  width: 48%;
+  height: 150px;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  background: #161f39;
+  border-radius: 10px;
+  overflow: hidden;
+  padding-top: 20px;
+  margin-bottom: 2vh;
+}
+
+.wallet__mode {
+  font-size: 14px;
+}
+
+.wallet__balance {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.balance-gamezz::before {
+  width: 42px;
+  background: url(https://cdn.gamezz.io/mobile/gazCoin.png);
+}
+
+.balance-crystals::before {
+  width: 20px;
+  background: url(https://cdn.gamezz.io/mobile/crystal.png) no-repeat center;
+}
+
+.wallet__balance::before {
+  content: '';
+  display: inline-block;
+  height: 52px;
+  margin-right: 8px;
+  background-size: cover;
+}
+
+.wallet__buy {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 13px;
+  color: #10152b;
+  background: linear-gradient(247.82deg, #FF9B3A 11.29%, #FCD43F 90.42%);
+  align-self: flex-end;
+}
+
+.wallet__pay {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 46px auto;
+  grid-template-rows: 56px;
+  gap: 18px;
+  align-items: center;
+  justify-items: center;
+  fill: #62708f;
+  color: #62708f;
+}
+
+.wallet__pay::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 46px;
+  height: 46px;
+  background: #161f39;
+  left: 0;
+  border-radius: 50%;
+}
+
+.wallet__pay:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 32px;
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 3px solid #10152B;
+  border-radius: 50%;
+  background: url(../../../../assets/images/sprite.svg#wallet-pay) no-repeat 4px 4px, linear-gradient(247.82deg, #FCD43F 11.29%, #FF9B3A 90.42%);
+}
+
+.wallet__pay:hover {
+  fill: #ffffff;
+  color: #ffffff;
+}
+
+.wallet-card {
+  width: 20px;
+  height: 14px;
+  z-index: 1;
+}
+
+.wallet-ym {
+  width: 18px;
+  height: 20px;
+  z-index: 1;
+}
+
+.wallet__pay-text {
+  justify-self: start;
+  font-size: 14px;
+}
+
+.wallet__history {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 26px 30px 24px 20px;
+  align-content: flex-start;
+  border-top: 1px solid #253153;
+  padding: 3vh 0;
+}
+
+.wallet__order {
+  text-transform: uppercase;
+}
+
+.wallet__price {
+  text-align: right;
+  font-weight: 300;
+}
+
+.wallet__details,
+.wallet__method {
+  font-size: 13px;
+  color: #a9b5d0;
+}
+
+.wallet__method {
+  display: flex;
+  align-items: center;
+}
+
+.wallet__method::before {
+  content: '';
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.history-card::before {
+  width: 20px;
+  height: 14px;
+  background: url(https://cdn.gamezz.io/mobile/card.png) no-repeat;
+}
+
+.history-ym::before {
+  width: 18px;
+  height: 20px;
+  background: url(https://cdn.gamezz.io/mobile/yad.png) no-repeat;
+}
+
+.wallet__status {
+  font-size: 14px;
+  text-align: right;
+}
+
+.wallet__status-done {
+  color: #33e4af;
+}
+
+.wallet__status-cancel {
+  color: #f5540f;
+}
+
+.wallet__hash {
+  grid-column: 1/3;
+  font-size: 13px;
+  color: #62708f;
+}
+
+.buy {
+  padding: 7% 0;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.buy__item {
+  position: relative;
+  width: 100%;
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px 0 68px;
+  margin: 1.5vh 0;
+  background: #161f39;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.buy__crystal-1::before {
+  background: url(https://gamezz.com/images/crystal-pack2.png);
+}
+
+.buy__crystal-2::before {
+  background: url(https://gamezz.com/images/crystal-pack3.png);
+}
+
+.buy__crystal-3::before {
+  background: url(https://gamezz.com/images/crystal-pack4.png);
+}
+
+.buy__crystal-4::before {
+  background: url(https://gamezz.com/images/crystal-pack5.png);
+}
+
+.buy__crystal-5::before {
+  background: url(https://gamezz.com/images/crystal-pack6.png);
+}
+
+.buy__gamezz-1::before {
+  background: url(https://gamezz.com/images/gamezzz-pack2.png);
+}
+
+.buy__gamezz-2::before {
+  background: url(https://gamezz.com/images/gamezzz-pack3.png);
+}
+
+.buy__gamezz-3::before {
+  background: url(https://gamezz.com/images/gamezzz-pack4.png);
+}
+.buy__gamezz-4::before {
+  background: url(https://gamezz.com/images/gamezzz-pack5.png);
+}
+.buy__gamezz-5::before {
+  background: url(https://gamezz.com/images/gamezzz-pack6.png);
+}
+
+.buy__item::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+}
+
+.buy__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 37px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.btn-gamezz::before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 4px;
+  background: url(https://gamezz.com/images/gamezzz-pack2.png);
+  background-size: cover;
+}
+
+.buy-gamezz::after {
+  content: 'GAMEZZ';
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 4px;
+}
+
+.buy__bonus {
+  font-size: 14px;
+}
+
+.gamezz-bonus::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 17px;
+  margin-bottom: -3px;
+  background: url(https://gamezz.com/images/gamezzz-pack2.png);
+  background-size: cover;
+}
+
+.buy-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #161f39;
+  padding: 20px;
+  margin-top: 4vh;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.buy-modal__heading {
+  font-size: 14px;
+}
+
+.buy-modal__crystals,
+.buy-modal__gamezz {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.buy-modal__crystals::before {
+  content: '';
+  display: inline-block;
+  width: 68px;
+  height: 68px;
+  margin-right: 12px;
+  background: url(https://gamezz.com/images/crystal-pack3.png);
+  background-size: cover;
+}
+
+.buy-modal__gamezz::before {
+  content: '';
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin-right: 8px;
+  background: url(https://gamezz.com/images/gamezzz-pack3.png);
+  background-size: cover;
+}
+
+.buy-modal__btn {
+  margin: 2vh 0;
+}
+
+.buy-modal__text {
+  color: #a9b5d0;
+  margin-bottom: 1vh;
+}
+
+.buy-modal__price {
+  display: flex;
+  align-items: center;
+}
+
+.buy-modal__price::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
+  background: url(https://gamezz.com/images/gamezzz-pack2.png);
+  background-size: cover;
+}

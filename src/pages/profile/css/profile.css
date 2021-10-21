@@ -108,7 +108,7 @@
   width: 8px;
   height: 10px;
   margin-right: 4px;
-  background: url(../assets/sprite.svg#fame-up) no-repeat;
+  background: url(../../../assets/images/sprite.svg#fame-up) no-repeat;
   background-size: cover;
 }
 
@@ -120,8 +120,8 @@
   display: flex;
   align-items: center;
   margin-left: auto;
-  font-family: 'Rubik-flex';
-  font-variation-settings: "wght"700;
+  font-family: 'Rubik-flex', serif;
+font-weight: 700;
 }
 
 .profile__top100::before {
@@ -129,7 +129,7 @@
   display: inline-block;
   width: 19px;
   height: 19px;
-  background: url(../assets/sprite.svg#profile-cup) no-repeat;
+  background: url(../../../assets/images/sprite.svg#profile-cup) no-repeat;
 }
 
 .profile__stat-details {
@@ -324,15 +324,14 @@
   width: 16px;
   height: 25px;
   margin-right: 4px;
-  background: url(../assets/sprite.svg#crystal) no-repeat;
-  filter: drop-shadow(0px 1.10088px 14.3115px rgba(47, 158, 255, 0.53));
+  background: url(../../../assets/images/sprite.svg#crystal) no-repeat;
+  filter: drop-shadow(0px 1px 14px rgba(47, 158, 255, 0.53));
 }
 
 .last-games__score {
   font-size: 14px;
-  font-family: 'Rubik-flex';
-  font-variation-settings: "wght"500;
-}
+  font-family: 'Rubik-flex', serif;
+font-weight: 500}
 
 .last-games__date {
   font-size: 13px;
@@ -366,7 +365,7 @@
   position: absolute;
   left: -6px;
   bottom: -8px;
-  background: url(../assets/sprite.svg#top1) no-repeat;
+  background: url(../../../assets/images/sprite.svg#top1) no-repeat;
 }
 
 .last-games__winner::after {

@@ -12,7 +12,7 @@
 <script>
 
 export default {
-    name: 'ModalRate',
+    name: 'GameRatingStars',
     emits: {
         'userRate': null,
     },

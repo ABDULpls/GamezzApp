@@ -2,7 +2,7 @@
     <div>
         <modal-dialog v-model:is-open="modal" v-if="modal">
             <template #body>
-                <modal-rate />
+                <game-rating-stars />
             </template>
         </modal-dialog>
 
@@ -16,8 +16,8 @@
         <span class="line-heading">Войти через Gamezz id</span>
 
         <login-form @submit:login="onSubmitLoginForm" />
-
-        <span class="line-heading" @click="modal = true">Еще нет аккаунта?</span>
+<!--	зачем это в нижнем спане	@click="modal = true"-->
+        <span class="line-heading" >Еще нет аккаунта?</span>
         <button class="btn btn-string enter__btn" @click="toRegisterPage">
             Зарегистрироваться
         </button>
@@ -28,14 +28,14 @@
 import {defineAsyncComponent} from 'vue';
 
 import LoginForm from './components/LoginForm.vue';
-import ModalRate from '../../components/ModalRate.vue';
+import GameRatingStars from '../../components/GameRatingStars.vue';
 
 export default {
     name: 'LoginPage',
     inject: ['toRegisterPage'],
     components: {
         LoginForm,
-        ModalRate,
+        GameRatingStars,
         ModalDialog: defineAsyncComponent(() =>
             import('../../components/modal-dialog/ModalDialog.vue')
         ),

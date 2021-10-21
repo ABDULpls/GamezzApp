@@ -10,7 +10,7 @@
 /* PAGES */
 /*@import './login/login.css';
 @import './games/gamelist/gamelist.css';
-@import './games/gamecreate/gamecreate.css';
+@import './games/gamecreate/select.css';
 @import './games/gamechat/gamechat.css';
 @import './games/dialogs/dialogs.css';
 @import './games/gameroom/room.css';
@@ -140,8 +140,9 @@ body {
 
 .wrapper {
   padding: 0 7%;
-  overflow: hidden;
+  overflow: visible;
 }
+
 
 .noborder {
   border: none !important;
@@ -159,14 +160,14 @@ body {
   }
 }
 
-/*.scroll {
+.scroll {
   display: flex;
   overflow: auto;
   white-space: nowrap;
   margin-top: 2vh;
-}*/
+}
 
-/*.scroll::-webkit-scrollbar {
+.scroll::-webkit-scrollbar {
   height: 3px;
 }
 
@@ -176,7 +177,7 @@ body {
 
 .scroll::-webkit-scrollbar-thumb {
   background: #a9b5d0;
-}*/
+}
 
 .scroll__item {
   list-style: none;
@@ -190,8 +191,8 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: 'Rubik-flex';
-  font-variation-settings: "wght"500;
+  font-family: 'Rubik-flex', serif;
+  font-weight: 500;
 }
 
 .border-gradient {
@@ -236,6 +237,7 @@ body {
   width: 10px;
   height: 17px;
   background: url(../images/sprite.svg#arrow-left) no-repeat;
+  margin-right: 10px;
 }
 
 .btn-cup {
@@ -304,6 +306,53 @@ body {
   width: 21px;
   height: 21px;
   background: url(../images/sprite.svg#blacklist-remove) no-repeat;
+}
+
+.switch {
+  background: #10152b;
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 26px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.switch__checkbox {
+  display: none;
+}
+
+.switch__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #313f62;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.switch__slider::before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #a9b5d0;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+.switch__checkbox:checked+.switch__slider {
+  background-color: #33e4af;
+}
+
+.switch__checkbox:checked+.switch__slider::before {
+  transform: translateX(18px);
+  background: #ffffff;
 }
 
 .game-solitaire-normal {
@@ -440,4 +489,8 @@ body {
 
 .game-mahjong {
   background-color: #832813;
+}
+.flex-v-center {
+  display: flex;
+  align-items: center;
 }

@@ -33,7 +33,7 @@ export const PROFILE_MENU = {
     dialogs: {
         label: 'Диалоги',
         className: 'more-dialogs',
-        routeName: 'ProfileDialogsPage',
+        routeName: 'ChatDialogs',
     },
     friends: {
         label: 'Друзья',

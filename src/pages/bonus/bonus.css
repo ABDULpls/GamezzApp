@@ -1,0 +1,58 @@
+.bonus {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  padding: 0px 10%;
+  background: url(https://cdn.gamezz.io/images/mobile/bonus-bg.png) no-repeat;
+  background-size: 100% 52vh;
+  z-index: 5000;
+}
+
+.bonus__heading {
+  margin-top: 8vh;
+  text-transform: uppercase;
+}
+
+.bonus__icon {
+  display: grid;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 28px;
+}
+
+.bonus__icon::before {
+  content: '';
+  display: block;
+  width: 162px;
+  height: 162px;
+  background: url(https://gamezz.com/images/crystal-pack5.png);
+  background-size: cover;
+}
+
+.bonus__day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 74px;
+  background: url(../../assets/images/sprite.svg#bonus-day) no-repeat 50% 18px;
+  background-size: 125px 46px;
+  color: #10152b;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.bonus__btn {
+  width: auto;
+  padding: 0 25px;
+  margin: 30px auto;
+}
+
+.bonus__text {
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 22px;
+  color: #a9b5d0;
+}
