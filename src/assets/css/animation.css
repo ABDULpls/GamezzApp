@@ -1,0 +1,77 @@
+/* Fade slide to right */
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.5s ease;
+}
+
+.fade-slide-enter-from,
+.fade-slide-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+.fade-scale-enter-active,
+.fade-scale-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fade-scale-enter-from,
+.fade-scale-leave-to {
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+.scale-down-enter-active,
+.scale-down-leave-active {
+  transition: all 0.3s ease;
+}
+
+.scale-down-enter-from,
+.scale-down-leave-to {
+  transform-origin: center top;
+  transform: scaleY(0.3) translatey(-50px);
+  opacity: 0;
+}
+
+/* Slide to top */
+.slide-in-up-enter-active,
+.slide-in-up-leave-active {
+  transition: transform 0.5s ease;
+}
+
+.slide-in-up-enter-from,
+.slide-in-up-leave-to {
+  transform: translateY(100%);
+}
+.slide-in-down-enter-active,
+.slide-in-down-leave-active {
+  transition: transform 0.5s ease;
+}
+
+.slide-in-down-enter-from,
+.slide-in-down-leave-to {
+  transform: translateY(-100%);
+}
+
+/* Fade only */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Fade scale */
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+  transform: scale(0.85);
+}

@@ -1,0 +1,64 @@
+.os-host-scroll {
+  margin-top: 2vh;
+}
+
+.os-host-scroll-x__item {
+  list-style: none;
+  padding: 10px 20px 15px 0;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.os-host-scroll-x__item_active {
+  background: linear-gradient(270deg, #fcd43f 0%, #ff9b3a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Rubik-flex';
+  font-variation-settings: "wght"500;
+}
+
+@media screen and (-webkit-device-pixel-ratio:2) {
+  @media not all and (resolution: 2dppx) {
+    .os-host-scroll-x__item_active {
+      font-variation-settings: "wght"400;
+    }
+  }
+}
+
+@media screen and (-webkit-device-pixel-ratio:3) {
+  @media not all and (resolution: 3dppx){
+    .os-host-scroll-x__item_active {
+      font-variation-settings: "wght"450;
+    }
+  }
+}
+
+.os-host-scroll-x {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.os-host-scroll-x .os-content {
+  display: flex;
+  padding-bottom: 15px;
+
+}
+
+.os-theme-dark > .os-scrollbar-horizontal, .os-theme-light > .os-scrollbar-horizontal {
+  height: 7px;
+}
+
+.os-theme-light > .os-scrollbar > .os-scrollbar-track,
+.os-theme-light > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle {
+  border-radius: 10px;
+}
+
+.os-theme-light > .os-scrollbar > .os-scrollbar-track {
+  background: #313f62;
+}
+
+.os-theme-light > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle {
+  background: #a9b5d0;;
+}

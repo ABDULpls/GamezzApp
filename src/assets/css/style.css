@@ -1,0 +1,496 @@
+/*@import './default.css';*/
+/* MODULES */
+/*@import './miniprofile/miniprofile.css';
+@import './footer/footer.css';
+@import './games/topbar/topbar.css';
+@import './games/choosechat/choosechat.css';
+@import './games/gamemodal/modal-feedback.css';
+@import './chatcollapse/chatcollapse.css';
+@import './alert/alerts.css';*/
+/* PAGES */
+/*@import './login/login.css';
+@import './games/gamelist/gamelist.css';
+@import './games/gamecreate/select.css';
+@import './games/gamechat/gamechat.css';
+@import './games/dialogs/dialogs.css';
+@import './games/gameroom/room.css';
+@import './games/gamerules/gamerules.css';
+@import './games/gamewait/gamewait.css';
+@import './games/onlineplayers/online-players.css';
+@import './games/records/records.css';
+@import './games/result/result.css';
+@import './fame/fame.css';
+@import './more/more.css';
+@import './quiz/quiz.css';
+@import './gameplay/gameplay.css';
+@import './wallet/wallet.css';
+@import './profile/profile.css';
+@import './profile/edit.css';
+@import './friends/friends.css';
+@import './blacklist/blacklist.css';
+@import './tournaments/tournaments.css';*/
+
+@font-face {
+  font-family: 'Rubik-flex';
+  src: url('../fonts/Rubik-VariableFont_wght.ttf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/rubik-v14-latin_cyrillic-300.eot');
+  src: local(''),
+    url('../fonts/rubik-v14-latin_cyrillic-300.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/rubik-v14-latin_cyrillic-300.woff2') format('woff2'),
+    url('../fonts/rubik-v14-latin_cyrillic-300.woff') format('woff'),
+    url('../fonts/rubik-v14-latin_cyrillic-300.ttf') format('truetype'),
+    url('../fonts/rubik-v14-latin_cyrillic-300.svg#Rubik') format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/rubik-v14-latin_cyrillic-regular.eot');
+  src: local(''),
+    url('../fonts/rubik-v14-latin_cyrillic-regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/rubik-v14-latin_cyrillic-regular.woff2') format('woff2'),
+    url('../fonts/rubik-v14-latin_cyrillic-regular.woff') format('woff'),
+    url('../fonts/rubik-v14-latin_cyrillic-regular.ttf') format('truetype'),
+    url('../fonts/rubik-v14-latin_cyrillic-regular.svg#Rubik') format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/rubik-v14-latin_cyrillic-500.eot');
+  src: local(''),
+    url('../fonts/rubik-v14-latin_cyrillic-500.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/rubik-v14-latin_cyrillic-500.woff2') format('woff2'),
+    url('../fonts/rubik-v14-latin_cyrillic-500.woff') format('woff'),
+    url('../fonts/rubik-v14-latin_cyrillic-500.ttf') format('truetype'),
+    url('../fonts/rubik-v14-latin_cyrillic-500.svg#Rubik') format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/rubik-v14-latin_cyrillic-600.eot');
+  src: local(''),
+    url('../fonts/rubik-v14-latin_cyrillic-600.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/rubik-v14-latin_cyrillic-600.woff2') format('woff2'),
+    url('../fonts/rubik-v14-latin_cyrillic-600.woff') format('woff'),
+    url('../fonts/rubik-v14-latin_cyrillic-600.ttf') format('truetype'),
+    url('../fonts/rubik-v14-latin_cyrillic-600.svg#Rubik') format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/rubik-v14-latin_cyrillic-700.eot');
+  src: local(''),
+    url('../fonts/rubik-v14-latin_cyrillic-700.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/rubik-v14-latin_cyrillic-700.woff2') format('woff2'),
+    url('../fonts/rubik-v14-latin_cyrillic-700.woff') format('woff'),
+    url('../fonts/rubik-v14-latin_cyrillic-700.ttf') format('truetype'),
+    url('../fonts/rubik-v14-latin_cyrillic-700.svg#Rubik') format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/rubik-v14-latin_cyrillic-800.eot');
+  src: local(''),
+    url('../fonts/rubik-v14-latin_cyrillic-800.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/rubik-v14-latin_cyrillic-800.woff2') format('woff2'),
+    url('../fonts/rubik-v14-latin_cyrillic-800.woff') format('woff'),
+    url('../fonts/rubik-v14-latin_cyrillic-800.ttf') format('truetype'),
+    url('../fonts/rubik-v14-latin_cyrillic-800.svg#Rubik') format('svg');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/rubik-v14-latin_cyrillic-900.eot');
+  src: local(''),
+    url('../fonts/rubik-v14-latin_cyrillic-900.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/rubik-v14-latin_cyrillic-900.woff2') format('woff2'),
+    url('../fonts/rubik-v14-latin_cyrillic-900.woff') format('woff'),
+    url('../fonts/rubik-v14-latin_cyrillic-900.ttf') format('truetype'),
+    url('../fonts/rubik-v14-latin_cyrillic-900.svg#Rubik') format('svg');
+  font-display: swap;
+}
+
+body {
+  background: #10152b;
+}
+
+.wrapper {
+  padding: 0 7%;
+  overflow: visible;
+}
+
+
+.noborder {
+  border: none !important;
+}
+
+.page-title {
+  font-size: 30px;
+  line-height: 30px;
+  margin-top: 36px;
+}
+
+@media screen and (max-width: 360px) {
+  .page-title {
+    font-size: 22px;
+  }
+}
+
+.scroll {
+  display: flex;
+  overflow: auto;
+  white-space: nowrap;
+  margin-top: 2vh;
+}
+
+.scroll::-webkit-scrollbar {
+  height: 3px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: #313f62;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: #a9b5d0;
+}
+
+.scroll__item {
+  list-style: none;
+  padding: 10px 20px 15px 0;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.scroll__item-active {
+  background: linear-gradient(270deg, #fcd43f 0%, #ff9b3a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Rubik-flex', serif;
+  font-weight: 500;
+}
+
+.border-gradient {
+    box-shadow: inset -1px 1px 0 1px rgba(255, 155, 58, .2),
+    inset 1px -1px 0 1px rgba(252, 212, 63, .2),
+    inset -1px -1px 0 1px rgba(255, 155, 58, .3),
+    inset 1px 1px 0 1px rgba(252, 212, 63, .3);
+}
+
+.btn-string {
+  height: auto;
+  font-size: 16px;
+}
+
+.btn-orange {
+  background: linear-gradient(247.82deg, #FCD43F 11.29%, #FF9B3A 90.42%);
+  color: #10152b;
+  font-weight: 500;
+}
+
+.btn-border {
+  border: 1px solid #313f62;
+}
+
+.btn-blue {
+  background: linear-gradient(247.82deg, #105CDF 11.29%, #1527C8 90.42%);
+  color: #ffffff;
+}
+
+.btn-green {
+  background: linear-gradient(270deg, #01C15B 0%, #53D570 100%);
+  color: #ffffff;
+}
+
+.btn-close {
+  width: 17px;
+  height: 17px;
+  background: url(../images/sprite.svg#close) no-repeat;
+}
+
+.btn-back {
+  width: 10px;
+  height: 17px;
+  background: url(../images/sprite.svg#arrow-left) no-repeat;
+  margin-right: 10px;
+}
+
+.btn-cup {
+  width: 25px;
+  height: 22px;
+  background: url(../images/sprite.svg#header-icon) no-repeat;
+}
+
+.btn-more {
+  width: 24px;
+  height: 21px;
+  background: url(../images/sprite.svg#game-options) no-repeat;
+}
+
+.btn-edit {
+  width: 21px;
+  height: 21px;
+  background: url(../images/sprite.svg#profile-edit) no-repeat;
+}
+
+.btn-search {
+  width: 21px;
+  height: 21px;
+  background: url(../images/sprite.svg#topbar-search) no-repeat;
+}
+
+.btn-right {
+  width: 8px;
+  height: 14px;
+  background: url(../images/sprite.svg#btn-right-white) no-repeat;
+}
+
+.btn-right-grey {
+  background: url(../images/sprite.svg#btn-right-grey) no-repeat;
+}
+
+.btn-plus {
+  width: 33px;
+  height: 33px;
+  background: url(../images/sprite.svg#friend-add) no-repeat 10px 10px,
+  linear-gradient(248deg, #fcd43f 11%, #ff9b3a 90%);
+  border-radius: 50%;
+}
+
+.btn-remove {
+  width: 30px;
+  height: 30px;
+  background: url(../images/sprite.svg#friend-remove) no-repeat 10px 10px, #161f39;
+  border-radius: 50%;
+}
+
+.btn-delete {
+  width: 30px;
+  height: 30px;
+  background: url(../images/sprite.svg#friend-delete) no-repeat 10px 10px, #161f39;
+  border-radius: 50%;
+}
+
+.btn-block {
+  width: 17px;
+  height: 17px;
+  background: url(../images/sprite.svg#blacklist-add) no-repeat;
+}
+
+.btn-unblock {
+  width: 21px;
+  height: 21px;
+  background: url(../images/sprite.svg#blacklist-remove) no-repeat;
+}
+
+.switch {
+  background: #10152b;
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 26px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.switch__checkbox {
+  display: none;
+}
+
+.switch__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #313f62;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.switch__slider::before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #a9b5d0;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+.switch__checkbox:checked+.switch__slider {
+  background-color: #33e4af;
+}
+
+.switch__checkbox:checked+.switch__slider::before {
+  transform: translateX(18px);
+  background: #ffffff;
+}
+
+.game-solitaire-normal {
+  background-color: #052833;
+}
+
+.game-solitaire-klondike {
+  background-color: #00143e;
+}
+
+.game-solitaire-spider {
+  background-color: #220100;
+}
+
+.game-solitaire-spider-2-suits {
+  background-color: #0c022f;
+}
+
+.game-minesweeper {
+  background-color: #880001;
+}
+
+.game-wordsfind {
+  background-color: #32009d;
+}
+
+.game-tetris {
+  background-color: #540455;
+}
+
+.game-sudoku {
+  background-color: #45006a;
+}
+
+.game-chess {
+  background-color: #001972;
+}
+
+.game-backgammon-long {
+  background-color: #061804;
+}
+
+.game-backgammon-short {
+  background-color: #101827;
+}
+
+.game-fool-classic {
+  background-color: #6f1241;
+}
+
+.game-fool-transferable {
+  background-color: #3c1a5b;
+}
+
+.game-checkers {
+  background-color: #8f2800;
+}
+
+.game-2048 {
+  background-color: #050025;
+}
+
+.game-checkers-american {
+  background-color: #902800;
+}
+
+.game-pairs {
+  background-color: #144863;
+}
+
+.game-solitaire-yukon {
+  background-color: #3c0225;
+}
+
+.game-lines {
+  background-color: #110045;
+}
+
+.game-solitaire-addiction-easy {
+  background-color: #9a0058;
+}
+
+.game-solitaire-klondike-3-cards {
+  background-color: #3a2466;
+}
+
+.game-solitaire-scorpion {
+  background-color: #95010d;
+}
+
+.game-numbers-19 {
+  background-color: #2e1f63;
+}
+
+.game-yatzy {
+  background-color: #031d1b;
+}
+
+.game-sea-battle {
+  background-color: #071d3a;
+}
+
+.game-solitaire-addiction {
+  background-color: #6c0309;
+}
+
+.game-solitaire-klondike-double {
+  background-color: #3e0069;
+}
+
+.game-solitaire-algerian-patience {
+  background-color: #00502e;
+}
+
+.game-gomoku {
+  background-color: #0f1d44;
+}
+
+.game-reversi {
+  background-color: #044553;
+}
+
+.game-domino {
+  background-color: #2d2266;
+}
+
+.game-solitaire-alternation {
+  background-color: #421678;
+}
+
+.game-solitaire-pyramid {
+  background-color: #0e044b;
+}
+
+.game-mahjong {
+  background-color: #832813;
+}
+.flex-v-center {
+  display: flex;
+  align-items: center;
+}

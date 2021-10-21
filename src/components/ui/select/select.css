@@ -1,0 +1,69 @@
+
+
+.select {
+    position: relative;
+    min-width: 125px;
+    display: inline-block;
+    padding: 12px 15px;
+}
+
+.select, .select__dropdown {
+    background: #313f62;
+    border-radius: 7px;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.select--active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    z-index: 500;
+}
+
+
+
+.select__option {
+    padding: 8px 15px;
+    background: #2a3959;
+}
+
+.select__option--active {
+    background-color: #414f72;
+}
+
+.select__dropdown {
+    right: 0;
+    width: 100%;
+    background-color: #313f62;
+    top: 100%;
+    position: absolute;
+    overflow: hidden;
+    transform-origin: center top;
+    transition: transform 200ms;
+    transform: scaleY(0);
+}
+
+.select__dropdown--active {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    transform: scaleY(1);
+}
+
+.select::after {
+    content: '';
+    width: 10px;
+    top:17px;
+    height: 6px;
+    background: url(../../../assets/images/sprite.svg#select-arrow) no-repeat;
+    position: absolute;
+    right: 10px;
+    transition: transform 200ms;
+
+}
+.select--active::after {
+    transform: rotate(180deg);
+}
+
