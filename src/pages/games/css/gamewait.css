@@ -1,0 +1,216 @@
+.gamewait {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4vh;
+  align-items: center;
+}
+
+.gamewait-player__details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1vh 0;
+}
+
+.crown::after {
+  content: '';
+  display: inline-block;
+  height: 12px;
+  width: 16px;
+  margin-left: 6px;
+  background: url(../../../assets/images/sprite.svg#crown) no-repeat;
+}
+
+.profile-wait {
+  width: 100%;
+  margin: 5px auto;
+  padding: 6px 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  background: #161f39;
+  color: #ffffff;
+}
+
+.profile-wait__icon {
+  width: 45px;
+  margin-right: 10px;
+  border-radius: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.profile-wait__img {
+  border-radius: 50%;
+}
+
+.profile-wait__level {
+  height: 18px;
+  display: flex;
+  margin-top: -8px;
+  justify-content: center;
+  align-items: center;
+  background: #da2a2a;
+  border: 2px solid #161f39;
+  border-radius: 10px;
+  padding: 1px 5px;
+  font-size: 13px;
+}
+
+.profile-wait__results {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 14px;
+  line-height: 0;
+}
+
+.player-wait {
+  height: 67px;
+  background: #161f39;
+  color: #62708f;
+}
+
+.player-wait__text {
+  display: flex;
+  align-items: center;
+}
+
+.player-wait__text::before {
+  content: '?';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  border: 1px dashed #62708f;
+  font-size: 26px;
+}
+
+.profile-wait__indicator {
+  font-size: 14px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+}
+
+.indicator-wait {
+  color: #a9b5d0;
+}
+
+.indicator-wait::before {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 12px;
+  margin-right: 6px;
+  background: url(../../../assets/images/sprite.svg#waiting-icon) no-repeat;
+}
+
+.indicator-ready {
+  color: #33e4af;
+}
+
+.indicator-ready::before {
+  content: '';
+  display: inline-block;
+  width: 11px;
+  height: 8px;
+  margin-right: 8px;
+  background: url(../../../assets/images/sprite.svg#ready-icon) no-repeat;
+}
+
+.player-wait__team {
+  margin-top: 2vh;
+}
+
+.gamewait__team {
+  margin: 1vh auto;
+}
+
+.team-wait {
+  display: flex;
+  align-items: center;
+}
+
+.team-wait::before {
+  content: '';
+  display: inline-block;
+  width: 54px;
+  height: 15px;
+  margin-right: 6px;
+}
+
+.team-wait1::before {
+  background: url(../../../assets/images/sprite.svg#team-wait1) no-repeat;
+}
+
+.team-wait2::before {
+  background: url(../../../assets/images/sprite.svg#team-wait2) no-repeat;
+}
+
+.team-wait3::before {
+  background: url(../../../assets/images/sprite.svg#team-wait3) no-repeat;
+}
+
+.team-wait4::before {
+  background: url(../../../assets/images/sprite.svg#team-wait4) no-repeat;
+}
+
+.team-text {
+  text-align: center;
+  font-weight: 300;
+  margin: 1vh;
+}
+
+.btn-ready {
+  background: transparent;
+  color: #33e4af;
+  border: 1px solid #33e4af;
+}
+
+.btn-ready:disabled {
+  color: #62708f;
+  background: #253153;
+  border: none;
+}
+
+.gamewait__exit {
+  color: #f95959;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gamewait__exit-icon::before {
+  content: '';
+  width: 18px;
+  height: 17px;
+  margin-right: 8px;
+  background: url(../../../assets/images/sprite.svg#gamewait-exit) no-repeat;
+}
+
+.gamewait__input {
+  margin: 5vh 0 3vh;
+}
+
+.gamewait__title {
+  font-size: 32px;
+  margin: 8vh 0 3vh;
+}
+
+.gamewait__text {
+  padding: 0 15%;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.gamewait__btn {
+  margin-top: 20px;
+}

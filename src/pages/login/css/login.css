@@ -1,0 +1,59 @@
+.society {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 21px;
+}
+
+.vk {
+  background: url(https://cdn.gamezz.io/images/mobile/vk.png) no-repeat center #5181B8;
+  background-size: 4.5vh 3vh;
+}
+
+.fb {
+  background: url(https://cdn.gamezz.io/images/mobile/fb.png) no-repeat center #1877F2;
+  background-size: 3vh 4vh;
+}
+
+.gl {
+  background: url(https://cdn.gamezz.io/images/mobile/google.png) no-repeat center #ffffff;
+  background-size: 6vh 5vh;
+}
+
+.society__item {
+  height: 55px;
+  border-radius: 16px;
+}
+
+.enter__savepassword {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.enter__rules {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5px;
+  font-size: 13px;
+  color: #A9B5D0;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 350px) {
+  .enter__rules {
+    font-size: 11px;
+  }
+}
+
+.enter__rules-white {
+  color: #ffffff;
+}
+
+.enter__btn::before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 17px;
+  margin: 0 8px -3px 0;
+  background: url(../../../assets/images/sprite.svg#enter-signup-icon) no-repeat;
+}

@@ -1,0 +1,59 @@
+.gamelist {
+  padding: 15px 0 100px;
+  display: grid;
+  align-content: start;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.gamelist__item {
+  position: relative;
+  height: 88px;
+  padding: 16px 10px;
+  border-radius: 10px;
+  background-position: 100% 0;
+  background-size: contain;
+  background-size: 120px 88px;
+  overflow: hidden;
+}
+
+.gamelist__item:hover {
+  opacity: .8;
+}
+
+.gamelist__img {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.gamelist__game {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.gamelist__title {
+  display: block;
+  width: 60%;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding-left: 3px;
+}
+
+.gamelist__players {
+  height: 20px;
+  display: flex;
+  align-items: flex-end;
+  font-size: 13px;
+  line-height: 95%;
+  font-weight: 300;
+}
+
+.gamelist__players::before {
+  content: '';
+  width: 20px;
+  height: 15px;
+  margin-right: 2px;
+  background: url(../../../assets/images/sprite.svg#gamelist-onlinegamers) no-repeat;
+}
