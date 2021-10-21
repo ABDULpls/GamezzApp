@@ -31,8 +31,8 @@
 							spellcheck="false"
 							:value="newPassword">
 					</label>
-					<span class="edit__check edit__check-active">Минимум 6 символов</span>
-					<span class="edit__check">Состоит из чисел и букв</span>
+					<span :class="validLength" class="edit__check ">Минимум 6 символов</span>
+					<span :class="validSymbols" class="edit__check">Состоит из чисел и букв</span>
 					<label class="edit__label">
 						Повторите пароль:
 						<input @input="newPasswordRepeatInput"
@@ -70,25 +70,31 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		closeEditPassword: Function
 	},
 	data() {
 		return {
 			currentPassword: '',
 			newPassword: '',
 			newPasswordRepeat: '',
+			newPasswordValidLength:false,
+			newPasswordValidSymbols:false,
+
 		};
 	},
 	computed: {
-		...mapState({
-			modalIsOpen: state => state.modalIsOpen
-		})
+		validLength() {
+			return {'edit__check-active': this.newPasswordValidLength}
+		},
+		validSymbols() {
+			return {'edit__check-active' : this.newPasswordValidSymbols}
+		}
 	},
 	watch: {
-		modalIsOpen() {
-			if (!this.modalIsOpen) {
-
-			}
+		newPassword() {
+			this.newPasswordValidLength = this.newPassword.length > 5;
+			const regexN = /[0-9]/ig
+			const regexS= /[\u0410-\u044F]|[a-z]/i
+			this.newPasswordValidSymbols = regexN.test(this.newPassword) && regexS.test(this.newPassword);
 		}
 	},
 
@@ -101,6 +107,7 @@ export default {
 		},
 		newPasswordInput(e) {
 			this.newPassword = e.target.value;
+
 		},
 		newPasswordRepeatInput(e) {
 			this.newPasswordRepeat = e.target.value;

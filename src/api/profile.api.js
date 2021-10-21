@@ -178,5 +178,92 @@ export default {
                 },
             ],
         });
+    },
+
+    async fetchHistoryOfGames(userId) {
+        await asyncDelay(500);
+        return Promise.resolve({
+            data: [
+                {
+                    id: 1,
+                    game: {
+                        id: 9,
+                        slug: 'fool-classic',
+                        name: 'Дурак простой',
+                        image: {
+                            jpg: 'https://cdn.gamezz.io/games/9_optimize.jpg',
+                            webp: 'https://cdn.gamezz.io/games/9_optimize.webp'
+                        }
+                    },
+                    gameType: 'human',
+                    gameDate: '28.01.20',
+                    crystals: '+200',
+                    rating: null,
+                    points: null,
+                    players: [
+                        {
+                            id: 1209,
+                            avatar: 'https://cdn.gamezz.io/avatars/k/a/1209_64x64.jpg',
+                        },
+                        {
+                            id: 4854,
+                            avatar: 'https://cdn.gamezz.io/avatars/a/i/4854_64x64.jpg',
+                        },
+                        {
+                            id: 1677,
+                            avatar: 'https://cdn.gamezz.io/avatars/o/b/1677_64x64.jpg',
+                        },
+                        {
+                            id: 1623,
+                            avatar: 'https://cdn.gamezz.io/avatars/z/o/1623_64x64.jpg',
+                        },
+                    ]
+                },
+                {
+                    id: 2,
+                    game: {
+                        id: 12,
+                        slug: 'chess',
+                        name: 'Шахматы',
+                        image: {
+                            jpg: 'https://cdn.gamezz.io/games/12_optimize.jpg',
+                            webp: 'https://cdn.gamezz.io/games/12_optimize.webp'
+                        }
+                    },
+                    gameType: 'human',
+                    gameDate: '29.01.20',
+                    crystals: '+250',
+                    rating: null,
+                    points: null,
+                    players: [
+                        {
+                            id: 1209,
+                            avatar: 'https://cdn.gamezz.io/avatars/k/a/1209_64x64.jpg',
+                        },
+                        {
+                            id: 4854,
+                            avatar: 'https://cdn.gamezz.io/avatars/a/i/4854_64x64.jpg',
+                        },
+                    ]
+                },
+                {
+                    id: 3,
+                    game: {
+                        id: 5,
+                        slug: 'solitaire-spider',
+                        name: 'Пасьянс паук',
+                        image: {
+                            jpg: 'https://cdn.gamezz.io/games/5_optimize.jpg',
+                            webp: 'https://cdn.gamezz.io/games/5_optimize.webp'
+                        }
+                    },
+                    gameType: 'single',
+                    gameDate: '30.01.20',
+                    crystals: null,
+                    rating: null,
+                    points: '15',
+                },
+            ],
+        });
     }
 };

@@ -21,10 +21,6 @@ export default {
             type: Array,
             default: () => [],
         },
-        loading: {
-            type: Boolean,
-            default: false,
-        }
     },
 };
 </script>
