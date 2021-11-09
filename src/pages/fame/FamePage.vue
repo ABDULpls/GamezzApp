@@ -57,8 +57,22 @@ export default {
     computed: {
         ...mapState({
             me: state => state.auth.user,
+			modalIsOpen: state => state.modalIsOpen
         }),
     },
+	watch: {
+		modalIsOpen(state, prevState){
+			if (state === false && prevState === true)
+				this.filtersScreen = false
+		},
+		filtersScreen() {
+			this.$store.dispatch('setModal', this.filtersScreen)
+			if (this.filtersScreen)
+				document.querySelector('body').style.overflowY = 'hidden';
+			else
+				document.querySelector('body').style.overflowY = 'auto';
+		}
+	},
     methods: {
     	test(e) {
 			console.log(e);

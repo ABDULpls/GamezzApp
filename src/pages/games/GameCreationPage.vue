@@ -101,6 +101,11 @@ export default {
 			rangeProgress: 0,
 		};
 	},
+	watch: {
+		withPassword() {
+			console.log(this.withPassword);
+		}
+	},
 	computed: {
 		singlePlayerClass() {
 			return {' btn-blue': this.isSinglePlayer};

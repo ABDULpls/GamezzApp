@@ -129,7 +129,6 @@ export default {
 				this.filteredRooms = this.game.rooms.filter(el => el.status === this.currentFilter);
 		},
 		rulesScreen() {
-			console.log('modal change');
 			this.$store.dispatch('setModal', this.gameRatingModal || this.onlinePlayersScreen || this.rulesScreen)
 			if (this.rulesScreen)
 				document.querySelector('body').style.overflowY = 'hidden';

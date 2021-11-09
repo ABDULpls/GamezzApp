@@ -34,7 +34,7 @@ export default {
 		const unregisteredRouterGuard = router.beforeEach((to, from, next) => {
 			console.log('state moda');
 			console.log(store.state.modalIsOpen);
-			if (to.name === 'ProfilePage' || to.name === 'ChatDialogs' || to.name === 'ChatGlobal') {
+			if (to.name === 'ProfilePage' /*|| to.name === 'ChatDialogs' || to.name === 'ChatGlobal'*/) {
 				unregisteredRouterGuard();
 				next();
 			console.log(store.state.modalIsOpen);

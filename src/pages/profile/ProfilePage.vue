@@ -45,8 +45,6 @@
             :games="favoriteGames"
         />
 
-        <span class="profile__heading">Инвентарь</span>
-
 		<profile-inventory />
 
 		<profile-history-of-games-list :history-of-games="historyOfGames" v-if="historyOfGames.length" />

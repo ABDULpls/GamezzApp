@@ -65,7 +65,8 @@ export default {
     },
     computed: {
         filteredUserList() {
-            if (!this.username) {
+			this.$nextTick();
+			if (!this.username) {
                 return this.usersList;
             }
 

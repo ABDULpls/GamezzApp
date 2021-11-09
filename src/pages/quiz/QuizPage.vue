@@ -20,10 +20,10 @@
             <span class="quiz__stat">сред. время ответа</span>
             <span class="quiz__stat">правильных ответов</span>
             <span class="quiz__stat">получено кристаллов</span>
-            <p class="quiz__topics">
+            <p @click="toggleCurtain" class="quiz__topics">
                 <span class="text-gradient">Темы: </span>
                 {{ activeSubjectsString }}
-                <base-button class="btn btn-right btn-right-grey quiz__topics-icon" @click="toggleCurtain" />
+                <base-button class="btn btn-right btn-right-grey quiz__topics-icon"  />
             </p>
             <div class="quiz__window">
                 <p class="quiz__text">
@@ -48,8 +48,8 @@
                 </p>
             </div>
             <form class="quiz__textmsg">
-                <input class="gamechat__input" type="text" placeholder="Ваш ответ">
-                <base-button class="btn textbtn" />
+                <input class="gamechat__input" type="text" autocomplete="off" placeholder="Ваш ответ">
+                <base-button class="btn textbtn" @click="" />
             </form>
         </div>
 

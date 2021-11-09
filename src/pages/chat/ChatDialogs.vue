@@ -1,25 +1,28 @@
 <template>
 	<div>
-
 		<div class="topbar">
-    		<span class="topbar__title topbar__left">Чат:&nbsp;
+				<span class="topbar__title topbar__left">Чат:&nbsp;
 		<click-outside :handler="close">
-      			<span @click.stop="toggleChatSelect" class="topbar__title text-gradient chat-mode">Личный</span>
+      			<span @click.stop="toggleChatSelect"
+					  class="topbar__title text-gradient chat-mode">
+					Личный
+				</span>
 				<transition appear name="scale-down" duration="500">
-					<chat-select v-if="chatSelectScreen" :me="me"></chat-select>
+					<chat-select
+							v-if="chatSelectScreen"
+							:chat="chat"
+							:me="me">
+                    </chat-select>
 				</transition>
 		</click-outside>
 			</span>
-
-			<div class="miniprofile">
-				<span class="miniprofile__level">10</span>
-				<img class="miniprofile__icon" src="https://cdn.gamezz.io/avatars/d/s/32719_180x180.png" alt="pic" width="35"
-					 height="35">
-				<span class="miniprofile__results stars">189</span>
-				<span class="miniprofile__results crystals">12.8k</span>
-			</div>
-			<img @click="$router.back()" src="../../assets/images/sprite.svg#close" alt="close" class="topbar__close" width="17" height="17">
+			<user-widget :user="me"/>
+			<button @click="$router.back()" class="btn btn-close"></button>
 		</div>
+
+
+
+
 		<div class="dialogs">
 
 			<router-link tag="button" :to="{name:'ChatPrivate'} ">
@@ -176,18 +179,22 @@
 <script>
 import ChatSelect from "./components/ChatSelect.vue";
 import ClickOutside from "../../components/ClickOutside.vue";
+import UserWidget from "../../components/ui/UserWidget.vue";
 import {mapState} from "vuex";
+import chatApi from "../../api/chat.api";
 
 export default {
 	name: "ChatDialogs",
 	components: {
 		ChatSelect,
-		ClickOutside
+		ClickOutside,
+		UserWidget
 	},
 	data() {
 		return {
 			chatSelectScreen: false,
 			generalChatIsOpen: false,
+			chat: {},
 		};
 	},
 	computed: {
@@ -196,19 +203,28 @@ export default {
 		}),
 	},
 
-
+	created() {
+		this.fetchChat();
+	},
 	methods: {
 		toggleChatSelect() {
 			this.chatSelectScreen = !this.chatSelectScreen;
 		},
 		close() {
-			console.log('closing');
 			this.chatSelectScreen = false;
 		},
 		openGeneralChat() {
-			console.log('gen chat open');
 			this.generalChatIsOpen = true;
-		}
+		},
+		async fetchChat() {
+			try {
+				const response = await chatApi.fetchChat();
+				this.chat = response.data;
+				console.log(this.chat);
+			} catch (err) {
+				console.log(err);
+			}
+		},
 	},
 
 };

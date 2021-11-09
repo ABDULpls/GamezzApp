@@ -1,0 +1,50 @@
+.grouplist {
+  display: grid;
+  align-content: start;
+}
+
+.grouplist__close {
+  margin: 7% 0 0 auto;
+}
+
+.grouplist__item {
+  position: relative;
+  font-size: 16px;
+  line-height: 23px;
+  font-family: 'Rubik-flex';
+  font-variation-settings: "wght"300;
+  padding: 2vh 0;
+  border-bottom: 1px solid #253153;
+}
+
+.grouplist-active {
+  background: linear-gradient(270deg, #fcd43f 0%, #ff9b3a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Rubik-flex';
+  font-variation-settings: "wght"450;
+}
+
+.grouplist-active::after {
+  content: '';
+  display: inline-block;
+  width: 11px;
+  height: 10px;
+  margin-left: 4px;
+  background: url(../../assets/sprite.svg#gradient-check) no-repeat;
+}
+
+.grouplist__mygroup {
+  position: absolute;
+  right: 0;
+  -webkit-text-fill-color: #ffffff;
+  font-size: 13px;
+  line-height: 13px;
+  font-weight: 300;
+  padding: 5px 8px;
+  background: linear-gradient(247.82deg, #105cdf 11.29%, #1527c8 90.42%);
+  border-radius: 13px;
+  font-family: 'Rubik-flex';
+  font-variation-settings: "wght"300;
+}

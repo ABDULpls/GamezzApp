@@ -15,15 +15,16 @@ export default {
 	},
 	methods: {
 		listener(e) {
-			e.preventDefault();
+            // console.log(e.target)
+            // console.log(this.$el)
 			if (e.target === this.$el || this.$el.contains(e.target)) {
 				return;
 			}
 			if (this.$router.currentRoute.value.name === 'GamePage') {
 
-				if (e.target.className === 'overlay' && e.target.children[0].className === 'modal') {
-					this.handler();
-				} else return;
+				if (e.target.className !== 'overlay' || e.target.children[0].className !== 'modal') {
+					return;
+				}
 			}
 
 

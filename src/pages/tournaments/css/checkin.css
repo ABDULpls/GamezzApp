@@ -1,0 +1,98 @@
+.checkin {
+  margin-top: 4vh;
+  display: flex;
+  flex-wrap: wrap;
+  background: #161f39;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.checkin__bg {
+  position: relative;
+  width: 100%;
+  height: 100px;
+}
+
+.checkin__picture {
+  position: absolute;
+  left: 0;
+  transform: scale(-1, 1);
+  overflow: hidden;
+  height: 100px;
+}
+
+.checkin__tournament {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-left: 33%;
+  display: grid;
+  align-content: center;
+}
+
+.checkin__game {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.checkin__start {
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 300;
+  opacity: .6;
+}
+
+.checkin__prize {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 3vh 0;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.checkin__prize::before {
+  content: '';
+  display: block;
+  grid-row: 1/3;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  background: url(https://gamezz.ru/images/crystal-pack5.png) center;
+  background-size: 140%;
+  filter: drop-shadow(0px 0px 13.5335px #468FFD);
+}
+
+.checkin__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.checkin__details {
+  width: 50%;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.checkin__bet {
+  border-right: 1px solid #253153;
+}
+
+.checkin__join {
+  width: 90%;
+  margin: 3vh auto;
+}
+
+.checkin__info {
+  padding: 20px 18%;
+  font-size: 13px;
+  font-family: 'Rubik-flex';
+  font-variation-settings: "wght"300;
+  line-height: 19px;
+  text-align: center;
+  color: #a9b5d0;
+}

@@ -97,6 +97,7 @@
 }
 
 .gamechat__name {
+  word-wrap: normal;
   position: relative;
   display: flex;
   align-items: center;

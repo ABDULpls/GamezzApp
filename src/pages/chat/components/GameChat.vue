@@ -33,7 +33,7 @@
 					</div>
 
 				<form class="gamechat__textmsg">
-					<input v-model="value" class="gamechat__input" type="text" placeholder="Сообщение">
+					<input v-model="value" class="gamechat__input" type="text" autocomplete="off" placeholder="Сообщение">
 					<button @click.prevent.stop ="sendMessage">
 						<img  src="../../../assets/images/sprite.svg#textbtn" alt="send" class="textbtn">
 					</button>
@@ -47,7 +47,6 @@
 import UserWidget from "../../../components/ui/UserWidget.vue";
 import ScreenSlider from "../../../components/screen-slider/ScreenSlider.vue";
 import ChatSelect from "./ChatSelect.vue";
-import ClickOutside from "../../../components/ClickOutside.vue";
 import {mapState} from "vuex";
 import chatApi from "../../../api/chat.api";
 
@@ -57,7 +56,6 @@ export default {
 		UserWidget,
 		ScreenSlider,
 		ChatSelect,
-		ClickOutside
 	},
 	emits: {
 		'update:is-open': null,

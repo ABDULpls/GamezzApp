@@ -95,6 +95,7 @@ export default {
         },
 
         onRemoveUser(user) {
+            this.$nextTick()
             // request
             user.isBlocked = false;
             this.blackList = this.blackList.filter(u => u !== user);

@@ -4,7 +4,7 @@
             <div class="topbar__search">
                 <label class="input__label input-search">
                   <input
-                      type="text"
+                      type="search"
                       class="input"
                       v-model="friendName"
                       placeholder="Введите имя друга"
@@ -63,7 +63,9 @@ export default {
     },
     computed: {
         filteredUserList() {
-            if (!this.friendName) {
+			this.$nextTick();
+
+			if (!this.friendName) {
                 return this.usersList;
             }
 

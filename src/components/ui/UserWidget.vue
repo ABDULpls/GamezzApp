@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {normalizeNumber} from '../../utils/utils';
+import {normalizeNumber} from '../../utils/utils.js';
 
 export default {
 	name: 'UserWidget',
