@@ -25,15 +25,15 @@
 			<button @click="toCrystalBet" :class="crystalClass" class="gamecreate__btn btn ">Кристаллы</button>
 			<button @click="toRatingBet" :class="ratingClass" class="gamecreate__btn btn">Рейтинг</button>
 		</div>
-		<div :class="betLockClass" class="gamecreate__item">
+		<div :class="singlePlayerLockClass" class="gamecreate__item">
 			<span class="gamecreate__span">Игроков за столом:</span>
 			<button @click="playersAmount = 2" :class="twoPlayersClass" class="gamecreate__btn btn gamecreate__btn-small">2</button>
 			<button @click="playersAmount = 3" :class="threePlayersClass" class="gamecreate__btn btn gamecreate__btn-small ">3</button>
 			<button @click="playersAmount = 4" :class="fourPlayersClass" class="gamecreate__btn btn gamecreate__btn-small">4</button>
 		</div>
-		<div :class="betLockClass" class="gamecreate__bet ">
+		<div :class="singlePlayerLockClass" class="gamecreate__bet ">
 			<span :class="{'bet-label-lock': isSinglePlayer}" class="gamecreate__bet-label ">Размер интереса</span>
-			<span :class="betImgClass, betLockClass" class="gamecreate__bet-value">{{ betValue }}</span>
+			<span :class="betImgClass, singlePlayerLockClass" class="gamecreate__bet-value">{{ betValue }}</span>
 			<button @click="setMaxBet" v-if="!isSinglePlayer" class="gamecreate__bet-max btn">Макс.</button>
 			<div class="gamecreate__range-container">
 				<input :value="betValue"
@@ -104,7 +104,8 @@ export default {
 	watch: {
 		withPassword() {
 			console.log(this.withPassword);
-		}
+		},
+
 	},
 	computed: {
 		singlePlayerClass() {
@@ -121,19 +122,19 @@ export default {
 		},
 		twoPlayersClass() {
 			if (this.isSinglePlayer)
-				return {'betLockClass': this.isSinglePlayer};
+				return {'singlePlayerLockClass': this.isSinglePlayer};
 			else
 				return {'btn-green': this.playersAmount === 2};
 		},
 		threePlayersClass() {
 			if (this.isSinglePlayer)
-				return {'betLockClass': this.isSinglePlayer};
+				return {'singlePlayerLockClass': this.isSinglePlayer};
 			else
 				return {'btn-green': this.playersAmount === 3};
 		},
 		fourPlayersClass() {
 			if (this.isSinglePlayer)
-				return {'betLockClass': this.isSinglePlayer};
+				return {'singlePlayerLockClass': this.isSinglePlayer};
 			else
 				return {'btn-green': this.playersAmount === 4};
 		},
@@ -144,7 +145,7 @@ export default {
 				'bet-crystals': !this.isRating
 			};
 		},
-		betLockClass() {
+		singlePlayerLockClass() {
 			return {'gamecreate__bet-locked': this.isSinglePlayer};
 		}
 

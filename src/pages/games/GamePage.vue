@@ -14,7 +14,7 @@
 			<span @click="openOnlinePlayers" class="room__online flex-v-center">86&nbsp;онлайн&nbsp;&rsaquo;</span>
 			<span @click="openRules" class="room__rules flex-v-center">Правила&nbsp;&rsaquo;</span>
 			<ul class="scroll">
-				<li @click="clack" class="scroll__item room__item room__item-active">1 комната</li>
+				<li class="scroll__item room__item room__item-active">1 комната</li>
 				<li class="scroll__item room__item">2 комната</li>
 				<li class="scroll__item room__item">3 комната</li>
 			</ul>
@@ -66,7 +66,6 @@ import BaseSelect from "../../components/ui/select/BaseSelect.vue";
 import GeneralChat from "../chat/components/GameChat.vue";
 import {DEFAULT_ROOM_FILTER_KEY} from "../../config/game";
 import {mapState} from "vuex";
-import {watch} from "vue";
 
 export default {
 	name: "GamePage",
