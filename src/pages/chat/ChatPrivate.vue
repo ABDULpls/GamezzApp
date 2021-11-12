@@ -23,8 +23,8 @@
 	</div>
 
 	<form class="gamechat__textmsg">
-		<input v-model="value" class="gamechat__input" type="text" autocomplete="off" placeholder="Сообщение">
-		<button @click.prevent.stop ="sendMessage()"  ><img  src="../../assets/images/sprite.svg#textbtn" alt="send" class="textbtn"></button>
+		<input @click="focusLastMessage(200)" v-model="value" class="gamechat__input" type="text" autocomplete="off" placeholder="Сообщение">
+		<button @click.prevent.stop="sendMessage()"><img src="../../assets/images/sprite.svg#textbtn" alt="send" class="textbtn"></button>
 	</form>
 </template>
 
@@ -43,7 +43,7 @@ export default {
 	},
 
 	mounted() {
-		this.scrollDown();
+		this.focusLastMessage();
 	},
 	watch: {
 		value() {
@@ -55,20 +55,19 @@ export default {
 	},
 	computed: {
 		myMessage(message) {
-			return (message) => ( {'gamechat__mymsg': message.user.id === 1})
-
+			return (message) => ({'gamechat__mymsg': message.user.id === 1});
 		}
 	},
 	methods: {
-		scrollDown() {
-			this.$nextTick(()=> {
-				this.$refs.chat.children[this.$refs.chat.childElementCount - 1].scrollIntoView()
-			})
+		focusLastMessage(timeout = 0) {
+			const lastMessageY = this.$refs.chat.children[this.$refs.chat.childElementCount - 1].getBoundingClientRect().top;
+			setTimeout(() => {
+				window.scroll(0, lastMessageY + window.scrollY);
+			}, timeout);
 		},
 		sendMessage() {
 			this.chat.messages.push({
 				message: this.value,
-				//me
 				user: {
 					id: 1,
 					name: 'Biba'
@@ -77,7 +76,7 @@ export default {
 				time: new Date().toLocaleTimeString("ru-RU"),
 			});
 			this.value = '';
-			this.scrollDown();
+			this.focusLastMessage();
 		},
 		async fetchChat() {
 			try {

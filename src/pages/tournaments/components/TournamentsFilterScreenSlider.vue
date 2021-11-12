@@ -11,9 +11,14 @@
 			<div class="filter">
 				<details class="filter__details">
 					<summary class="filter__summary">Статус</summary>
+
 					<span class="clearform">Сбросить</span>
-					<input class="filter__radio" type="radio" id="all" name="status">
-					<label class="filter__label" for="all">Все</label>
+					<div>
+
+						<input class="filter__radio" type="radio" id="all" name="status">
+						<label class="filter__label" for="all">Все</label>
+					</div>
+
 					<input class="filter__radio" type="radio" id="only-my" name="status">
 					<label class="filter__label" for="only-my">Участвую</label>
 					<input class="filter__radio" type="radio" id="not-my" name="status">
@@ -21,37 +26,24 @@
 				</details>
 				<details class="filter__details">
 					<summary class="filter__summary">Игра</summary>
-					<span class="clearform">Сбросить</span>
-					<input class="filter__checkbox" type="checkbox" id="filter1">
-					<label class="filter__label" for="filter1">Дурак простой</label>
-					<input class="filter__checkbox" type="checkbox" id="filter2">
-					<label class="filter__label" for="filter2">Дурак переводной</label>
-					<input class="filter__checkbox" type="checkbox" id="filter3">
-					<label class="filter__label" for="filter3">Шахматы</label>
-					<input class="filter__checkbox" type="checkbox" id="filter4">
-					<label class="filter__label" for="filter4">Нарды длинные</label>
-					<input class="filter__checkbox" type="checkbox" id="filter5">
-					<label class="filter__label" for="filter5">Нарды которткие</label>
-					<input class="filter__checkbox" type="checkbox" id="filter6">
-					<label class="filter__label" for="filter6">Реверси</label>
+					<span @click="resetGames" class="clearform">Сбросить</span>
+					<div :key="index" v-for="(game,index) in gameFilters">
+						<input @click="selectGame(index)" v-model="game.selected" class="filter__checkbox" type="checkbox" :id="'filter'+index">
+						<label class="filter__label" :for="'filter'+index">{{ game.name }}</label>
+					</div>
 				</details>
 				<details class="filter__details">
 					<summary class="filter__summary">Начало</summary>
-					<span class="clearform">Сбросить</span>
-					<input class="filter__radio" type="radio" id="radiofilter1" name="start">
-					<label class="filter__label" for="radiofilter1">Любое время</label>
-					<input class="filter__radio" type="radio" id="radiofilter2" name="start">
-					<label class="filter__label" for="radiofilter2">Ближайшие 24 часа</label>
-					<input class="filter__radio" type="radio" id="radiofilter3" name="start">
-					<label class="filter__label" for="radiofilter3">Ближайшие 3 дня</label>
-					<input class="filter__radio" type="radio" id="radiofilter4" name="start">
-					<label class="filter__label" for="radiofilter4">Ближайшие 7 дней</label>
-					<input class="filter__radio" type="radio" id="radiofilter5" name="start">
-					<label class="filter__label" for="radiofilter5">Ближайшие 30 дней</label>
+					<span @click="resetTime" class="clearform">Сбросить</span>
+					<div :key="index" v-for="(time,index) in timeFilters">
+						<input v-model="timeFilterValue" :value="time.value" class="filter__radio" type="radio" :id="'radiofilter'+index"
+							   name="start">
+						<label class="filter__label" :for="'radiofilter'+index">{{ time.text }}</label>
+					</div>
 				</details>
 				<details class="filter__details">
 					<summary class="filter__summary">Ставка на вход</summary>
-					<span class="clearform">Сбросить</span>
+					<span @click="resetBet" class="clearform">Сбросить</span>
 					<fieldset class="filter__bet">
 						<input type="text" :value="betValue1"/>
 						<span>-</span>
@@ -60,23 +52,22 @@
 					<div class="filter__range">
 						<!--						<input class="filter__thumb" type="range" value="20" min="0" max="100">-->
 						<!--						<input class="filter__thumb" type="range" value="70" min="0" max="100">-->
-						<div class="gamecreate__range-container">
+						<div class="gamecreate__range-container gamecreate__range-absolute">
 							<input :value="betValue1"
 								   @input=" calcRangeProgress1"
-								   :style="{backgroundSize: rangeProgress1}"
+								   :style="{background: backgroundString}"
 								   :step="betStep"
 								   type="range"
-								   class="gamecreate__range gamecreate__range-left"
-								   :min="0"
-								   :max="maxBet1"
+								   class="gamecreate__range gamecreate__range-left gamecreate__range-absolute"
+								   :min="minBet"
+								   :max="maxBet"
 							>
 							<input :value="betValue2"
 								   @input=" calcRangeProgress2"
-								   :style="{backgroundSize: rangeProgress2}"
 								   :step="betStep"
 								   type="range"
 								   class="gamecreate__range gamecreate__range-right"
-								   :min="minBet2"
+								   :min="minBet"
 								   :max="maxBet"
 							>
 						</div>
@@ -102,6 +93,7 @@
 <script>
 import ScreenSlider from "../../../components/screen-slider/ScreenSlider.vue";
 import {MAX_BET} from "../../../config/tournament";
+import {mapState} from "vuex";
 
 export default {
 	name: "TournamentsFilterScreenSlider",
@@ -110,13 +102,62 @@ export default {
 		return {
 			betValue1: 1000,
 			betStep: 1000,
-			minBet: 100,
+			minBet: 0,
 			maxBet1: 10000,
-			rangeProgress1: 0,
-			betValue2: 50000,
+			rangeProgress1: '0%',
+			betValue2: MAX_BET,
 			minBet2: this.maxBet1 + this.betStep,
 			maxBet: MAX_BET,
-			rangeProgress2: 0,
+			rangeProgress2: '100%',
+			timeFilterValue: null,
+			gameFilters: [
+				{
+					name: 'Дурак простой',
+					selected: false,
+				},
+				{
+					name: 'Дурак переводной',
+					selected: false,
+				},
+				{
+					name: 'Шахматы',
+					selected: false,
+				},
+				{
+					name: 'Нарды длинные',
+					selected: false,
+				},
+				{
+					name: 'Нарды короткие',
+					selected: false,
+				},
+				{
+					name: 'Реверси',
+					selected: false,
+				},
+			],
+			timeFilters: [
+				{
+					text: 'Любое время',
+					value: 'any'
+				},
+				{
+					text: 'Ближайшие 24 часа',
+					value: '24h'
+				},
+				{
+					text: 'Ближайшие 3 дня',
+					value: '3d'
+				},
+				{
+					text: 'Ближайшие 7 дней',
+					value: '7d'
+				},
+				{
+					text: 'Ближайшие 30 дней',
+					value: '30d'
+				},
+			]
 
 		};
 	},
@@ -129,12 +170,49 @@ export default {
 			default: false,
 		}
 	},
+	watch: {},
+	computed: {
+		...mapState({
+			me: state => state.auth.user,
+		}),
+		backgroundString() {
+			return `linear-gradient(
+			90deg,
+			rgba(0,0,0,0) ${this.rangeProgress1},
+			rgba(16,93,224,1) ${this.rangeProgress1},
+			rgba(16,93,224,1) ${this.rangeProgress2},
+			rgba(0,0,0,0) ${this.rangeProgress2},
+			rgba(0,0,0,0) 100%
+			)`;
+		}
+	},
 	methods: {
 		onUpdateIsOpen(value) {
 			this.$emit('update:is-open', value);
 		},
+		resetBet() {
+			this.betValue1 = 0;
+			this.betValue2 = MAX_BET;
+			this.rangeProgress1 = '0%';
+			this.rangeProgress2 = '100%';
+		},
+		resetGames() {
+			for (let game of this.gameFilters) {
+				game.selected = false;
+			}
+			console.log(this.gameFilters);
+		},
+		resetTime() {
+			this.timeFilterValue = null;
+		},
+		selectGame(index) {
+			this.gameFilters[index].selected = !this.gameFilters[index].selected;
+		},
 		calcRangeProgress1(e = false) {
 			if (e) {
+				if (e.target.value >= MAX_BET) {
+					return;
+				}
 				this.betValue1 = e.target.value;
 				if (this.betValue1 > this.betValue2 - this.betStep) {
 					this.betValue2 = +this.betValue1 + this.betStep;
@@ -143,20 +221,20 @@ export default {
 			}
 			if (this.betValue1 === null)
 				return 0;
-			this.rangeProgress1 = (this.betValue1 - this.minBet) / (this.maxBet1 - this.minBet) * 100 + '%';
+			this.rangeProgress1 = Math.round((this.betValue1 - this.minBet) / (this.maxBet - this.minBet) * 100) + '%';
 		},
 		calcRangeProgress2(e = false) {
 			if (e) {
+				if (e.target.value < this.betStep) {
+					return;
+				}
 				this.betValue2 = e.target.value;
 				if (this.betValue2 - this.betStep < this.betValue1) {
 					this.betValue1 = +this.betValue2 - this.betStep;
 				}
 				this.calcRangeProgress1();
 			}
-			if (this.betValue2 === null)
-				return 0;
-			this.rangeProgress2 = (this.betValue2 - this.minBet) / (this.maxBet - this.minBet) * 100 + '%';
-			console.log(this.rangeProgress2);
+			this.rangeProgress2 = Math.round((this.betValue2 - this.minBet) / (this.maxBet - this.minBet) * 100) + '%';
 		},
 	}
 };
