@@ -12,21 +12,16 @@
 				<details class="filter__details">
 					<summary class="filter__summary">Статус</summary>
 
-					<span class="clearform">Сбросить</span>
-					<div>
-
-						<input class="filter__radio" type="radio" id="all" name="status">
-						<label class="filter__label" for="all">Все</label>
+					<button @click="resetStatus" class="clearform">Сбросить</button>
+					<div :key="index" v-for="(status,index) in statusFilters">
+						<input v-model="statusFilterValue" :value="status.value" class="filter__radio" type="radio" :id="'statusFilter'+index"
+							   name="status">
+						<label class="filter__label" :for="'statusFilter'+index">{{ status.text }}</label>
 					</div>
-
-					<input class="filter__radio" type="radio" id="only-my" name="status">
-					<label class="filter__label" for="only-my">Участвую</label>
-					<input class="filter__radio" type="radio" id="not-my" name="status">
-					<label class="filter__label" for="not-my">Не участвую</label>
 				</details>
 				<details class="filter__details">
 					<summary class="filter__summary">Игра</summary>
-					<span @click="resetGames" class="clearform">Сбросить</span>
+					<button @click="resetGames" class="clearform">Сбросить</button>
 					<div :key="index" v-for="(game,index) in gameFilters">
 						<input @click="selectGame(index)" v-model="game.selected" class="filter__checkbox" type="checkbox" :id="'filter'+index">
 						<label class="filter__label" :for="'filter'+index">{{ game.name }}</label>
@@ -34,16 +29,16 @@
 				</details>
 				<details class="filter__details">
 					<summary class="filter__summary">Начало</summary>
-					<span @click="resetTime" class="clearform">Сбросить</span>
+					<button @click="resetTime" class="clearform">Сбросить</button>
 					<div :key="index" v-for="(time,index) in timeFilters">
-						<input v-model="timeFilterValue" :value="time.value" class="filter__radio" type="radio" :id="'radiofilter'+index"
+						<input v-model="timeFilterValue" :value="time.value" class="filter__radio" type="radio" :id="'timeFilter'+index"
 							   name="start">
-						<label class="filter__label" :for="'radiofilter'+index">{{ time.text }}</label>
+						<label class="filter__label" :for="'timeFilter'+index">{{ time.text }}</label>
 					</div>
 				</details>
 				<details class="filter__details">
 					<summary class="filter__summary">Ставка на вход</summary>
-					<span @click="resetBet" class="clearform">Сбросить</span>
+					<button @click="resetBet" class="clearform">Сбросить</button>
 					<fieldset class="filter__bet">
 						<input type="text" :value="betValue1"/>
 						<span>-</span>
@@ -75,15 +70,15 @@
 				</details>
 				<details class="filter__details noborder">
 					<summary class="filter__summary">Минимальный уровень</summary>
-					<span class="clearform">Сбросить</span>
+					<button @click="resetMinLvl" class="clearform">Сбросить</button>
 					<label class="filter__level">
-						<input type="text" value="8">
-						<span class="text-gradient">Поставить мой уровень</span>
+						<input v-model="minLvlFilterValue"  type="number">
+						<span @click="setMyLvl" class="text-gradient">Поставить мой уровень</span>
 					</label>
 				</details>
 				<div class="filter__btns">
-					<button class="filter__btn-clear btn">Очистить все</button>
-					<button class="filter__btn-submit btn btn-orange">Применить</button>
+					<button @click="resetFilters" class="filter__btn-clear btn">Очистить все</button>
+					<button @click="emitFilters" class="filter__btn-submit btn btn-orange">Применить</button>
 				</div>
 			</div>
 		</template>
@@ -92,12 +87,13 @@
 
 <script>
 import ScreenSlider from "../../../components/screen-slider/ScreenSlider.vue";
-import {MAX_BET} from "../../../config/tournament";
+import {MAX_BET, MIN_BET} from "../../../config/tournament";
 import {mapState} from "vuex";
 
 export default {
 	name: "TournamentsFilterScreenSlider",
 	components: {ScreenSlider},
+
 	data() {
 		return {
 			betValue1: 1000,
@@ -110,6 +106,8 @@ export default {
 			maxBet: MAX_BET,
 			rangeProgress2: '100%',
 			timeFilterValue: null,
+			statusFilterValue: null,
+			minLvlFilterValue: 0,
 			gameFilters: [
 				{
 					name: 'Дурак простой',
@@ -157,12 +155,28 @@ export default {
 					text: 'Ближайшие 30 дней',
 					value: '30d'
 				},
+			],
+			statusFilters: [
+				{
+					text: 'Все',
+					value: 'all',
+				},
+				{
+					text: 'Участвую',
+					value: 'participating'
+				},
+				{
+					text: 'Не участвую',
+					value: 'nonparticipating'
+				}
 			]
+
 
 		};
 	},
 	emits: {
 		'update:is-open': null,
+		'filtersChange': null,
 	},
 	props: {
 		isOpen: {
@@ -187,6 +201,23 @@ export default {
 		}
 	},
 	methods: {
+		emitFilters(){
+			const selectedGames=[]
+			for (let i = 0; i< this.gameFilters.length; i++) {
+				if (this.gameFilters[i].selected)
+					selectedGames.push(this.gameFilters[i].name)
+			}
+			const filters = {
+				betValue1: +this.betValue1,
+				betValue2: +this.betValue2,
+				gamesFilterValue: selectedGames,
+				timeFilterValue: this.timeFilterValue,
+				statusFilterValue: this.statusFilterValue,
+				minLvlFilterValue: this.minLvlFilterValue
+			}
+			this.$emit('filtersChange', filters)
+			this.onUpdateIsOpen(false)
+		},
 		onUpdateIsOpen(value) {
 			this.$emit('update:is-open', value);
 		},
@@ -200,10 +231,26 @@ export default {
 			for (let game of this.gameFilters) {
 				game.selected = false;
 			}
-			console.log(this.gameFilters);
 		},
 		resetTime() {
 			this.timeFilterValue = null;
+		},
+		resetStatus() {
+			this.statusFilterValue = null;
+		},
+		resetMinLvl() {
+			console.log(this.minLvlFilterValue);
+			this.minLvlFilterValue = 0
+		},
+		resetFilters() {
+			this.resetBet()
+			this.resetGames()
+			this.resetTime()
+			this.resetStatus()
+			this.resetMinLvl()
+		},
+		setMyLvl(){
+			this.minLvlFilterValue = this.me.level
 		},
 		selectGame(index) {
 			this.gameFilters[index].selected = !this.gameFilters[index].selected;

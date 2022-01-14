@@ -63,11 +63,14 @@ export default {
 		isOpen: {
 			type: Boolean,
 			default: false,
-		}
+		},
+		openBuyCrystals: Function
 	},
 	data() {
 		return {
 			confirmationScreen: false,
+			price:null,
+			purchaseAmount: null,
 			priceString: '',
 			purchaseAmountString: '',
 		};
@@ -79,18 +82,21 @@ export default {
 	},
 	watch: {
 		modalIsOpen() {
-			if (this.modalIsOpen === false) {
-				this.$emit('update:is-open', false);
-				this.confirmationScreen = false
+			if (!this.modalIsOpen) {
+				if (this.confirmationScreen && this.isOpen) {
+					this.openBuyCrystals();
+					this.$store.dispatch('setModal', true);
+				}
+				this.confirmationScreen = false;
 			}
 		},
-		confirmationScreen() {
-			this.$store.dispatch('setModal', this.confirmationScreen);
-			if (this.confirmationScreen)
-				document.querySelector('body').style.overflowY = 'hidden';
-			else
-				document.querySelector('body').style.overflowY = 'auto';
-		},
+		// confirmationScreen() {
+		// 	this.$store.dispatch('setModal', this.confirmationScreen);
+		// 	if (this.confirmationScreen)
+		// 		document.querySelector('body').style.overflowY = 'hidden';
+		// 	else
+		// 		document.querySelector('body').style.overflowY = 'auto';
+		// },
 
 	},
 	methods: {
@@ -98,7 +104,6 @@ export default {
 			this.$emit('update:is-open', value);
 		},
 		openConfirmationScreen(e) {
-			console.log('opening confiramtion screen');
 			this.purchaseAmountString = e.target.previousSibling.innerHTML;
 			this.priceString = e.target.innerHTML;
 			this.confirmationScreen = true;

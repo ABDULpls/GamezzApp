@@ -67,14 +67,8 @@ export default {
 		},
 		checkPassword(e) {
 			if (this.password === this.room.password) {
-				this.$router.push({
-					name: 'GameLobbyPage',
-					params: {
-						meString: JSON.stringify(this.me),
-						gameString: JSON.stringify(this.game),
-						roomString: JSON.stringify(this.room)
-					}
-				});
+				this.onUpdateIsOpen(false)
+
 				this.room.players.push(this.me);
 				this.$nextTick(() => {
 					this.$router.push({

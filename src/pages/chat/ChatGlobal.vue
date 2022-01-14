@@ -23,8 +23,8 @@
         <click-outside :handler="closeUserDropdown">
             <transition appear name="scale-down" duration="300">
 
-                <user-action-dropdown v-if="userDropdown" :clientX="userDropdownX" :clientY="userDropdownY"
-                                      :user="userDropdownUser"/>
+                <user-action-dropdown v-if="userDropdownIsOpen" :clientX="userDropdownX" :clientY="userDropdownY"
+                                      :user="dropDownUser"/>
             </transition>
         </click-outside>
     </div>
@@ -48,7 +48,8 @@
 
 			</span>
                 <div @click.stop.prevent="openUserDropdown($event,message)"
-                     :class="{'gamechat-options': message.user.id !== 1}"></div>
+                     :class="{'gamechat-options': message.user.id !== 1}">
+				</div>
             </div>
             <time class="gamechat__time">
                 {{ message.date + ' ' + message.time }}
@@ -118,10 +119,10 @@
             return {
                 chatSelectScreen: false,
                 chat: {},
-                userDropdown: false,
+                userDropdownIsOpen: false,
                 userDropdownX: 0,
                 userDropdownY: 0,
-                userDropdownUser: null
+                dropDownUser: null
             };
         },
         created() {
@@ -134,20 +135,24 @@
             }, 0);
         },
         methods: {
-
             scrollDown() {
                 this.$nextTick(() => {
                     this.$refs.chat.children[this.$refs.chat.childElementCount - 1].scrollIntoView();
                 });
             },
             openUserDropdown(e, message) {
-                this.userDropdown = true;
+                this.userDropdownIsOpen = true;
                 this.userDropdownX = e.pageX - 40
                 this.userDropdownY = e.pageY
-                this.userDropdownUser = message.user;
+				console.log(this.userDropdownY);
+                this.dropDownUser = message.user;
                 if (!this.userDropdownX || !this.userDropdownY)
-                    this.userDropdown = false;
+                    this.userDropdownIsOpen = false;
             },
+			closeUserDropdown() {
+				console.log('close userropdown');
+				this.userDropdownIsOpen = false;
+			},
             sendMessage() {
                 this.chat.messages.push({
                     message: this.value,
@@ -173,10 +178,7 @@
                 console.log('close chatselect');
 
             },
-            closeUserDropdown() {
-                console.log('close userropdown');
-                this.userDropdown = false;
-            },
+
             async fetchChat() {
                 try {
                     const response = await chatApi.fetchChat();

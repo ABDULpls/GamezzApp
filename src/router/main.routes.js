@@ -31,6 +31,12 @@ const routes = [
 				}),
 				name: 'GameLobbyPage',
 				component: () => import('../pages/games/GameLobbyPage.vue'),
+				beforeEnter: (to, from, next) => {
+					if (!from.params.slug) {
+						next({name: 'HomePage'});
+					} else
+						next()
+				},
 			},
 			{
 				path: '/chat/dialogs',

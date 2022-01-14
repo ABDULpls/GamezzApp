@@ -78,6 +78,7 @@ export default {
 			this.$emit('update:is-open', value);
 		},
 		openLobby() {
+			this.onUpdateIsOpen(false)
 			this.room.players.push(this.me);
 			this.$router.push({
 				name: 'GameLobbyPage',

@@ -16,18 +16,26 @@
 			<span @click="openBuyCrystals" class="wallet__buy">&plus;&nbsp;Купить</span>
 		</div>
 		<span class="wallet__heading">Основной способ оплаты</span>
-		<div class="wallet__pay">
-			<svg class="wallet-card">
-				<use xlink:href="../../../assets/images/sprite.svg#wallet-card"></use>
+
+		<div :key="method.id" v-for="method in paymentMethods"
+			:ref="method.id" @click="changePaymentMethod(method.id)" class="wallet__pay">
+			<svg :class="'wallet-' + method.id">
+				<use :href="method.img"></use>
 			</svg>
-			<span class="wallet__pay-text">Банковская карта</span>
+			<span class="wallet__pay-text">{{method.name}}</span>
 		</div>
-		<div class="wallet__pay">
-			<svg class="wallet-ym">
-				<use xlink:href="../../../assets/images/sprite.svg#wallet-ym"></use>
-			</svg>
-			<span class="wallet__pay-text">Яндекс Деньги</span>
-		</div>
+<!--		<div ref="card" @click="changePaymentMethod('card')" class="wallet__pay wallet__pay-chosen">-->
+<!--			<svg class="wallet-card">-->
+<!--				<use xlink:href=""></use>-->
+<!--			</svg>-->
+<!--			<span class="wallet__pay-text">Банковская карта</span>-->
+<!--		</div>-->
+<!--		<div ref="ym" @click="changePaymentMethod('ym')" class="wallet__pay ">-->
+<!--			<svg class="wallet-ym">-->
+<!--				<use :href=""></use>-->
+<!--			</svg>-->
+<!--			<span class="wallet__pay-text">Яндекс Деньги</span>-->
+<!--		</div>-->
 		<span class="wallet__heading">История покупок</span>
 		<div class="wallet__history">
 			<span class="wallet__order">14 Gamezz</span>
@@ -57,9 +65,11 @@
 	</div>
 	<buy-crystals-screen-slider
 		:me="me"
+		:openBuyCrystals="openBuyCrystals"
 		v-model:is-open="buyCrystalsScreen"/>
 	<buy-gamezz-screen-slider
 		:me="me"
+		:openBuyGamezz="openBuyGamezz"
 		v-model:is-open="buyGamezzScreen"/>
 
 </template>
@@ -89,6 +99,27 @@ export default {
 			confirmationScreen: false,
 			price: 0,
 			purchaseAmount: 0,
+			paymentMethods: [
+				{
+					id: 'card',
+					name: 'Банковская карта',
+					isChosen: false,
+					img: '../../src/assets/images/sprite.svg#wallet-card'
+				},
+				{
+					id: 'ym',
+					name: 'Яндекс Деньги',
+					isChosen: false,
+					img: '../../src/assets/images/sprite.svg#wallet-ym',
+				},
+				{
+					id: 'paypal',
+					name: 'PayPal',
+					isChosen: false,
+					img: '../../src/assets/images/sprite.svg#wallet-ym',
+
+				}
+			]
 		};
 	},
 	computed: {
@@ -98,9 +129,11 @@ export default {
 		}),
 	},
 	watch: {
-		modalIsOpen() {
-			if (this.modalIsOpen === false)
-				this.buyCrystalsScreen = this.modalIsOpen;
+		modalIsOpen(state, prevState) {
+			if (state === false && prevState === true) {
+				this.buyCrystalsScreen = false;
+				this.buyGamezzScreen = false;
+			}
 		},
 		buyCrystalsScreen() {
 			this.$store.dispatch('setModal', this.buyCrystalsScreen);
@@ -129,6 +162,18 @@ export default {
 			this.purchaseAmount = +e.target.previousSibling.innerHTML;
 			this.price = +e.target.previousSibling.innerHTML;
 			this.confirmationScreen = true;
+		},
+		changePaymentMethod(id) {
+			for (let method of this.paymentMethods) {
+				if (method.id === id) {
+					method.isChosen = true;
+					this.$refs[`${id}`].classList.add('wallet__pay-chosen')
+				}
+				else {
+					method.isChosen = false;
+					this.$refs[`${method.id}`]?.classList.remove('wallet__pay-chosen')
+				}
+			}
 		}
 	}
 };

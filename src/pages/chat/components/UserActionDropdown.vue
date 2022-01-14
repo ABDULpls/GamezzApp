@@ -1,21 +1,21 @@
 <template>
 <div class="useraction__wrapper" :style="{left:clientX + 'px', top:clientY +'px'}">
 	<div class="useraction">
-		<div  class="choosechat__name useraction__option useraction__pm">
+		<button  class="choosechat__name useraction__option useraction__pm">
 			Личное Сообщение
-		</div>
-		<div class="choosechat__name useraction__option useraction__profile">
+		</button>
+		<button class="choosechat__name useraction__option useraction__profile">
 			Посмотреть профиль
-		</div>
-		<div class="choosechat__name useraction__option useraction__add">
+		</button>
+		<button class="choosechat__name useraction__option useraction__add">
 			Добавить в друзья
-		</div>
-		<div class="choosechat__name useraction__option useraction__hide">
+		</button>
+		<button class="choosechat__name useraction__option useraction__hide">
 			Скрыть сообщения
-		</div>
-		<div class="choosechat__name useraction__option useraction__option-red useraction__block">
+		</button>
+		<button class="choosechat__name useraction__option useraction__option-red useraction__block">
 			Заблокировать пользователя
-		</div>
+		</button>
 
 	</div>
 </div>

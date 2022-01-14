@@ -18,7 +18,7 @@
 			<div class="buy">
 				<span>Выберите пакет GAMEZZ</span>
 
-				<div v-for="(pack, index) in packages" :class="pack.class" class="buy__item ">
+				<div :key="index" v-for="(pack, index) in packages" :class="pack.class" class="buy__item ">
 					<div>
 						<span class="buy-gamezz">{{ pack.gamezz }}</span>
 						<p v-if="pack.bonus" class="text-gradient buy__bonus">
@@ -56,12 +56,15 @@ export default {
 		isOpen: {
 			type: Boolean,
 			default: false,
-		}
+		},
+		openBuyGamezz: Function
 	},
 	data() {
 		return {
 			confirmationScreen: false,
 			priceString: '',
+			purchaseAmount: null,
+			price: null,
 			purchaseAmountString: '',
 			packages: [
 				{
@@ -115,17 +118,13 @@ export default {
 	},
 	watch: {
 		modalIsOpen() {
-			if (this.modalIsOpen === false) {
-				this.$emit('update:is-open', false);
-				this.confirmationScreen = false
+			if (!this.modalIsOpen) {
+				if (this.confirmationScreen && this.isOpen) {
+					this.openBuyGamezz();
+					this.$store.dispatch('setModal', true);
+				}
+				this.confirmationScreen = false;
 			}
-		},
-		confirmationScreen() {
-			this.$store.dispatch('setModal', this.confirmationScreen);
-			if (this.confirmationScreen)
-				document.querySelector('body').style.overflowY = 'hidden';
-			else
-				document.querySelector('body').style.overflowY = 'auto';
 		},
 
 	},

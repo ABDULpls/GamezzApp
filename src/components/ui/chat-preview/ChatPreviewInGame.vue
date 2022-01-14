@@ -3,9 +3,9 @@
 	/>
 	<div @click="openGameChat" class="chat">
 		<div class="chat__row">
-			<time class="chat__time">16:15</time>
-			<span class="chat__user">InKey:</span>
-			<span class="chat__message">Всем удачи и хорошей игры</span>
+			<time class="chat__time">{{showPreviewTime}}</time>
+			<span class="chat__user">{{showPreviewUser + ':'}}</span>
+			<span class="chat__message">{{showPreviewMessage}}</span>
 		</div>
 		<img src="../../../assets/images/sprite.svg#chat-collapse" alt="chat" class="chat__icon" width="10" height="7">
 	</div>
@@ -26,6 +26,7 @@ export default {
 		return {
 			gameChatScreen: false,
 			chat: {},
+			previewTime: ''
 		};
 	},
 	computed: {
@@ -34,6 +35,18 @@ export default {
 			chatIsOpen: state => state.chatIsOpen,
 			modalIsOpen: state => state.modalIsOpen
 		}),
+		showPreviewTime() {
+			if (this.chat.messages)
+				return this.chat.messages[this.chat.messages.length - 1].time.split('').slice(0, 5).join('');
+		},
+		showPreviewUser(){
+			if (this.chat.messages)
+				return this.chat.messages[this.chat.messages.length - 1].user.name.slice(0,6)
+		},
+		showPreviewMessage() {
+			if (this.chat.messages)
+				return this.chat.messages[this.chat.messages.length - 1].message
+		}
 
 	},
 	created() {
@@ -50,9 +63,10 @@ export default {
 	methods: {
 		async fetchMessages() {
 			try {
-				const response = await chatApi.fetchMessages();
+				const response = await chatApi.fetchChat();
 				this.chat = response.data;
-				console.log(this.chat);
+				console.log(this.chat.messages[this.chat.messages.length - 1].message);
+
 			} catch (err) {
 				console.log(err);
 			}

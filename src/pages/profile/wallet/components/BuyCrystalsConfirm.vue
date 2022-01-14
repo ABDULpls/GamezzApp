@@ -12,7 +12,7 @@
 				<div class="buy-modal">
 					<span class="buy-modal__heading">Вы покупаете:</span>
 					<span class="buy-modal__crystals"> {{purchaseAmountString}} </span>
-					<button class="btn btn-orange buy-modal__btn">Купить</button>
+					<button @click="onPurchase" class="btn btn-orange buy-modal__btn">Купить</button>
 					<span class="buy-modal__text">С вашего счета будет списано:</span>
 					<span class="buy-modal__price">{{ priceString }} GAMEZZ</span>
 				</div>
@@ -49,18 +49,17 @@ export default {
 			purchaseAmount:0
 		}
 	},
-	watch: {
-		purchaseAmountString() {
-			this.purchaseAmount = +this.purchaseAmountString.replace(/\D/g,'')
-		},
-		priceString() {
-			this.price = +this.priceString.replace(/\D/g,'')
-		},
-	},
 	methods: {
 		onUpdateIsOpen(value) {
 			this.$emit('update:is-open', value);
 		},
+		onPurchase() {
+			this.purchaseAmount = +this.purchaseAmountString.replace(/\D/g,'')
+			this.price = +this.priceString.replace(/\D/g,'')
+			console.log(this.purchaseAmount);
+			console.log(this.price);
+
+		}
 	}
 };
 </script>

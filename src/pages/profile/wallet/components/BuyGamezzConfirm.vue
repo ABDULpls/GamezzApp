@@ -12,7 +12,7 @@
 					<div class="buy-modal">
 						<span class="buy-modal__heading">Вы покупаете:</span>
 						<span class="buy-modal__gamezz">{{purchaseAmount}}</span>
-						<button class="buy-modal__btn btn btn-orange">Купить</button>
+						<button @click="onPurchase" class="buy-modal__btn btn btn-orange">Купить</button>
 						<span class="buy-modal__text">С вашего счета будет списано:</span>
 						<span>{{price}} рублей</span>
 					</div>
@@ -65,6 +65,7 @@ export default {
 		// priceString() {
 		// 	this.price = +this.priceString.replace(/\D/g,'')
 		// },
+
 	},
 	computed:{
 		...mapState({
@@ -75,12 +76,13 @@ export default {
 		onUpdateIsOpen(value) {
 			this.$emit('update:is-open', value);
 		},
-		modalIsOpen() {
-			if (this.modalIsOpen === false) {
-				this.$emit('update:is-open', false);
-			}
-		},
+		onPurchase() {
+			this.purchaseAmount = +this.purchaseAmountString.replace(/\D/g,'')
+			this.price = +this.priceString.replace(/\D/g,'')
+			console.log(this.purchaseAmount);
+			console.log(this.price);
 
+		}
 	}
 };
 </script>

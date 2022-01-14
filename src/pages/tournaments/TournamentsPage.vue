@@ -2,7 +2,7 @@
 
 	<div class="tournaments">
 		<span class="tournaments__title">Турниры</span>
-		<span @click="openAdvancedFilters" class="tournaments__filter">2</span>
+		<span @click="openAdvancedFilters" class="tournaments__filter">{{ appliedFiltersNumber }}</span>
 
 		<span v-for="(filter,key) in filters" @click="selectFilter(key)" :class="filterClasses(key)" class="tournaments__mode">
 			{{ filter.name }}
@@ -38,7 +38,7 @@
 		</transition-group>
 
 	</div>
-	<tournaments-filter-screen-slider v-model:is-open="advancedFiltersScreen"/>
+	<tournaments-filter-screen-slider @filtersChange="filtersChange" v-model:is-open="advancedFiltersScreen"/>
 </template>
 
 <script>
@@ -48,6 +48,7 @@ import {mapState} from "vuex";
 import {normalizeNumber} from "../../utils/utils.js";
 import {DEFAULT_TOURNAMENT_FILTER_KEY} from "../../config/tournament.js";
 import TournamentsFilterScreenSlider from "./components/TournamentsFilterScreenSlider.vue";
+import {MAX_BET, MIN_BET} from "../../config/tournament";
 
 export default {
 	name: 'TournamentsPage',
@@ -58,9 +59,11 @@ export default {
 			currentFilter: DEFAULT_TOURNAMENT_FILTER_KEY,
 			filters: {
 				all: {value: 0, name: "Все"},
-				participate: {value: 0, name: "Участвую"},
-				notParticipate: {value: 0, name: "Не участвую"},
+				participating: {value: 0, name: "Участвую"},
+				nonparticipating: {value: 0, name: "Не участвую"},
 			},
+			advancedFilters: [],
+			appliedFiltersNumber: 0,
 			filteredTournaments: [],
 			advancedFiltersScreen: false,
 		};
@@ -86,7 +89,7 @@ export default {
 			if (this.currentFilter === DEFAULT_TOURNAMENT_FILTER_KEY)
 				this.filteredTournaments = this.tournaments;
 			else {
-				if (this.currentFilter === 'participate') {
+				if (this.currentFilter === 'participating') {
 					this.$nextTick();
 					this.filteredTournaments = this.participatedTournaments();
 				} else {
@@ -119,16 +122,16 @@ export default {
 			});
 		},
 		notParticipatedTournaments() {
-			return this.tournaments.filter((el) => {
-				const includesMe = () => {
-					for (let participant in el.participants) {
-						if (el.id !== this.me.id) {
-							return true;
-						}
+			const includesMe = (el) => {
+				for (let participant in el.participants) {
+					if (el.id !== this.me.id) {
+						return true;
 					}
+				}
 
-				};
-				if (includesMe())
+			};
+			return this.tournaments.filter((el) => {
+				if (includesMe(el))
 					return true;
 			});
 		},
@@ -139,6 +142,22 @@ export default {
 			if (typeof key !== 'string')
 				key = '';
 			this.currentFilter = key;
+		},
+		filtersChange(filters) {
+			this.appliedFiltersNumber = 0;
+			if (filters.betValue1 > MIN_BET || filters.betValue2 !== MAX_BET) {
+				this.appliedFiltersNumber++;
+			}
+			if (filters.statusFilterValue !== null)
+				this.appliedFiltersNumber++;
+			if (filters.timeFilterValue !== null)
+				this.appliedFiltersNumber++;
+			if (filters.gamesFilterValue.length > 0)
+				this.appliedFiltersNumber++;
+			if (filters.minLvlFilterValue > 0)
+				this.appliedFiltersNumber++;
+			this.advancedFilters = filters;
+			console.log(this.advancedFilters);
 		},
 		filterClasses(key) {
 			return {'tournaments__mode-active': key === this.currentFilter};
@@ -156,9 +175,9 @@ export default {
 				const response = await tournamentsApi.fetchTournaments();
 				this.tournaments = response.data.tournaments;
 				this.filteredTournaments = this.tournaments;
-				this.filters.participate.value = this.participatedTournaments().length;
+				this.filters.participating.value = this.participatedTournaments().length;
 				this.filters.all.value = this.tournaments.length;
-				this.filters.notParticipate.value = this.filters.all.value - this.filters.wait.value;
+				this.filters.nonparticipating.value = this.filters.all.value - this.filters.participating.value;
 			} catch (err) {
 				console.log(err);
 			}

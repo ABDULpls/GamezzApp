@@ -113,7 +113,7 @@ export default  {
 						]
 					},
 					{
-						id: 215,
+						id: 216,
 						maxPlayers: 3,
 						type: 'human',
 						status: 'play',

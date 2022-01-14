@@ -18,8 +18,8 @@
 			<div class="profile-wait__status">
 				<span class="profile-wait__name">{{ player.name }}</span>
 				<span v-if="room.players.length === room.maxPlayers"
-					:class="{'indicator-ready': player.ready, 'indicator-wait': !player.ready}"
-					class="profile-wait__indicator ">
+					  :class="{'indicator-ready': player.ready, 'indicator-wait': !player.ready}"
+					  class="profile-wait__indicator ">
 					{{ player.ready ? 'Готов' : 'Ожидание' }}
 				</span>
 			</div>
@@ -42,7 +42,6 @@
 
 <script>
 import UserWidget from "../../components/ui/UserWidget.vue";
-
 
 export default {
 	name: "GameLobbyPage",
@@ -73,7 +72,6 @@ export default {
 			if (this.gameString === undefined
 				|| this.meString === undefined
 				|| this.roomString === undefined) {
-				this.$router.push({name: "HomePage"});
 			} else {
 				this.game = JSON.parse(this.gameString);
 				this.me = JSON.parse(this.meString);
@@ -81,7 +79,7 @@ export default {
 			}
 
 		} catch (e) {
-
+			console.log(e);
 		}
 	},
 	methods: {

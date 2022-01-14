@@ -89,7 +89,7 @@
   border-radius: 50%;
 }
 
-.wallet__pay:hover::after {
+.wallet__pay-chosen::after {
   content: '';
   position: absolute;
   top: 0;
@@ -102,7 +102,7 @@
   background: url(../../../../assets/images/sprite.svg#wallet-pay) no-repeat 4px 4px, linear-gradient(247.82deg, #FCD43F 11.29%, #FF9B3A 90.42%);
 }
 
-.wallet__pay:hover {
+.wallet__pay-chosen {
   fill: #ffffff;
   color: #ffffff;
 }
@@ -114,6 +114,11 @@
 }
 
 .wallet-ym {
+  width: 18px;
+  height: 20px;
+  z-index: 1;
+}
+.wallet-paypal {
   width: 18px;
   height: 20px;
   z-index: 1;

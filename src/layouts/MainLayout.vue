@@ -22,7 +22,7 @@ export default {
 	inject: ['transitionName'],
 
 	created() {
-		// заведу слушатель на награду
+		// завести слушатель на награду
 		//редирект на роут с наградой
 		// setTimeout(() => {
 		// 	this.$router.push({
@@ -32,14 +32,13 @@ export default {
 
 
 		const unregisteredRouterGuard = router.beforeEach((to, from, next) => {
-			console.log('state moda');
-			console.log(store.state.modalIsOpen);
-			if (to.name === 'ProfilePage' /*|| to.name === 'ChatDialogs' || to.name === 'ChatGlobal'*/) {
-				unregisteredRouterGuard();
-				next();
-			console.log(store.state.modalIsOpen);
-				return;
-			}
+			// console.log(store.state.modalIsOpen);
+			// if (to.name === 'ProfilePage' /*|| to.name === 'ChatDialogs' || to.name === 'ChatGlobal'*/) {
+			// 	unregisteredRouterGuard();
+			// 	next();
+			// // console.log(store.state.modalIsOpen);
+			// 	return;
+			// }
 			if (store.state.modalIsOpen) {
 				store.dispatch('setModal',false)
 				next(false);
@@ -48,7 +47,7 @@ export default {
 				unregisteredRouterGuard();
 				next();
 			}
-			console.log(store.state.modalIsOpen);
+			// console.log(store.state.modalIsOpen);
 		});
 	},
 };

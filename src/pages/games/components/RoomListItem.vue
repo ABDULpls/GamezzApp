@@ -19,18 +19,19 @@
 			</span>
 		</div>
 		<locked-room-screen-slider :me="me" :game="game" :room="room" v-model:is-open="lockedRoomScreen"/>
-		<open-room-screen-slider :room="room" :game="game" :me="me" v-model:is-open="openRoomScreen"/>
+		<room-screen-slider :room="room" :game="game" :me="me" v-model:is-open="openRoomScreen"/>
 	</div>
 </template>
 
 <script>
 import LockedRoomScreenSlider from "./LockedRoomScreenSlider.vue";
-import OpenRoomScreenSlider from "./OpenRoomScreenSlider.vue";
+import RoomScreenSlider from "./RoomScreenSlider.vue";
+import {mapState} from "vuex";
 export default {
 	name: "RoomListItem",
 	components: {
 		LockedRoomScreenSlider,
-		OpenRoomScreenSlider
+		RoomScreenSlider
 	},
 	props: {
 		room: {
@@ -46,6 +47,7 @@ export default {
 			required: true,
 		}
 	},
+
 	data() {
 		return {
 			lockedRoomScreen: false,
@@ -53,6 +55,9 @@ export default {
 		};
 	},
 	computed: {
+			...mapState({
+				modalIsOpen: state => state.modalIsOpen
+			}),
 		buttonClasses() {
 			return {
 				'player__button-inactive': this.room.status === "play",
@@ -71,6 +76,28 @@ export default {
 		betImage() {
 			return {'player__crystals': this.room.betType === 'Crystals', 'player__stars': this.room.betType === 'Rating'}
 		}
+	},
+	watch:{
+		modalIsOpen(state, prevState) {
+			if (state === false && prevState === true) {
+				this.openRoomScreen = false;
+				this.lockedRoomScreen = false;
+			}
+		},
+		openRoomScreen() {
+			this.$store.dispatch('setModal', this.openRoomScreen);
+			if (this.openRoomScreen)
+				document.querySelector('body').style.overflowY = 'hidden';
+			else
+				document.querySelector('body').style.overflowY = 'auto';
+		},
+		lockedRoomScreen() {
+			this.$store.dispatch('setModal', this.lockedRoomScreen);
+			if (this.lockedRoomScreen)
+				document.querySelector('body').style.overflowY = 'hidden';
+			else
+				document.querySelector('body').style.overflowY = 'auto';
+		},
 	},
 	methods: {
 		onPlayButton() {

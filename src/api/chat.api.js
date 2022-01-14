@@ -136,7 +136,7 @@ export default {
 					{
 						user: {
 							id: 2,
-							name: 'Boba'
+							name: 'BobaTheFett'
 						},
 						date: new Date().toLocaleDateString("ru-RU"),
 						time: new Date().toLocaleTimeString("ru-RU"),
