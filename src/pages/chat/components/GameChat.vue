@@ -44,7 +44,7 @@
 						</div>
 					</div>
 					<time class="gamechat__time">{{ message.date + ' ' + message.time }}</time>
-					<span :class=" message.user.id === 1 ? 'gamechat__mymsg' : '' " class="gamechat__msg">{{ message.message }}</span>
+					<span :class=" message.user.id === me.id ? 'gamechat__mymsg' : '' " class="gamechat__msg">{{ message.message }}</span>
 				</div>
 
 				<form class="gamechat__textmsg">
