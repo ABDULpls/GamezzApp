@@ -7,7 +7,7 @@
 			</div>
 		</template>
 		<template #content>
-			<div class="form password">
+			<div v-if="isOpen" class="form password">
 				<h2 class="password__header">
 					{{ game.name }}
 				</h2>
@@ -16,7 +16,7 @@
 				</h3>
 				<form>
 					<label class="input__label input-password">
-						<input v-model="password" type="email" class="input" placeholder="Пароль для входа">
+						<input v-model="password" type="text" class="input" placeholder="Пароль для входа">
 					</label>
 					<button type="submit" class="btn btn-orange password__btn" @click="checkPassword">Войти</button>
 				</form>
@@ -57,7 +57,7 @@ export default {
 			required: true,
 		},
 		room: {
-			type: Object,
+			type: Object ,
 			required: true
 		}
 	},

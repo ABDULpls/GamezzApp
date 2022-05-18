@@ -45,10 +45,10 @@ export default  {
 							{
 								id: 1209,
 								avatar: "https://cdn.gamezz.io/avatars/k/a/1209_64x64.jpg",
-								name: 'XxXxXxXxGalina77ruXxXxXxXxXxXxXxXxXxXxXxXx',
+								name: 'Jezza',
 								level: '63',
 								rating: '2',
-								locale: "ru"
+								locale: "en"
 							}
 						]
 					},
@@ -66,9 +66,9 @@ export default  {
 							{
 								id: 1201,
 								avatar: "https://cdn.gamezz.io/avatars/k/a/1209_64x64.jpg",
-								name: 'Himmler',
+								name: 'Jimmmy',
 								level: '66',
-								rating: '1488',
+								rating: '1188',
 								locale: 'de'
 							},
 
@@ -125,7 +125,7 @@ export default  {
 							{
 								id: 1707,
 								avatar: "https://cdn.gamezz.io/avatars/u/s/1707_64x64.jpg",
-								name: 'Waluigi',
+								name: 'Hammond',
 								level: '69',
 								rating: '3',
 								locale: 'it'

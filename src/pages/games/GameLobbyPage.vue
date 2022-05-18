@@ -85,11 +85,12 @@ export default {
 	methods: {
 		readyUp() {
 			this.me.ready = true;
-			for (let player of this.room.players) {
-				if (player.id === this.me.id) {
-					player.ready = true;
-				}
-			}
+			this.room.players.find(el=> el.id === this.me.id).ready = true
+			// for (let player of this.room.players) {
+			// 	if (player.id === this.me.id) {
+			// 		player.ready = true;
+			// 	}
+			// }
 		}
 	}
 };

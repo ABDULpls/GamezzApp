@@ -18,8 +18,6 @@
 				{{ playersCount }}/{{ room.maxPlayers }}
 			</span>
 		</div>
-		<locked-room-screen-slider :me="me" :game="game" :room="room" v-model:is-open="lockedRoomScreen"/>
-		<room-screen-slider :room="room" :game="game" :me="me" v-model:is-open="openRoomScreen"/>
 	</div>
 </template>
 
@@ -54,6 +52,9 @@ export default {
 			openRoomScreen: false,
 		};
 	},
+	emits: {
+		'enter-room': null
+	},
 	computed: {
 			...mapState({
 				modalIsOpen: state => state.modalIsOpen
@@ -84,30 +85,12 @@ export default {
 				this.lockedRoomScreen = false;
 			}
 		},
-		openRoomScreen() {
-			this.$store.dispatch('setModal', this.openRoomScreen);
-			if (this.openRoomScreen)
-				document.querySelector('body').style.overflowY = 'hidden';
-			else
-				document.querySelector('body').style.overflowY = 'auto';
-		},
-		lockedRoomScreen() {
-			this.$store.dispatch('setModal', this.lockedRoomScreen);
-			if (this.lockedRoomScreen)
-				document.querySelector('body').style.overflowY = 'hidden';
-			else
-				document.querySelector('body').style.overflowY = 'auto';
-		},
+
 	},
 	methods: {
 		onPlayButton() {
 			if (this.room.status === 'wait') {
-				if (this.room.locked) {
-					this.enterLockedRoom();
-				} else {
-					this.enterOpenRoom()
-
-				}
+					this.$emit("enter-room", this.room);
 			}
 		},
 		enterLockedRoom() {

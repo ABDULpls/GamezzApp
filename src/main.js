@@ -12,7 +12,7 @@ const app = createApp(App);
 
 // App config
 app.config.unwrapInjectedRef = true;
-
+app.config.devtools = true
 app
     .use(toastify)
     .use(router)
